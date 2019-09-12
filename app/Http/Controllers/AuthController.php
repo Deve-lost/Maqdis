@@ -18,6 +18,7 @@ class AuthController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:50',
+            'jk' => 'required',
             'email' => 'required|max:191|unique:users',
             'password' => 'required|min:8|max:50',
             'alamat_lengkap' => 'required',
@@ -27,7 +28,8 @@ class AuthController extends Controller
 
         User::create([
             'role' => 'Peserta',
-    		'name' => $request->name,
+            'name' => $request->name,
+    		'jk' => $request->jk,
     		'email' => $request->email,
     		'password' => bcrypt($request->password),
     		'alamat_lengkap' => $request->alamat_lengkap,

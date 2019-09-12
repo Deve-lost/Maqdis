@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class PesertaController extends Controller
 {
@@ -13,7 +14,9 @@ class PesertaController extends Controller
      */
     public function index()
     {
-        return view('peserta.index');
+        $peserta = User::where('role', 'Peserta')->latest()->get();
+
+        return view('peserta.index', compact('peserta'));
     }
 
     /**
@@ -77,8 +80,10 @@ class PesertaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('ds.index')->with('sukses', 'Data Berhasil Dihapus');
     }
 }

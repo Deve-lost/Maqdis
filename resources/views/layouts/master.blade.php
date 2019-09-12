@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>@yield('title')</title>
+  <title>Maqdis - @yield('title')</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -141,6 +141,28 @@
           modal.find('.modal-body #jk').val(jk);
           modal.find('.modal-body #ttl').val(ttl);
           modal.find('.modal-body #pengalaman').val(pengalaman);
+          modal.find('.modal-body #alamat').val(alamat);
+        })
+    </script>
+    <!-- /modal -->
+
+    <script>
+        $('#showpeserta').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var nm = button.data('nm')
+          var jk = button.data('jk')
+          var kontak = button.data('kontak')
+          var email = button.data('email')
+          var ttl = button.data('ttl')
+          var alamat = button.data('alamat')
+
+          var modal = $(this)
+
+          modal.find('.modal-body #nm').val(nm);
+          modal.find('.modal-body #jk').val(jk);
+          modal.find('.modal-body #kontak').val(kontak);
+          modal.find('.modal-body #email').val(email);
+          modal.find('.modal-body #ttl').val(ttl);
           modal.find('.modal-body #alamat').val(alamat);
         })
     </script>
