@@ -57,8 +57,6 @@ Route::get('/logout', [
 	'as' => 'logout'
 ]);
 
-// Redirect
-
 
 // Admin
 Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
@@ -133,6 +131,11 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
     Route::get('/Maqdis/data-peserta', [
         'uses' => 'PesertaController@index',
         'as' => 'ds.index'
+    ]);
+
+    Route::get('/Maqdis/destroy/{user}/peserta', [
+        'uses' => 'PesertaController@destroy',
+        'as' => 'ds.destroy'
     ]);
 
 });

@@ -30,5 +30,5 @@
 
 <div class="form-group">
     <label for="alamat">Alamat</label>
-    <textarea class="form-control" name="alamat" id="alamat" disabled="" rows="5"></textarea>
+    <textarea class="form-control" name="alamat" id="alamat" disabled="" rows="3"></textarea>
 </div>

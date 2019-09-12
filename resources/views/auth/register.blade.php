@@ -62,7 +62,7 @@
 
                   <div class="form-group {{$errors->has('tgl_lahir') ? ' has-error' : ''}}">
                     <p>*Tanggal Lahir</p>
-                    <input class="form-control" id="tgl_lahir" type="text" placeholder="Tanggal Lahir" required="required" name="tgl_lahir" value="{{ old('tgl_lahir') }}">
+                    <input class="form-control" id="tgl_lahir" type="text" placeholder="Kab/Kota, Tanggal Bulan Tahun" required="required" name="tgl_lahir" value="{{ old('tgl_lahir') }}">
                     @if($errors->has('tgl_lahir'))
                       <span class="help-block text-danger">{{$errors->first('tgl_lahir')}}</span>
                     @endif
