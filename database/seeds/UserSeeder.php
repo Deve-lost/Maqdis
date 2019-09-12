@@ -14,7 +14,8 @@ class UserSeeder extends Seeder
     {
         User::create([
             'role' => 'Admin',
-     		'name' => 'goahead',
+            'name' => 'goahead',
+     		'jk' => 'Laki-Laki',
      		'email' => 'developer@gmail.com',
      		'password' => bcrypt('inovindo'),
      		'alamat_lengkap' => 'Cintawana'.str_random(5).'Singaparna',
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
         User::create([
             'role' => 'Pengajar',
             'name' => 'Rahasia',
+            'jk' => 'Laki-Laki',
             'email' => 'rahasia@gmail.com',
             'password' => bcrypt('inovindo'),
             'alamat_lengkap' => 'Cintawana'.str_random(5).'Singaparna',
@@ -35,6 +37,7 @@ class UserSeeder extends Seeder
         User::create([
             'role' => 'Peserta',
             'name' => 'Inovindo',
+            'jk' => 'Laki-Laki',
             'email' => 'inovindo@gmail.com',
             'password' => bcrypt('inovindo'),
             'alamat_lengkap' => 'Cintawana'.str_random(5).'Singaparna',

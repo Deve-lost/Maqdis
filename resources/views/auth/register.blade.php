@@ -67,6 +67,21 @@
                       <span class="help-block text-danger">{{$errors->first('tgl_lahir')}}</span>
                     @endif
                   </div>
+                  
+                  <div class="form-group {{$errors->has('jk') ? ' has-error' : ''}}">
+                    <select class="form-control" id="jk" name="jk">
+                      <option selected="">-- Jenis Kelamin --</option>
+                      <option value="Laki-laki">Laki-Laki</option>
+                      <option value="Perempuan">Perempuan</option>
+                    </select>
+
+                    @if($errors->has('jk'))
+                      <span class="help-block text-danger">{{$errors->first('jk')}}</span>
+                    @endif
+                  </div>
+                </div>
+
+                <div class="col-md-6">
                   <div class="form-group {{$errors->has('no_wa') ? ' has-error' : ''}}">
                     <input class="form-control" id="no_wa" type="number" placeholder="No.Hp / Whatsapp" required="required" name="no_wa" value="{{ old('no_wa') }}">
 
@@ -75,16 +90,16 @@
                     @endif
 
                   </div>
-                </div>
-                <div class="col-md-6">
+
                   <div class="form-group {{$errors->has('alamat_lengkap') ? ' has-error' : ''}}">
-                    <textarea class="form-control" id="alamat" placeholder="Alamat" required="required" data-validation-required-message="Masukan Alamat" name="alamat_lengkap">{{ old('alamat_lengkap') }}</textarea>
+                    <textarea class="form-control" id="alamat" placeholder="Alamat" required="required"  name="alamat_lengkap">{{ old('alamat_lengkap') }}</textarea>
 
                     @if($errors->has('alamat_lengkap'))
                       <span class="help-block text-danger">{{$errors->first('alamat_lengkap')}}</span>
                     @endif
 
                   </div>
+
                 </div>
               </div>
               <div class="clearfix"></div>
