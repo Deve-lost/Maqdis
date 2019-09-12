@@ -22,6 +22,31 @@
 
   </head>
   <body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="{{ route('welcome') }}">Maqdis</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ route('welcome') }}">Program</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ route('welcome') }}">Kontak</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn "  href="{{ route('register') }}">Daftar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-warning btn-sm login"  href="{{ route('login') }}">Masuk</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
     <!-- Contact -->
     <section class="page-section" id="contact">
@@ -29,7 +54,7 @@
         <div class="row">
           <div  class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Masuk</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading text-muted">Anda harus membuat akun terlebih dahulu</h3>
           </div>
         </div>
         <div class="row">
@@ -45,7 +70,7 @@
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('password') ? ' has-error' : ''}}">
-                    <input class="form-control" id="password" type="password" placeholder="Your password *" required="required" name="password">
+                    <input class="form-control" id="password" type="password" placeholder="Masukan password *" required="required" name="password">
                     @if($errors->has('password'))
                       <span class="help-block text-danger">{{$errors->first('password')}}</span>
                     @endif
@@ -63,6 +88,14 @@
         </div>
       </div>
     </section>
+    <ul class="bodoamat">
+    <li>
+      <a href="https://api.whatsapp.com/send?phone=6285" target="_BLANK" class="whatsapp"><i class="fab fa-whatsapp fa-2x"></i></a>
+    </li>
+    <li>
+      <a href="http://instagram.com/" target="_BLANK" class="instagram"><i class="fab fa-instagram fa-2x"></i></a>
+    </li>
+  </ul>
   <!-- Bootstrap core JavaScript -->
   <script src="{{asset('landingpage/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('landingpage/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

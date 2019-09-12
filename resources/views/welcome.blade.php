@@ -36,10 +36,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="#services">Program</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+            <a class="nav-link js-scroll-trigger" href="#team">Kontak</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn "  href="{{ route('register') }}">Daftar</a>
@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Program Kita</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
         </div>
       </div>
       <div class="row text-center">
@@ -84,7 +84,7 @@
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-books fa-stack-1x fa-inverse"></i>
+            <i class="fas fa-book fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Tahsin</h4>
           <p class="text-muted">Program memperbaiki bacaan Al-Quran dengan target menjadi guru Al-Quran yang produktif</p>
@@ -92,7 +92,7 @@
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-file-certificate fa-stack-1x fa-inverse"></i>
+            <i class="fas fa-quran fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Ihsan</h4>
           <p class="text-muted">Program belajar membaca Al-Quran dari dasar dengan target menjadi pembaca Al-Quran yang lancar, baik dan benar</p>
@@ -136,7 +136,7 @@
          <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-file-certificate fa-stack-1x fa-inverse"></i>
+            <i class="fas fa-quran fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Mahir Membaca Mushaf Madinah</h4>
           <p class="text-muted">Program penguasaan tanda-tanda baca dalam mushaf madinah</p>
@@ -151,129 +151,56 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h2 class="section-heading text-uppercase">Kontak</h2>
+          <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/1.jpg" alt="">
-            <h4>Kay Garland</h4>
-            <p class="text-muted">Lead Designer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+      <div class="row align-items-center text-center">
+        <div class="col-sm-4 mt-5 pb-3">
+          <a href="https://facebook.com" target="_blank">
+          <i class="fab fa-facebook fa-7x kontak"></i>
+          <h4>Maqdis</h4>
+          </a>
         </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
-            <h4>Larry Parker</h4>
-            <p class="text-muted">Lead Marketer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="col-sm-4 mt-5 pb-3">
+          <a href="https://wa.me/6285">
+         <i class="fab fa-whatsapp fa-7x kontak"></i>
+         <h4>+6285</h4>
+         </a>
         </div>
-        <div class="col-sm-4">
-          <div class="team-member">
-            <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="">
-            <h4>Diana Pertersen</h4>
-            <p class="text-muted">Lead Developer</p>
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="col-sm-4 mt-5 pb-3">
+          <a href="https://instagram.com" target="_blank">
+         <i class="fab fa-instagram fa-7x kontak"></i>
+         <h4>Maqdis</h4>
+         </a>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+          <p class="large text-muted">Hubungi kami jika anda ingin bergabung bersama Maqdis.</p>
         </div>
       </div>
     </div>
   </section>
-
+<ul class="bodoamat">
+    <li>
+      <a href="https://api.whatsapp.com/send?phone=6285" target="_BLANK" class="whatsapp"><i class="fab fa-whatsapp fa-2x"></i></a>
+    </li>
+    <li>
+      <a href="http://instagram.com/" target="_BLANK" class="instagram"><i class="fab fa-instagram fa-2x"></i></a>
+    </li>
+  </ul>
+  
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Your Website 2019</span>
+          <span class="copyright">Copyright &copy; Maqdis Dveloped by <a href="https://inovindoweb.com" style="color:green" target="_blank">Inovindo web</a></span>
         </div>
-        <div class="col-md-4">
-          <ul class="list-inline social-buttons">
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <ul class="list-inline quicklinks">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
-        </div>
+        
+        
       </div>
     </div>
   </footer>
