@@ -20,9 +20,8 @@ class PengajarController extends Controller
      */
     public function index()
     {
-        $pengajar = Pengajar::latest()->get();
-
-        return view('data_pengajar.index', compact('pengajar'));
+        $pengajar = Pengajar::all();
+        return view('data_pengajar.index', ['pengajar' => $pengajar]);
     }
 
     /**
@@ -44,6 +43,7 @@ class PengajarController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'nm_pengajar' => 'required',
             'email' => 'required|max:100|unique:users',
             'nm_pengajar' => 'required|max:50',
             'pendidikan' => 'required|max:191',
@@ -68,7 +68,7 @@ class PengajarController extends Controller
 
         // Pengajar
         $request->request->add(['user_id' => $user->id]);
-        Pengajar::create($request->all()); 
+        Pengajar::create($request->all());
 
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Ditambahkan');
     }
@@ -81,7 +81,7 @@ class PengajarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
 
         // // dd($request->all());
@@ -100,9 +100,40 @@ class PengajarController extends Controller
         //     ['kelas', '=', $request->kelas],
         //     ])->get();
 
-        $pengajar = Jadwal::where('id',$id)->take(1)->get();
+        // $pengajar =  Jadwal::where('id',$id)->take(1)->get();
 
-        echo json_encode($pengajar);
+        // echo json_encode($pengajar);
+
+        $search = $request->all();
+        // $data = json_encode($search);
+        // $newdata = json_decode($data);
+        $program = Program::all();
+        $kecamatan = Kecamatan::all();
+
+        $jadwal = DB::table('jadwal')
+                ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
+                ->join('program', 'program.id', '=', 'jadwal.program_id')
+                ->where('jadwal.program_id', '=', $request->program)
+                ->get();
+
+        $jadwal = DB::table('jadwal')
+                ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
+                ->join('program', 'program.id', '=', 'jadwal.program_id')
+                ->where('jadwal.waktu', '=', $request->jam)
+                ->get();
+
+        $jdw = DB::table('jadwal')
+                ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
+                ->join('program', 'program.id', '=', 'jadwal.program_id')
+                ->where('jadwal.kelas', '=', $request->kelas)
+                ->get();
+
+        return view('daftar_program.ajax', ['search' => $search, 'program' => $program, 'kecamatan' => $kecamatan, 'jdw' => $jdw]);
+
+    }
+
+    public function coba(Request $request)
+    {
 
     }
 

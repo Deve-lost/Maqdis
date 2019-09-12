@@ -79,11 +79,16 @@
                 <div class="col-md-12 mt-3">
                     <select name="jml_org" id="" class="form-control">
                         <option value=" " disabled selected="">Jumlah Orang</option>
-                        <option value="1 Orang">1 Orang</option>
-                        <option value="2-3 Orang">2-3 Orang</option>
-                        <option value="4-6 Orang">4-6 Orang</option>
-                        <option value="7-8 Orang">7-8 Orang</option>
-                        <option value="9-10 Orang">9-10 Orang</option>
+                        <option value="1000">1 Orang</option>
+                        <option value="2000">2 Orang</option>
+                        <option value="3000">3 Orang</option>
+                        <option value="4000">4 Orang</option>
+                        <option value="5000">5 Orang</option>
+                        <option value="6000">6 Orang</option>
+                        <option value="7000">7 Orang</option>
+                        <option value="8000">8 Orang</option>
+                        <option value="9000">9 Orang</option>
+                        <option value="10000">10 Orang</option>
                     </select>
                 </div>
                 <div class="col-md-12 mt-3">

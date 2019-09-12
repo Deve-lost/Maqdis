@@ -145,9 +145,9 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar']], function() 
 // Peserta
 Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], function() {
 	Route::get('/Maqdis/dashboard', [
-		'uses' => 'DashboardController@index',
-		'as' => 'dashboard'
-	]);
+        'uses' => 'DashboardController@index',
+        'as' => 'dashboard'
+    ]);
 
     Route::get('/daftar-program', [
         'uses' => 'ProgramController@index',
@@ -164,9 +164,18 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'test.prog'
     ]);
 
-    Route::get('/cari-pengajar/{id}',[
+    Route::post('/cari-pengajar',[
         'uses' => 'PengajarController@show',
         'as' => 'cp'
     ]);
 
+    Route::post('/pembayaran',[
+        'uses' => 'PembayaranController@index',
+        'as' => 'cobaan'
+    ]);
+
+    Route::post('/store-pembayaran',[
+        'uses' => 'PembayaranController@store',
+        'as' => 'bayar'
+    ]);
 });
