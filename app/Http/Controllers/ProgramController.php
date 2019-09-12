@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Program;
 use App\Kecamatan;
-use App\Jadwal;
 use DB;
 
 class ProgramController extends Controller
@@ -18,9 +17,11 @@ class ProgramController extends Controller
      */
     public function index(Request $request)
     {
-        $jadwal = Jadwal::all();
-
-        return view('daftar_program.index', compact('jadwal'));
+        $program = Program::all();
+        $kecamatan = Kecamatan::all();
+         $country_list = DB::table('pengajar')
+         ->get();
+        return view('daftar_program.index', ['program' => $program], ['kecamatan' => $kecamatan], ['country_list' => $country_list]);
     }
 
     /**

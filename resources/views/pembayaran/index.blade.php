@@ -45,7 +45,7 @@
                 <div class="panel panel-default height">
                     <div class="panel-heading">Nama Teman</div>
                     <div class="panel-body">
-                        <button type="button" class="btn btn-sm btn-primary mb-3" id="addteman">+</button>
+                        <button type="button" class="btn btn-sm btn-primary mb-3" id="addteman">Tambah</button>
                         <div class="form-group" id="addrow">
                             <input type="text" class="form-control" name="" placeholder="Masukkan Email Teman">
                         </div>
@@ -157,7 +157,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#addteman').on('click', function(){
-            $('#addrow').append('<div class="form-group mt-3"><input type="email" class="form-control" placeholder="Masukkan Email Teman"></div>');
+            $('#addrow').append('<div class="form-group mt-3"><input type="email" class="form-control" placeholder="Masukkan Email Teman"><button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button></div>');
         });
     })
 </script>
