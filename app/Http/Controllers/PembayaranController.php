@@ -38,6 +38,7 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $pembayaran = Pembayaran::create([
             'user_id' => auth()->user()->id,
             'jml_org' => $request->jml_org,
@@ -47,8 +48,9 @@ class PembayaranController extends Controller
             'waktu' => $request->waktu,
             'kelas' => $request->kelas,
             'harga' => $request->harga,
-            'total_bayar' => $request->total_bayar
         ]);
+
+        return redirect()->route('dashboard');
     }
 
     /**
