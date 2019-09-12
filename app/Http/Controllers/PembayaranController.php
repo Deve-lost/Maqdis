@@ -97,4 +97,12 @@ class PembayaranController extends Controller
     {
         //
     }
+
+    // Jadwal Pertemuan
+    public function jadwalpertemuan()
+    {
+        $id = auth()->user()->id;
+        $pembayaran = Pembayaran::where('user_id', $id)->get();
+        return view('jadwal_pertemuan.index', ['pembayaran' => $pembayaran]);
+    }
 }
