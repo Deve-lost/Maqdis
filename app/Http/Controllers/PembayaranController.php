@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pembayaran;
+use App\KelompokPeserta;
+use DB;
 
 class PembayaranController extends Controller
 {
@@ -15,9 +17,11 @@ class PembayaranController extends Controller
      */
     public function index(Request $request)
     {
-        // dd($request->all());
         $req = $request->all();
-        return view('pembayaran.index', ['request' => $req]);
+        $peserta = DB::table('peserta')
+            // ->leftJoin('tbl_kelas', 'tbl_kelas.id', '=', 'tbl_siswa.kelas_id')
+            ->get();
+        return view('pembayaran.index', ['request' => $req, 'peserta' => $peserta]);
     }
 
     /**
@@ -39,6 +43,19 @@ class PembayaranController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        // foreach ($request->jml_org as $isi) {
+        //     $pembayaran = new Pembayaran;
+        //     $pembayaran->user_id = auth()->user()->id;
+        //     $pembayaran->jml_org = $isi;
+        //     $pembayaran->nm_program = $request->nm_program;
+        //     $pembayaran->nm_pengajar = $request->nm_pengajar;
+        //     $pembayaran->hari = $request->hari;
+        //     $pembayaran->waktu = $request->waktu;
+        //     $pembayaran->kelas = $request->kelas;
+        //     $pembayaran->harga = $request->harga;
+        //     $pembayaran->status = 'Belum Terkonfirmasi';
+        //     $pembayaran->save();
+        // }
         $pembayaran = Pembayaran::create([
             'user_id' => auth()->user()->id,
             'jml_org' => $request->jml_org,
@@ -48,7 +65,16 @@ class PembayaranController extends Controller
             'waktu' => $request->waktu,
             'kelas' => $request->kelas,
             'harga' => $request->harga,
+            'status' => 'Belum Terkonfirmasi'
         ]);
+
+        // Insert Tabel Kelompok
+        foreach ($request->email as $isi) {
+             $check = new kelompokpeserta;
+             $check->user_id = auth()->user()->id;
+             $check->peserta_id = $isi;
+             $check->save();
+         }
 
         return redirect()->route('dashboard');
     }
@@ -97,4 +123,13 @@ class PembayaranController extends Controller
     {
         //
     }
+
+    // Jadwal Pertemuan
+    public function jadwalpertemuan()
+    {
+        $id = auth()->user()->id;
+        $pembayaran = Pembayaran::where('user_id', $id)->where('status', 'Terkonfirmasi')->get();
+        return view('jadwal_pertemuan.index', ['pembayaran' => $pembayaran]);
+    }
+
 }

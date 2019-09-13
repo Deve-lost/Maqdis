@@ -33,30 +33,6 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-xs-12 col-md-12 col-lg-12">
-        <div class="text-left">
-            <h5>Nama Teman</h5>
-        </div>
-        <hr>
-        <div class="row">
-
-            <div class="col-xs-4 col-md-4 col-lg-4 pull-left">
-                <div class="panel panel-default height">
-                    <div class="panel-heading">Nama Teman</div>
-                    <div class="panel-body">
-                        <button type="button" class="btn btn-sm btn-primary mb-3" id="addteman">Tambah</button>
-                        <div class="form-group" id="addrow">
-                            <input type="text" class="form-control" name="" placeholder="Masukkan Email Teman">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -154,6 +130,7 @@
         $('#addteman').on('click', function(){
             $('#addrow').append('<div class="form-group mt-3"><input type="email" class="form-control" placeholder="Masukkan Email Teman"><button class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button></div>');
         });
+
     })
 </script>
 @endsection

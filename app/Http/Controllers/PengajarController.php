@@ -20,7 +20,8 @@ class PengajarController extends Controller
      */
     public function index()
     {
-        $pengajar = Pengajar::all();
+        $pengajar = Pengajar::latest()->get();
+
         return view('data_pengajar.index', ['pengajar' => $pengajar]);
     }
 
@@ -51,7 +52,8 @@ class PengajarController extends Controller
             'jk' => 'required',
             'ttl' => 'required',
             'pengalaman_kerja' => 'required',
-            'alamat' => 'required'
+            'alamat' => 'required',
+            'avatar' => 'required|mimes:jpg,jpeg,png'
         ]);
 
         // User
@@ -61,14 +63,17 @@ class PengajarController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt('inovindo');
         $user->remember_token = str_random(60);
-        $user->alamat_lengkap = $request->alamat;
-        $user->no_wa = $request->kontak;
-        $user->tgl_lahir = $request->ttl;
         $user->save();
 
         // Pengajar
         $request->request->add(['user_id' => $user->id]);
-        Pengajar::create($request->all());
+        $pengajar = Pengajar::create($request->all());
+        if ($request->hasFile('avatar')) {
+            $request->file('avatar')->move('images/avatar/',$request->file('avatar')->getClientOriginalName());
+
+            $pengajar->avatar = $request->file('avatar')->getClientOriginalName();
+            $pengajar->save();
+        }
 
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Ditambahkan');
     }
@@ -93,12 +98,6 @@ class PengajarController extends Controller
         // ->get();
 
         // dd($request->all());
-        // $pengajar = DB::table('jadwal')->where([
-        //     ['program_id', '=', $request->program],
-        //     ['waktu', '=', $request->waktu],
-        //     // ['waktu', '=', $request->jam],
-        //     ['kelas', '=', $request->kelas],
-        //     ])->get();
 
         // $pengajar =  Jadwal::where('id',$id)->take(1)->get();
 
@@ -109,24 +108,27 @@ class PengajarController extends Controller
         // $newdata = json_decode($data);
         $program = Program::all();
         $kecamatan = Kecamatan::all();
-
-        $jadwal = DB::table('jadwal')
-                ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
-                ->join('program', 'program.id', '=', 'jadwal.program_id')
-                ->where('jadwal.program_id', '=', $request->program)
-                ->get();
-
-        $jadwal = DB::table('jadwal')
-                ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
-                ->join('program', 'program.id', '=', 'jadwal.program_id')
-                ->where('jadwal.waktu', '=', $request->jam)
-                ->get();
-
         $jdw = DB::table('jadwal')
-                ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
-                ->join('program', 'program.id', '=', 'jadwal.program_id')
-                ->where('jadwal.kelas', '=', $request->kelas)
-                ->get();
+            ->join('program', 'jadwal.program_id', '=', 'program.id')
+            ->join('pengajar', 'jadwal.pengajar_id', '=', 'pengajar.id')
+            ->where([
+            ['program_id', '=', $request->program],
+            ['waktu', '=', $request->jam],
+            ['kelas', '=', $request->kelas],
+            ])->get();
+
+        // $jdw = DB::table('jadwal')
+        //         ->where('program_id', '=', $request->program)
+        //         ->get();
+
+        // $jdw = DB::table('jadwal')
+        //         ->where('waktu', '=', $request->jam)
+        //         ->get();
+
+        // $jdw = DB::table('jadwal')
+        //         ->where('jadwal.kelas', '=', $request->kelas)
+        //         ->get();
+        // dd($jdw);
 
         return view('daftar_program.ajax', ['search' => $search, 'program' => $program, 'kecamatan' => $kecamatan, 'jdw' => $jdw]);
 
@@ -170,6 +172,7 @@ class PengajarController extends Controller
      */
     public function destroy(Pengajar $pengajar)
     {
+        unlink('images/avatar/'.$pengajar->avatar);
         $pengajar->delete();
 
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Dihapus');

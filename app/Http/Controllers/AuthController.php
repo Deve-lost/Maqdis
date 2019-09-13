@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Peserta;
 use Auth;
 
 class AuthController extends Controller
@@ -26,16 +27,23 @@ class AuthController extends Controller
             'tgl_lahir' => 'required'
         ]);
 
+        // Insert Users
         User::create([
             'role' => 'Peserta',
             'name' => $request->name,
-    		'jk' => $request->jk,
     		'email' => $request->email,
     		'password' => bcrypt($request->password),
-    		'alamat_lengkap' => $request->alamat_lengkap,
-    		'no_wa' => $request->no_wa,
-    		'tgl_lahir' => $request->tgl_lahir
     	]);
+
+        // Insert Peserta
+        Peserta::create([
+            'nama' => $request->name,
+            'email' => $request->email,
+            'ttl' => $request->tgl_lahir,
+            'jk' => $request->jk,
+            'kontak' => $request->no_wa,
+            'alamat' => $request->alamat_lengkap,
+        ]);
 
          return redirect()->route('login')->with('sukses','Register Berhasil');
     }

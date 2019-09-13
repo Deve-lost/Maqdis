@@ -45,7 +45,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            <span>Copyright © <script>document.write(new Date().getFullYear());</script>.  Developed by <a href="http://inovindoweb.com/" target="_blank"> INOVINDO WEB</a></span>
           </div>
         </div>
       </footer>
@@ -168,30 +168,55 @@
     </script>
     <!-- /modal -->
 
+    <!-- Jadwal Pengajar -->
+    <script>
+        $('#showjadwal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var nm = button.data('nm')
+          var jk = button.data('jk')
+          var ttl = button.data('ttl')
+          var pendidikan = button.data('pendidikan')
+          var kontak = button.data('kontak')
+          var pengalaman = button.data('pengalaman')
+          var alamat = button.data('alamat')
 
-  <script>
-      $('#showjadwal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget)
-        var nm = button.data('nm')
-        var jk = button.data('jk')
-        var ttl = button.data('ttl')
-        var pendidikan = button.data('pendidikan')
-        var kontak = button.data('kontak')
-        var pengalaman = button.data('pengalaman')
-        var alamat = button.data('alamat')
+          var modal = $(this)
 
-        var modal = $(this)
+          modal.find('.modal-body #nm').val(nm);
+          modal.find('.modal-body #jk').val(jk);
+          modal.find('.modal-body #kontak').val(kontak);
+          modal.find('.modal-body #ttl').val(ttl);
+          modal.find('.modal-body #pendidikan').val(pendidikan);
+          modal.find('.modal-body #pengalaman').val(pengalaman);
+          modal.find('.modal-body #alamat').val(alamat);
+        })
+    </script>
+    <!-- /jadwal pengajar -->
 
-        modal.find('.modal-body #nm').val(nm);
-        modal.find('.modal-body #jk').val(jk);
-        modal.find('.modal-body #kontak').val(kontak);
-        modal.find('.modal-body #ttl').val(ttl);
-        modal.find('.modal-body #pendidikan').val(pendidikan);
-        modal.find('.modal-body #pengalaman').val(pengalaman);
-        modal.find('.modal-body #alamat').val(alamat);
-      })
-  </script>
+    <!-- Jadwal Peserta -->
+    <script>
+        $('#showjp').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          var nmps = button.data('nmps')
+          var nmprog = button.data('nmprog')
+          var nmpeng = button.data('nmpeng')
+          var hari = button.data('hari')
+          var waktu = button.data('waktu')
+          var kelas = button.data('kelas')
+          var status = button.data('status')
 
+          var modal = $(this)
+
+          modal.find('.modal-body #nmps').val(nmps);
+          modal.find('.modal-body #nmprog').val(nmprog);
+          modal.find('.modal-body #nmpeng').val(nmpeng);
+          modal.find('.modal-body #hari').val(hari);
+          modal.find('.modal-body #waktu').val(waktu);
+          modal.find('.modal-body #kelas').val(kelas);
+          modal.find('.modal-body #status').val(status);
+        })
+    </script>
+    <!-- /jadwal peserta -->
 
   @yield('footer')
 </body>

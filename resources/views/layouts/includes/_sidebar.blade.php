@@ -28,7 +28,7 @@
       <span>Data Peserta</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('jpeserta.index') }}">
       <i class="fas fa-fw fa-clipboard-list"></i>
       <span>Jadwal Peserta</span></a>
     </li>
@@ -42,6 +42,13 @@
       <i class="fas fa-fw fa-check-double"></i>
       <span>Konfirmasi Lanjut Program</span></a>
     </li>
+    <!-- Super Admin -->
+    <li class="nav-item">
+    <a class="nav-link" href="{{ route('pengguna.index') }}">
+      <i class="fas fa-fw fa-users"></i>
+      <span>Data Pengguna</span></a>
+    </li>
+    <!-- /super admin -->
     @endif
     <!-- /admin -->
 
@@ -68,7 +75,7 @@
       <span>Daftar Program</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('jadwal.pertemuan') }}">
       <i class="fas fa-fw fa-calendar-check"></i>
       <span>Jadwal Pertemuan</span></a>
     </li>
@@ -78,14 +85,9 @@
       <span>Absensi</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('status.pembayaran') }}">
       <i class="fas fa-fw fa-credit-card"></i>
       <span>Status Pembayaran</span></a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="">
-      <i class="fas fa-fw fa-star"></i>
-      <span>Rating Pengajar</span></a>
     </li>
     <!-- /peserta -->
     @endif

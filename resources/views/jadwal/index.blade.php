@@ -18,7 +18,7 @@
                 <i class="fas fa-table"></i>
                 Jadwal Pengajar
                 <div class="float-right">
-                    <a href="{{ route('jp.create') }}" class="btn btn-sm btn-primary">Tambah</a>
+                    <a href="{{ route('jp.create') }}" class="btn btn-sm btn-primary">Tambah Data</a>
                 </div>
             </div>
             <div class="card-body">

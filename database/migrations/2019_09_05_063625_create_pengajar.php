@@ -23,6 +23,7 @@ class CreatePengajar extends Migration
             $table->string('ttl', 191);
             $table->string('pengalaman_kerja', 191);
             $table->text('alamat', 191);
+            $table->text('avatar', 191)->nullable();
             $table->timestamps();
         });
     }

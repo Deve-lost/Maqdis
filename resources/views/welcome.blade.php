@@ -42,7 +42,7 @@
             <a class="nav-link js-scroll-trigger" href="#team">Kontak</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn "  href="{{ route('register') }}">Daftar</a>
+            <a class="nav-link"  href="{{ route('register') }}">Daftar</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-warning btn-sm login"  href="{{ route('login') }}">Masuk</a>
@@ -56,7 +56,7 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-lead-in">Selamat Datang di</div>
+        <div class="intro-lead-in">Selamat Datang Di Website</div>
         <div class="intro-heading text-uppercase">MAQDIS</div>
         <a class="btn btn-primary btn-md text-uppercase js-scroll-trigger" href="{{ route('register') }}">Daftar Sekarang</a>
       </div>
@@ -196,8 +196,9 @@
   <footer class="footer">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Maqdis Dveloped by <a href="https://inovindoweb.com" style="color:green" target="_blank">Inovindo web</a></span>
+
+        <div class="col-md-12">
+          <span class="copyright">Copyright &copy; <script>document.write(new Date().getFullYear());</script> Developed by <a href="http://inovindoweb.com/" target="_blank"> INOVINDO WEB</a></span>
         </div>
         
         

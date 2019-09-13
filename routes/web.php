@@ -138,6 +138,47 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
         'as' => 'ds.destroy'
     ]);
 
+     // Data Pengguna
+    Route::get('/Maqdis/data-pengguna', [
+        'uses' => 'PenggunaController@index',
+        'as' => 'pengguna.index'
+    ]);
+
+    Route::get('/Maqdis/tambah-pengguna', [
+        'uses' => 'PenggunaController@create',
+        'as' => 'pengguna.create'
+    ]);
+
+    Route::post('/Maqdis/store-pengguna', [
+        'uses' => 'PenggunaController@store',
+        'as' => 'pengguna.store'
+    ]);
+
+    Route::get('/Maqdis/reset/{id}/password', [
+        'uses' => 'PenggunaController@resetpw',
+        'as' => 'pengguna.reset'
+    ]);
+
+    Route::get('/Maqdis/edit/{user}/pengguna', [
+        'uses' => 'PenggunaController@edit',
+        'as' => 'pengguna.edit'
+    ]);
+
+    Route::post('/Maqdis/update/{user}/pengguna', [
+        'uses' => 'PenggunaController@update',
+        'as' => 'pengguna.update'
+    ]);
+
+    Route::get('/Maqdis/destroy/{user}/pengguna', [
+        'uses' => 'PenggunaController@destroy',
+        'as' => 'pengguna.destroy'
+    ]);
+
+    // Jadwal Peserta
+    Route::get('/Maqdis/jadwal-peserta', [
+        'uses' => 'JadwalPesertaController@index',
+        'as' => 'jpeserta.index'
+    ]);
 });
 
 // Pengajar
@@ -152,12 +193,12 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'dashboard'
     ]);
 
-    Route::get('/daftar-program', [
+    Route::get('Maqdis/daftar-program', [
         'uses' => 'ProgramController@index',
         'as' => 'daftar.index'
     ]);
 
-    Route::get('/search-pengajar', [
+    Route::get('Maqdis/search-pengajar', [
         'uses' => 'PengajarController@search',
         'as' => 'search.pengajar'
     ]);
@@ -167,18 +208,70 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'test.prog'
     ]);
 
-    Route::post('/cari-pengajar',[
+    Route::post('Maqdis/cari-pengajar',[
         'uses' => 'PengajarController@show',
         'as' => 'cp'
     ]);
 
-    Route::post('/pembayaran',[
+    Route::post('Maqdis/pembayaran',[
         'uses' => 'PembayaranController@index',
         'as' => 'cobaan'
     ]);
 
-    Route::post('/store-pembayaran',[
+    Route::post('Maqdis/store-pembayaran',[
         'uses' => 'PembayaranController@store',
         'as' => 'bayar'
     ]);
+
+    // Jadwal Pertemuan
+
+
+    Route::get('Maqdis/jadwal-pertemuan', [
+        'uses' => 'PembayaranController@jadwalpertemuan',
+        'as' => 'jadwal.pertemuan'
+    ]);
+
+
+    // Jadwal Pertemuan ID
+
+    Route::get('Maqdis/jadwal-pertemuan/{id}', [
+        'uses' => 'JadwalPesertaController@kelompok',
+        'as' => 'jadwal.temuid'
+    ]);
+
+    // Status Pembayaran
+    Route::get('Maqdis/status-pembayaran', [
+        'uses' => 'PembayaranController@statuspembayaran',
+        'as' => 'status.pembayaran'
+    ]);
+
+    // Cek Peserta
+    Route::get('Maqdis/tambah/{id}/teman', [
+        'uses' => 'PesertaController@cek',
+        'as' => 'cek.peserta'
+    ]);
+
+    // Tambah Teman
+    Route::post('Maqdis/store/{id}/teman', [
+        'uses' => 'PesertaController@store',
+        'as' => 'tambah.kelompok'
+    ]);
+
+
+    // Profile Pengguna
+    Route::get('/Maqdis/profile/{user}/pengguna', [
+        'uses' => 'PenggunaController@profile',
+        'as' => 'pengguna.proflie'
+    ]);
+
+    Route::get('/Maqdis/ubah/{user}/password-pengguna', [
+        'uses' => 'PenggunaController@ubahpw',
+        'as' => 'pengguna.ubahpw'
+    ]);
+
+    Route::post('/Maqdis/update/{id}/password-pengguna', [
+        'uses' => 'PenggunaController@updatePassword',
+        'as' => 'pengguna.up'
+    ]);
+
 });

@@ -54,7 +54,9 @@
         <div class="row">
           <div  class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Masuk</h2>
-            <h3 class="section-subheading text-muted">Anda harus membuat akun terlebih dahulu</h3>
+
+            <h3 class="section-subheading text-muted">Masukkan Email Dan Password.</h3>
+
           </div>
         </div>
         <div class="row">
@@ -64,13 +66,14 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group {{$errors->has('email') ? ' has-error' : ''}}">
-                    <input class="form-control" id="email" type="email" placeholder="Masukkan email" required="required" name="email" value="{{ old('email') }}">
+                    <input class="form-control" id="email" type="email" placeholder="Masukkan Email" required="required" name="email" value="{{ old('email') }}">
                     @if($errors->has('email'))
                       <span class="help-block text-danger">{{$errors->first('email')}}</span>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('password') ? ' has-error' : ''}}">
-                    <input class="form-control" id="password" type="password" placeholder="Masukan password *" required="required" name="password">
+
+                    <input class="form-control" id="password" type="password" placeholder="Masukkan Password" required="required" name="password">
                     @if($errors->has('password'))
                       <span class="help-block text-danger">{{$errors->first('password')}}</span>
                     @endif

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Daftar Program')
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -57,7 +59,6 @@
             <div class="row">
                 <div class="col-md-6">
                     <select name="hari" id="" class="form-control">
-                        <option value=" " disabled selected="">Pilih Hari</option>
                         <option value="senin">Senin</option>
                         <option value="selasa">Selasa</option>
                         <option value="rabu">Rabu</option>
@@ -69,7 +70,6 @@
                 </div>
                 <div class="col-md-6">
                     <select name="jam" id="" class="form-control">
-                        <option value="" disabled selected="">Pilih Jam</option>
                         <option value="08.00 WIB">08.00 WIB</option>
                         <option value="13.00 WIB">13.00 WIB</option>
                         <option value="10.00 WIB">10.00 WIB</option>
@@ -78,7 +78,6 @@
                 </div>
                 <div class="col-md-12 mt-3">
                     <select name="jml_org" id="" class="form-control">
-                        <option value=" " disabled selected="">Jumlah Orang</option>
                         <option value="1000">1 Orang</option>
                         <option value="2000">2 Orang</option>
                         <option value="3000">3 Orang</option>

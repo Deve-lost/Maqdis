@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Peserta;
+use App\Pembayaran;
 use App\KelompokPeserta;
-use DB;
 
-class PesertaController extends Controller
+class JadwalPesertaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,9 @@ class PesertaController extends Controller
      */
     public function index()
     {
-        $peserta = Peserta::latest()->get();
+        $peserta = Pembayaran::where('status', 'Terkonfirmasi')->latest()->get();
 
-        return view('peserta.index', compact('peserta'));
+        return view('jadwal_peserta.index', compact('peserta'));
     }
 
     /**
@@ -37,21 +36,9 @@ class PesertaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $this->validate(request(),
-        [
-            'add' => 'required',
-        ]);
-
-        foreach ($request->add as $isi) {
-             $check = new KelompokPeserta;
-             $check->user_id = $id;
-             $check->peserta_id = $isi;
-             $check->save();
-         }
-
-         return redirect()->route('jadwal.pertemuan')->with('sukses', 'Berhasil Ditambahkan');
+        //
     }
 
     /**
@@ -94,19 +81,14 @@ class PesertaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        $user->delete();
-
-        return redirect()->route('ds.index')->with('sukses', 'Data Berhasil Dihapus');
+        //
     }
 
-    public function cek(Request $request,$id)
+    public function kelompok($id)
     {
-        $idp = DB::table('users')->find($id);
-        $peserta = DB::table('peserta')->get();
-
-        return view('peserta.tambah_peserta', ['peserta' => $peserta, 'idp' => $idp]);
+        $peserta = KelompokPeserta::where('user_id', $id)->get();
+        return view('jadwal_pertemuan.daftar_teman', ['peserta' => $peserta]);
     }
-
 }
