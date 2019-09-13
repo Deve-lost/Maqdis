@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pembayaran;
+use App\KelompokPeserta;
 
 class JadwalPesertaController extends Controller
 {
@@ -83,5 +84,11 @@ class JadwalPesertaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function kelompok($id)
+    {
+        $peserta = KelompokPeserta::where('user_id', $id)->get();
+        return view('jadwal_pertemuan.daftar_teman', ['peserta' => $peserta]);
     }
 }

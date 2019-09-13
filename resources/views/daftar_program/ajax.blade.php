@@ -5,12 +5,14 @@
 
 @section('title', 'Cari Pengajar')
 @section('content')
-    {{-- expr --}}
-<div class="container-fluid">
+
+    @if (count($jdw) > 0)
+        <div class="container-fluid">
     <div class="row-fluid">
         <form action="{{ route('cobaan') }}" method="post" class="form-inline">
         @csrf
             {{-- expr --}}
+
         @foreach ($jdw as $data)
         <div class="col-sm-4 pull-left mb-3">
             <div class="card-columns-fluid">
@@ -21,6 +23,7 @@
                         <p class="card-text text-center"><strong>Jenis Kelamin</strong> : {{ $data->jk }}</p>
                         <p class="card-text text-center"><strong>Pendidikan</strong> : {{ $data->pendidikan }}</p>
                         <p class="card-text text-center"><strong>Kontak</strong> : {{ $data->kontak }}</p>
+                        <p class="card-text text-center"><strong>Program</strong> : {{ $data->nm_program }}</p>
                         <button class="btn btn-primary">Pesan</button>
                     </div>
                 </div>
@@ -36,4 +39,8 @@
         </form>
     </div>
 </div>
+    @else
+        KOSONG
+    @endif
+
 @endsection

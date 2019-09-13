@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pembayaran;
+use App\KelompokPeserta;
+use DB;
 
 class PembayaranController extends Controller
 {
@@ -16,7 +18,10 @@ class PembayaranController extends Controller
     public function index(Request $request)
     {
         $req = $request->all();
-        return view('pembayaran.index', ['request' => $req]);
+        $peserta = DB::table('peserta')
+            // ->leftJoin('tbl_kelas', 'tbl_kelas.id', '=', 'tbl_siswa.kelas_id')
+            ->get();
+        return view('pembayaran.index', ['request' => $req, 'peserta' => $peserta]);
     }
 
     /**
@@ -62,6 +67,14 @@ class PembayaranController extends Controller
             'harga' => $request->harga,
             'status' => 'Belum Terkonfirmasi'
         ]);
+
+        // Insert Tabel Kelompok
+        foreach ($request->email as $isi) {
+             $check = new kelompokpeserta;
+             $check->user_id = auth()->user()->id;
+             $check->peserta_id = $isi;
+             $check->save();
+         }
 
         return redirect()->route('dashboard');
     }
@@ -118,4 +131,5 @@ class PembayaranController extends Controller
         $pembayaran = Pembayaran::where('user_id', $id)->where('status', 'Terkonfirmasi')->get();
         return view('jadwal_pertemuan.index', ['pembayaran' => $pembayaran]);
     }
+
 }

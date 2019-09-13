@@ -78,14 +78,9 @@
       <span>Absensi</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('status.pembayaran') }}">
       <i class="fas fa-fw fa-credit-card"></i>
       <span>Status Pembayaran</span></a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="">
-      <i class="fas fa-fw fa-star"></i>
-      <span>Rating Pengajar</span></a>
     </li>
     <!-- /peserta -->
     @endif

@@ -98,12 +98,6 @@ class PengajarController extends Controller
         // ->get();
 
         // dd($request->all());
-        // $pengajar = DB::table('jadwal')->where([
-        //     ['program_id', '=', $request->program],
-        //     ['waktu', '=', $request->waktu],
-        //     // ['waktu', '=', $request->jam],
-        //     ['kelas', '=', $request->kelas],
-        //     ])->get();
 
         // $pengajar =  Jadwal::where('id',$id)->take(1)->get();
 
@@ -114,24 +108,27 @@ class PengajarController extends Controller
         // $newdata = json_decode($data);
         $program = Program::all();
         $kecamatan = Kecamatan::all();
-
         $jdw = DB::table('jadwal')
-                ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
-                ->join('program', 'program.id', '=', 'jadwal.program_id')
-                ->where('jadwal.program_id', '=', $request->program)
-                ->get();
+            ->join('program', 'jadwal.program_id', '=', 'program.id')
+            ->join('pengajar', 'jadwal.pengajar_id', '=', 'pengajar.id')
+            ->where([
+            ['program_id', '=', $request->program],
+            ['waktu', '=', $request->jam],
+            ['kelas', '=', $request->kelas],
+            ])->get();
 
-        $jdw = DB::table('jadwal')
-                ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
-                ->join('program', 'program.id', '=', 'jadwal.program_id')
-                ->where('jadwal.waktu', '=', $request->jam)
-                ->get();
+        // $jdw = DB::table('jadwal')
+        //         ->where('program_id', '=', $request->program)
+        //         ->get();
 
-        $jdw = DB::table('jadwal')
-                ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
-                ->join('program', 'program.id', '=', 'jadwal.program_id')
-                ->where('jadwal.kelas', '=', $request->kelas)
-                ->get();
+        // $jdw = DB::table('jadwal')
+        //         ->where('waktu', '=', $request->jam)
+        //         ->get();
+
+        // $jdw = DB::table('jadwal')
+        //         ->where('jadwal.kelas', '=', $request->kelas)
+        //         ->get();
+        // dd($jdw);
 
         return view('daftar_program.ajax', ['search' => $search, 'program' => $program, 'kecamatan' => $kecamatan, 'jdw' => $jdw]);
 

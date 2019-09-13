@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Peserta;
+use App\KelompokPeserta;
+use DB;
 
 class PesertaController extends Controller
 {
@@ -35,9 +37,21 @@ class PesertaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $this->validate(request(),
+        [
+            'add' => 'required',
+        ]);
+
+        foreach ($request->add as $isi) {
+             $check = new KelompokPeserta;
+             $check->user_id = $id;
+             $check->peserta_id = $isi;
+             $check->save();
+         }
+
+         return redirect()->route('jadwal.pertemuan')->with('sukses', 'Berhasil Ditambahkan');
     }
 
     /**
@@ -86,4 +100,13 @@ class PesertaController extends Controller
 
         return redirect()->route('ds.index')->with('sukses', 'Data Berhasil Dihapus');
     }
+
+    public function cek(Request $request,$id)
+    {
+        $idp = DB::table('users')->find($id);
+        $peserta = DB::table('peserta')->get();
+
+        return view('peserta.tambah_peserta', ['peserta' => $peserta, 'idp' => $idp]);
+    }
+
 }

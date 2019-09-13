@@ -158,12 +158,12 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'dashboard'
     ]);
 
-    Route::get('/daftar-program', [
+    Route::get('Maqdis/daftar-program', [
         'uses' => 'ProgramController@index',
         'as' => 'daftar.index'
     ]);
 
-    Route::get('/search-pengajar', [
+    Route::get('Maqdis/search-pengajar', [
         'uses' => 'PengajarController@search',
         'as' => 'search.pengajar'
     ]);
@@ -173,26 +173,51 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'test.prog'
     ]);
 
-    Route::post('/cari-pengajar',[
+    Route::post('Maqdis/cari-pengajar',[
         'uses' => 'PengajarController@show',
         'as' => 'cp'
     ]);
 
-    Route::post('/pembayaran',[
+    Route::post('Maqdis/pembayaran',[
         'uses' => 'PembayaranController@index',
         'as' => 'cobaan'
     ]);
 
-    Route::post('/store-pembayaran',[
+    Route::post('Maqdis/store-pembayaran',[
         'uses' => 'PembayaranController@store',
         'as' => 'bayar'
     ]);
 
     // Jadwal Pertemuan
 
-    Route::get('jadwal-pertemuan', [
+    Route::get('Maqdis/jadwal-pertemuan', [
         'uses' => 'PembayaranController@jadwalpertemuan',
         'as' => 'jadwal.pertemuan'
+    ]);
+
+    // Jadwal Pertemuan ID
+
+    Route::get('Maqdis/jadwal-pertemuan/{id}', [
+        'uses' => 'JadwalPesertaController@kelompok',
+        'as' => 'jadwal.temuid'
+    ]);
+
+    // Status Pembayaran
+    Route::get('Maqdis/status-pembayaran', [
+        'uses' => 'PembayaranController@statuspembayaran',
+        'as' => 'status.pembayaran'
+    ]);
+
+    // Cek Peserta
+    Route::get('Maqdis/tambah/{id}/teman', [
+        'uses' => 'PesertaController@cek',
+        'as' => 'cek.peserta'
+    ]);
+
+    // Tambah Teman
+    Route::post('Maqdis/store/{id}/teman', [
+        'uses' => 'PesertaController@store',
+        'as' => 'tambah.kelompok'
     ]);
 
 });

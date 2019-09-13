@@ -20,24 +20,29 @@
                             <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                 <thead>
                                     <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 6px;">No</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Nama</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Nama Pengajar</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Program</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Hari</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Waktu</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Status</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Anggota</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Peserta</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $id = auth()->user()->id;
+                                @endphp
                                 @forelse($pembayaran as $data)
                                 <tr role="row" class="odd">
                                     <td class="sorting_1">{{ $loop->iteration }}</td>
+                                    <td class="sorting_1"><a class="nav-link" href="{{ route('jadwal.temuid', $id) }}">{{ auth()->user()->name }}</a></td>
                                     <td class="sorting_1">{{ $data->nm_pengajar }}</td>
                                     <td class="sorting_1">{{ $data->nm_program }}</td>
                                     <td class="sorting_1">{{ $data->hari }}</td>
                                     <td class="sorting_1">{{ $data->waktu }}</td>
                                     <td class="sorting_1 text-primary">{{ $data->status }}</td>
-                                    <td class="sorting_1"><a href="{{ route('anggota') }}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a></td>
+                                    <td class="sorting_1"><a href="{{ route('cek.peserta', $id) }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Peserta</a></td>
                                 </tr>
                                 @empty
                                 <tr role="row" class="odd">
