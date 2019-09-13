@@ -10,9 +10,6 @@
             <div class="card-header">
                 <i class="fas fa-table"></i>
                 Jadwal Pertemuan
-                <div class="float-right">
-                    <button class="btn btn-sm btn-primary">Tambah Teman</button>
-                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -43,11 +40,11 @@
                                     <td class="sorting_1">{{ $data->hari }}</td>
                                     <td class="sorting_1">{{ $data->waktu }}</td>
                                     <td class="sorting_1 text-primary">{{ $data->status }}</td>
-                                    <td class="sorting_1"><a href="{{ route('cek.peserta', $id) }}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Peserta</a></td>
+                                    <td class="sorting_1"><a href="{{ route('cek.peserta', $id) }}" class="btn btn-sm btn-primary"> Tambah</a></td>
                                 </tr>
                                 @empty
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1" colspan="7">Data tidak ditemukan.</td>
+                                    <td class="sorting_1" colspan="8">Data tidak ditemukan.</td>
                                 </tr>
                                 @endforelse
                             </tbody>
