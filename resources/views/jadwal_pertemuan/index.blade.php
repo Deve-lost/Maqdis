@@ -9,6 +9,9 @@
             <div class="card-header">
                 <i class="fas fa-table"></i>
                 Jadwal Pertemuan
+                <div class="float-right">
+                    <button class="btn btn-sm btn-primary">Tambah Teman</button>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -18,9 +21,11 @@
                                 <thead>
                                     <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 6px;">No</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Nama Pengajar</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Nama Program</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Program</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Hari</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Waktu</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Status</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Anggota</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,6 +36,8 @@
                                     <td class="sorting_1">{{ $data->nm_program }}</td>
                                     <td class="sorting_1">{{ $data->hari }}</td>
                                     <td class="sorting_1">{{ $data->waktu }}</td>
+                                    <td class="sorting_1 text-primary">{{ $data->status }}</td>
+                                    <td class="sorting_1"><a href="{{ route('anggota') }}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a></td>
                                 </tr>
                                 @empty
                                 <tr role="row" class="odd">
