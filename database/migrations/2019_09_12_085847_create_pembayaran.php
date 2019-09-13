@@ -23,6 +23,7 @@ class CreatePembayaran extends Migration
             $table->string('waktu', 20);
             $table->string('kelas', 20);
             $table->integer('harga');
+            $table->string('status', 191);
             $table->timestamps();
         });
     }

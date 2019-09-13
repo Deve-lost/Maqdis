@@ -17,7 +17,7 @@ class Pembayaran extends Model
         'waktu',
         'kelas',
         'harga',
-        'total_bayar'
+        'status'
     ];
 
 }

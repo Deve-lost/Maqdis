@@ -48,6 +48,7 @@ class PembayaranController extends Controller
             'waktu' => $request->waktu,
             'kelas' => $request->kelas,
             'harga' => $request->harga,
+            'status' => 'Belum Terkonfirmasi'
         ]);
 
         return redirect()->route('dashboard');
