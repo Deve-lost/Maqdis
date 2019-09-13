@@ -15,7 +15,7 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <!-- Custom styles for this template -->
-    <link href="{{asset('landingpage/css/agency.min.css')}}" rel="stylesheet">
+    <link href="{{asset('landingpage/css/agency.css')}}" rel="stylesheet">
     <link href="{{asset('landingpage/css/style.css')}}" rel="stylesheet">
     <!-- Toastr -->
     <link rel="stylesheet" href="{{asset('toastr/toastr.min.css')}}">
@@ -63,17 +63,17 @@
           <div class="col-lg-12">
             <form action="{{ route('post.login') }}" method="POST">
             @csrf
-              <div class="row">
-                <div class="col-md-6">
+              <div class="row text-center">
+                <div class="col-md-12">
                   <div class="form-group {{$errors->has('email') ? ' has-error' : ''}}">
-                    <input class="form-control" id="email" type="email" placeholder="Masukkan Email" required="required" name="email" value="{{ old('email') }}">
+                    <input class="form-control login" id="email" type="email" placeholder="Masukkan Email" required="required" name="email" value="{{ old('email') }}">
                     @if($errors->has('email'))
                       <span class="help-block text-danger">{{$errors->first('email')}}</span>
                     @endif
                   </div>
                   <div class="form-group {{$errors->has('password') ? ' has-error' : ''}}">
 
-                    <input class="form-control" id="password" type="password" placeholder="Masukkan Password" required="required" name="password">
+                    <input class="form-control login" id="password" type="password" placeholder="Masukkan Password" required="required" name="password">
                     @if($errors->has('password'))
                       <span class="help-block text-danger">{{$errors->first('password')}}</span>
                     @endif
