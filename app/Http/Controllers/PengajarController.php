@@ -115,13 +115,13 @@ class PengajarController extends Controller
         $program = Program::all();
         $kecamatan = Kecamatan::all();
 
-        $jadwal = DB::table('jadwal')
+        $jdw = DB::table('jadwal')
                 ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
                 ->join('program', 'program.id', '=', 'jadwal.program_id')
                 ->where('jadwal.program_id', '=', $request->program)
                 ->get();
 
-        $jadwal = DB::table('jadwal')
+        $jdw = DB::table('jadwal')
                 ->join('pengajar', 'pengajar.id', '=', 'jadwal.pengajar_id')
                 ->join('program', 'program.id', '=', 'jadwal.program_id')
                 ->where('jadwal.waktu', '=', $request->jam)

@@ -38,6 +38,19 @@ class PembayaranController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+        // foreach ($request->jml_org as $isi) {
+        //     $pembayaran = new Pembayaran;
+        //     $pembayaran->user_id = auth()->user()->id;
+        //     $pembayaran->jml_org = $isi;
+        //     $pembayaran->nm_program = $request->nm_program;
+        //     $pembayaran->nm_pengajar = $request->nm_pengajar;
+        //     $pembayaran->hari = $request->hari;
+        //     $pembayaran->waktu = $request->waktu;
+        //     $pembayaran->kelas = $request->kelas;
+        //     $pembayaran->harga = $request->harga;
+        //     $pembayaran->status = 'Belum Terkonfirmasi';
+        //     $pembayaran->save();
+        // }
         $pembayaran = Pembayaran::create([
             'user_id' => auth()->user()->id,
             'jml_org' => $request->jml_org,
@@ -102,7 +115,7 @@ class PembayaranController extends Controller
     public function jadwalpertemuan()
     {
         $id = auth()->user()->id;
-        $pembayaran = Pembayaran::where('user_id', $id)->get();
+        $pembayaran = Pembayaran::where('user_id', $id)->where('status', 'Terkonfirmasi')->get();
         return view('jadwal_pertemuan.index', ['pembayaran' => $pembayaran]);
     }
 }
