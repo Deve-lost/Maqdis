@@ -138,12 +138,47 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
         'as' => 'ds.destroy'
     ]);
 
+     // Data Pengguna
+    Route::get('/Maqdis/data-pengguna', [
+        'uses' => 'PenggunaController@index',
+        'as' => 'pengguna.index'
+    ]);
+
+    Route::get('/Maqdis/tambah-pengguna', [
+        'uses' => 'PenggunaController@create',
+        'as' => 'pengguna.create'
+    ]);
+
+    Route::post('/Maqdis/store-pengguna', [
+        'uses' => 'PenggunaController@store',
+        'as' => 'pengguna.store'
+    ]);
+
+    Route::get('/Maqdis/reset/{id}/password', [
+        'uses' => 'PenggunaController@resetpw',
+        'as' => 'pengguna.reset'
+    ]);
+
+    Route::get('/Maqdis/edit/{user}/pengguna', [
+        'uses' => 'PenggunaController@edit',
+        'as' => 'pengguna.edit'
+    ]);
+
+    Route::post('/Maqdis/update/{user}/pengguna', [
+        'uses' => 'PenggunaController@update',
+        'as' => 'pengguna.update'
+    ]);
+
+    Route::get('/Maqdis/destroy/{user}/pengguna', [
+        'uses' => 'PenggunaController@destroy',
+        'as' => 'pengguna.destroy'
+    ]);
+
     // Jadwal Peserta
     Route::get('/Maqdis/jadwal-peserta', [
         'uses' => 'JadwalPesertaController@index',
         'as' => 'jpeserta.index'
     ]);
-
 });
 
 // Pengajar
@@ -189,10 +224,24 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
     ]);
 
     // Jadwal Pertemuan
-
     Route::get('jadwal-pertemuan', [
         'uses' => 'PembayaranController@jadwalpertemuan',
         'as' => 'jadwal.pertemuan'
     ]);
 
+    // Profile Pengguna
+    Route::get('/Maqdis/profile/{user}/pengguna', [
+        'uses' => 'PenggunaController@profile',
+        'as' => 'pengguna.proflie'
+    ]);
+
+    Route::get('/Maqdis/ubah/{user}/password-pengguna', [
+        'uses' => 'PenggunaController@ubahpw',
+        'as' => 'pengguna.ubahpw'
+    ]);
+
+    Route::post('/Maqdis/update/{id}/password-pengguna', [
+        'uses' => 'PenggunaController@updatePassword',
+        'as' => 'pengguna.up'
+    ]);
 });
