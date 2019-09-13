@@ -120,7 +120,7 @@
                     <div class="col-md-10 mt-3">
                         <div class="form-group">
                             <div class="col-xs">
-                                <button type="submit" class="btn btn-primary">Tambah Data</button>
+                                <button type="submit" class="btn btn-primary btn-sm">Tambah Data</button>
                             </div>
                         </div>
                     </div>

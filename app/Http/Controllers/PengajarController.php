@@ -172,6 +172,7 @@ class PengajarController extends Controller
      */
     public function destroy(Pengajar $pengajar)
     {
+        unlink('images/avatar/'.$pengajar->avatar);
         $pengajar->delete();
 
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Dihapus');

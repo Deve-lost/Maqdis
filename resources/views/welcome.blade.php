@@ -36,13 +36,13 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            <a class="nav-link js-scroll-trigger" href="#services">Program</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#team">Team</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btn "  href="{{ route('register') }}">Daftar</a>
+            <a class="nav-link"  href="{{ route('register') }}">Daftar</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn btn-warning btn-sm login"  href="{{ route('login') }}">Masuk</a>
@@ -56,7 +56,7 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-lead-in">Selamat Datang di</div>
+        <div class="intro-lead-in">Selamat Datang Di Website</div>
         <div class="intro-heading text-uppercase">MAQDIS</div>
         <a class="btn btn-primary btn-md text-uppercase js-scroll-trigger" href="{{ route('register') }}">Daftar Sekarang</a>
       </div>
@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Program Kita</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
         </div>
       </div>
       <div class="row text-center">
@@ -242,37 +242,8 @@
   <footer class="footer">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Your Website 2019</span>
-        </div>
-        <div class="col-md-4">
-          <ul class="list-inline social-buttons">
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <ul class="list-inline quicklinks">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
+        <div class="col-md-12">
+          <span class="copyright">Copyright &copy; <script>document.write(new Date().getFullYear());</script> Developed by <a href="http://inovindoweb.com/" target="_blank"> INOVINDO WEB</a></span>
         </div>
       </div>
     </div>

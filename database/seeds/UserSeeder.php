@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'role' => 'Admin',
-            'name' => 'goahead',
+            'name' => 'Goahead',
      		'email' => 'developer@gmail.com',
      		'password' => bcrypt('inovindo'),
      	]);

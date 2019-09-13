@@ -42,6 +42,13 @@
       <i class="fas fa-fw fa-check-double"></i>
       <span>Konfirmasi Lanjut Program</span></a>
     </li>
+    <!-- Super Admin -->
+    <li class="nav-item">
+    <a class="nav-link" href="{{ route('pengguna.index') }}">
+      <i class="fas fa-fw fa-users"></i>
+      <span>Data Pengguna</span></a>
+    </li>
+    <!-- /super admin -->
     @endif
     <!-- /admin -->
 
