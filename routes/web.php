@@ -181,4 +181,12 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'uses' => 'PembayaranController@store',
         'as' => 'bayar'
     ]);
+
+    // Jadwal Pertemuan
+
+    Route::get('jadwal-pertemuan', [
+        'uses' => 'PembayaranController@jadwalpertemuan',
+        'as' => 'jadwal.pertemuan'
+    ]);
+
 });

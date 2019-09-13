@@ -70,7 +70,6 @@
                                 <tr>
                                     <td><strong>Jumlah Orang</strong></td>
                                     <td class="text-center"><strong>Harga</strong></td>
-                                    <td class="text-right"><strong>Totals</strong></td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -119,32 +118,28 @@
                                 @endif
                                 <tr>
                                     <td class="thick-line">{{ $jml }} Orang</td>
-                                    <td class="thick-line text-center">Rp.{{ $hrg = $request['jml_org'] }}</td>
-                                    <td class="thick-line text-right"><strong>Rp.{{ $total= $jml*$request['jml_org'] }}</strong></td>
+                                    <td class="thick-line text-center"><strong>Rp.{{ $hrg = $request['jml_org'] }}</strong></td>
                                 </tr>
 
                                 <tr>
                                     <td class="thick-line"></td>
                                     <td class="thick-line"></td>
-                                    <td class="thick-line"></td>
                                 </tr>
 
                                 <tr>
-                                    <td class="no-line"></td>
                                     <td class="no-line"></td>
                                     <td class="no-line text-right"><button class="btn btn-sm btn-primary">Bayar</button></td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <input type="hidden" name="nm_peserta" value="{{ 'akmal' }}">
+
                         <input type="hidden" name="nm_pengajar" value="{{ $request['pengajar_id'] }}">
                         <input type="hidden" name="nm_program" value="{{ $request['program_id'] }}">
                         <input type="hidden" name="hari" value="{{ $request['hari'] }}">
                         <input type="hidden" name="waktu" value="{{ $request['waktu'] }}">
                         <input type="hidden" name="kelas" value="{{ $request['kelas'] }}">
                         <input type="hidden" name="harga" value="{{ $hrg }}">
-                        <input type="hidden" name="total_bayar" value="{{ $total }}">
                         <input type="hidden" name="jml_org" value="{{ $jml }}">
                         </form>
                     </div>

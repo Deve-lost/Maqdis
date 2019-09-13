@@ -8,6 +8,7 @@ class Pembayaran extends Model
 {
     protected $table = 'pembayaran';
     protected $fillable = [
+        'user_id',
         'nm_peserta',
         'jml_org',
         'nm_pengajar',
@@ -18,4 +19,5 @@ class Pembayaran extends Model
         'harga',
         'total_bayar'
     ];
+
 }
