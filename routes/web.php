@@ -138,6 +138,12 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
         'as' => 'ds.destroy'
     ]);
 
+    // Jadwal Peserta
+    Route::get('/Maqdis/jadwal-peserta', [
+        'uses' => 'JadwalPesertaController@index',
+        'as' => 'jpeserta.index'
+    ]);
+
 });
 
 // Pengajar

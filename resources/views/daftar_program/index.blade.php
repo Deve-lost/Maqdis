@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Daftar Program')
+
 @section('content')
 <div class="container-fluid">
     <div class="row">

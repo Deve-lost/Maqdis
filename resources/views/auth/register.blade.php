@@ -83,7 +83,7 @@
 
                 <div class="col-md-6">
                   <div class="form-group {{$errors->has('no_wa') ? ' has-error' : ''}}">
-                    <input class="form-control" id="no_wa" type="number" placeholder="No.Hp / Whatsapp" required="required" name="no_wa" value="{{ old('no_wa') }}">
+                    <input class="form-control" id="no_wa" type="text" placeholder="No.Hp / Whatsapp" required="required" name="no_wa" value="{{ old('no_wa') }}">
 
                     @if($errors->has('no_wa'))
                       <span class="help-block text-danger">{{$errors->first('no_wa')}}</span>

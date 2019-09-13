@@ -28,7 +28,7 @@
       <span>Data Peserta</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('jpeserta.index') }}">
       <i class="fas fa-fw fa-clipboard-list"></i>
       <span>Jadwal Peserta</span></a>
     </li>

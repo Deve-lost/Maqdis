@@ -58,6 +58,7 @@ class PengajarController extends Controller
         $user  = new User;
         $user->role = 'Pengajar';
         $user->name = $request->nm_pengajar;
+        $user->jk = $request->jk;
         $user->email = $request->email;
         $user->password = bcrypt('inovindo');
         $user->remember_token = str_random(60);
