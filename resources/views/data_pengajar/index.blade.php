@@ -52,7 +52,7 @@
                                 </tr>
                                 @empty
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1" colspan="7">Data tidak ditemukan.</td>
+                                    <td class="sorting_1" colspan="6">Tidak Ada Data</td>
                                 </tr>
                                 @endforelse
                             </tbody>

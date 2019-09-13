@@ -15,7 +15,6 @@ class PembayaranController extends Controller
      */
     public function index(Request $request)
     {
-        // dd($request->all());
         $req = $request->all();
         return view('pembayaran.index', ['request' => $req]);
     }
