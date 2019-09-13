@@ -16,11 +16,12 @@ class CreatePesertaTable extends Migration
         Schema::create('peserta', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama', 50);
+            $table->string('email', 191);
             $table->string('ttl', 191);
             $table->string('jk', 20);
             $table->string('kontak', 15);
             $table->string('avatar', 191)->nullable();
-            $table->string('email', 191);
+            $table->text('alamat');
             $table->timestamps();
         });
     }
