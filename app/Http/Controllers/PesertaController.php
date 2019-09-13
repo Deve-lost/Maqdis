@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Peserta;
 
 class PesertaController extends Controller
 {
@@ -14,7 +14,7 @@ class PesertaController extends Controller
      */
     public function index()
     {
-        $peserta = User::where('role', 'Peserta')->latest()->get();
+        $peserta = Peserta::latest()->get();
 
         return view('peserta.index', compact('peserta'));
     }

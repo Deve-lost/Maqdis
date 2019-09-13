@@ -37,12 +37,12 @@
                                 @forelse($peserta as $data)
                                 <tr role="row" class="odd">
                                     <td class="sorting_1">{{ $loop->iteration }}</td>
-                                    <td class="sorting_1">{{ $data->name }}</td>
+                                    <td class="sorting_1">{{ $data->nama }}</td>
                                     <td>{{ $data->email }}</td>
                                     <td>{{ $data->jk }}</td>
-                                    <td>{{ $data->no_wa }}</td>
+                                    <td>{{ $data->kontak }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-info" data-nm="{{ $data->name }}" data-jk="{{ $data->jk }}" data-email="{{ $data->email }}" data-kontak="{{ $data->no_wa }}" data-ttl="{{ $data->tgl_lahir }}" data-alamat="{{ $data->alamat_lengkap }}" data-toggle="modal" data-target="#showpeserta"><i class="fa fa-eye"></i>
+                                        <a href="" class="btn btn-sm btn-info" data-nm="{{ $data->nama }}" data-jk="{{ $data->jk }}" data-email="{{ $data->email }}" data-kontak="{{ $data->kontak }}" data-ttl="{{ $data->ttl }}" data-alamat="{{ $data->alamat }}" data-toggle="modal" data-target="#showpeserta"><i class="fa fa-eye"></i>
                                         </a>
                                         <a href="#" class="btn btn-sm btn-danger delete" peserta-id="{{ $data->id }}" peserta-nm="{{ $data->name }}"><i class="fa fa-trash"></i></a>
                                     </td>
