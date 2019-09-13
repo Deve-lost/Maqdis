@@ -6,7 +6,7 @@
 <div id="content-wrapper">
     <div class="container">
         <div class="container-fluid">
-            <form action="{{ route('dp.store') }}" class="form-horizontal" method="POST">
+            <form action="{{ route('dp.store') }}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row mx-auto mt-5 justify-content-center">
                     <div class="col-md-5">
@@ -44,6 +44,7 @@
                             @endif
                         </div>
                     </div>
+
                     <div class="col-md-5">
                         <div class="form-group {{$errors->has('kontak') ? ' has-error' : ''}}">
                             <label for="kontak" class="col-xs-3 control-label">Kontak</label>
@@ -67,6 +68,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-5">
                         <div class="form-group {{$errors->has('ttl') ? ' has-error' : ''}}">
                             <label for="ttl" class="col-xs-3 control-label">Tanggal Lahir</label>
@@ -75,6 +77,18 @@
                             </div>
                             @if($errors->has('ttl'))
                                 <span class="help-block text-danger">{{$errors->first('ttl')}}</span>
+                            @endif
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-10">
+                        <div class="form-group {{$errors->has('avatar') ? ' has-error' : ''}}">
+                            <label for="avatar" class="col-xs-3 control-label">Avatar</label>
+                            <div class="col-xs-9">
+                                <input type="file" class="" id="avatar" name="avatar" placeholder="No Wa/Hp">
+                            </div>
+                            @if($errors->has('avatar'))
+                                <span class="help-block text-danger">{{$errors->first('avatar')}}</span>
                             @endif
                         </div>
                     </div>
@@ -90,6 +104,7 @@
                             @endif
                         </div>
                     </div>
+
                     <div class="col-md-5">
                         <div class="form-group {{$errors->has('alamat') ? ' has-error' : ''}}">
                             <label for="alamat" class="col-xs-3 control-label">Alamat</label>
@@ -105,7 +120,7 @@
                     <div class="col-md-10 mt-3">
                         <div class="form-group">
                             <div class="col-xs">
-                                <button type="submit" class="btn btn-primary">Tambah</button>
+                                <button type="submit" class="btn btn-primary">Tambah Data</button>
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,8 @@ class PengajarController extends Controller
      */
     public function index()
     {
-        $pengajar = Pengajar::all();
+        $pengajar = Pengajar::latest()->get();
+
         return view('data_pengajar.index', ['pengajar' => $pengajar]);
     }
 
@@ -51,25 +52,28 @@ class PengajarController extends Controller
             'jk' => 'required',
             'ttl' => 'required',
             'pengalaman_kerja' => 'required',
-            'alamat' => 'required'
+            'alamat' => 'required',
+            'avatar' => 'required|mimes:jpg,jpeg,png'
         ]);
 
         // User
         $user  = new User;
         $user->role = 'Pengajar';
         $user->name = $request->nm_pengajar;
-        $user->jk = $request->jk;
         $user->email = $request->email;
         $user->password = bcrypt('inovindo');
         $user->remember_token = str_random(60);
-        $user->alamat_lengkap = $request->alamat;
-        $user->no_wa = $request->kontak;
-        $user->tgl_lahir = $request->ttl;
         $user->save();
 
         // Pengajar
         $request->request->add(['user_id' => $user->id]);
-        Pengajar::create($request->all());
+        $pengajar = Pengajar::create($request->all());
+        if ($request->hasFile('avatar')) {
+            $request->file('avatar')->move('images/avatar/',$request->file('avatar')->getClientOriginalName());
+
+            $pengajar->avatar = $request->file('avatar')->getClientOriginalName();
+            $pengajar->save();
+        }
 
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Ditambahkan');
     }
