@@ -140,7 +140,7 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
 
     // Jadwal Peserta
     Route::get('/Maqdis/jadwal-peserta', [
-        'uses' => 'PesertaController@jadwal',
+        'uses' => 'JadwalPesertaController@index',
         'as' => 'jpeserta.index'
     ]);
 
