@@ -33,12 +33,12 @@
       <span>Jadwal Peserta</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('absen.index') }}">
       <i class="fas fa-fw fa-book"></i>
       <span>Rekap Kehadiran</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('konfirmasi.index') }}">
       <i class="fas fa-fw fa-check-double"></i>
       <span>Konfirmasi Lanjut Program</span></a>
     </li>

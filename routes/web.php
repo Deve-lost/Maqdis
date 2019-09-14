@@ -179,6 +179,18 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
         'uses' => 'JadwalPesertaController@index',
         'as' => 'jpeserta.index'
     ]);
+
+    // Rekap Absensi
+    Route::get('/Maqdis/rekap-kehadiran/peserta', [
+        'uses' => 'AbsensiController@index',
+        'as' => 'absen.index'
+    ]);
+
+    // Konfirmasi Lanjut Program
+    Route::get('/Maqdis/konfirmasi-lanjut/program', [
+        'uses' => 'KonfirmasiProgramController@index',
+        'as' => 'konfirmasi.index'
+    ]);
 });
 
 // Pengajar
