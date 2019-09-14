@@ -68,14 +68,6 @@ class PembayaranController extends Controller
             'status' => 'Belum Terkonfirmasi'
         ]);
 
-        // Insert Tabel Kelompok
-        foreach ($request->email as $isi) {
-             $check = new kelompokpeserta;
-             $check->user_id = auth()->user()->id;
-             $check->peserta_id = $isi;
-             $check->save();
-         }
-
         return redirect()->route('dashboard');
     }
 
