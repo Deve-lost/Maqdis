@@ -160,3 +160,10 @@ label1 {
 .panel-body {
     padding: 15px;
 }
+
+.btn span.glyphicon {
+    opacity: 0;
+}
+.btn.active span.glyphicon {
+    opacity: 1;
+}

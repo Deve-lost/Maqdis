@@ -44,7 +44,7 @@
                       <td>{{ $data->jk }}</td>
                       <td>{{ $data->kontak }}</td>
                       <td>
-                        <label class="control-inline fancy-checkbox {{ $errors->has('add') ? 'has-error' : '' }}">
+                        <label class="btn btn-primary control-inline fancy-checkbox {{ $errors->has('add') ? 'has-error' : '' }}">
                           <input type="checkbox" name="add[]" value="{{ $data->id }}">
                           <span></span>
                           @if($errors->has('add'))

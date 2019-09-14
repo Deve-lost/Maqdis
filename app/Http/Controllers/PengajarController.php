@@ -89,20 +89,6 @@ class PengajarController extends Controller
     public function show(Request $request)
     {
 
-        // // dd($request->all());
-        // $pengajar = DB::table('pengajar')
-        // ->where('program_id', $request->program)
-        // ->orWhere('hari', $request->hari)
-        // ->orWhere('jam', $request->jam)
-        // ->orWhere('status', $request->status)
-        // ->get();
-
-        // dd($request->all());
-
-        // $pengajar =  Jadwal::where('id',$id)->take(1)->get();
-
-        // echo json_encode($pengajar);
-
         $search = $request->all();
         // $data = json_encode($search);
         // $newdata = json_decode($data);
@@ -116,19 +102,6 @@ class PengajarController extends Controller
             ['waktu', '=', $request->jam],
             ['kelas', '=', $request->kelas],
             ])->get();
-
-        // $jdw = DB::table('jadwal')
-        //         ->where('program_id', '=', $request->program)
-        //         ->get();
-
-        // $jdw = DB::table('jadwal')
-        //         ->where('waktu', '=', $request->jam)
-        //         ->get();
-
-        // $jdw = DB::table('jadwal')
-        //         ->where('jadwal.kelas', '=', $request->kelas)
-        //         ->get();
-        // dd($jdw);
 
         return view('daftar_program.ajax', ['search' => $search, 'program' => $program, 'kecamatan' => $kecamatan, 'jdw' => $jdw]);
 

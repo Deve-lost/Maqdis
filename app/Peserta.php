@@ -16,4 +16,8 @@ class Peserta extends Model
     						'alamat',
     						'avatar'
 	    				];
+    public function kelompokpeserta()
+    {
+        return $this->belongsTo(KelompokPeserta::class);
+    }
 }

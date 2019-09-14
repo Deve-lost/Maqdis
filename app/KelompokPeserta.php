@@ -11,4 +11,8 @@ class KelompokPeserta extends Model
     						'peserta_id',
     						'user_id'
     					];
+    public function peserta()
+    {
+        return $this->belongsTo(Peserta::class);
+    }
 }
