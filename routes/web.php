@@ -286,4 +286,9 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'pengguna.up'
     ]);
 
+    Route::post('struk-post/{id}', [
+        'uses' => 'PembayaranController@update',
+        'as' => 'update.struk'
+    ]);
+
 });

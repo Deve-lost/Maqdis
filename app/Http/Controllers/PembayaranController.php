@@ -65,18 +65,10 @@ class PembayaranController extends Controller
             'waktu' => $request->waktu,
             'kelas' => $request->kelas,
             'harga' => $request->harga,
-            'status' => 'Belum Terkonfirmasi'
+            'status' => 'Belum Terverifikasi'
         ]);
 
-        // Insert Tabel Kelompok
-        foreach ($request->email as $isi) {
-             $check = new kelompokpeserta;
-             $check->user_id = auth()->user()->id;
-             $check->peserta_id = $isi;
-             $check->save();
-         }
-
-        return redirect()->route('dashboard');
+        return redirect()->route('status.pembayaran')->with('sukses', 'Berhasil Mendaftar');
     }
 
     /**
@@ -108,9 +100,39 @@ class PembayaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'struk' => 'required|mimes:jpg,jpeg,png'
+        ]);
+
+        $pembayaran = $request->all();
+        $data = [
+            'user_id' => auth()->user()->id,
+            'nm_kegiatan' => $pembayaran['nm_kegiatan'],
+            'ket_kegiatan' => $pembayaran['ket_kegiatan'],
+            'tgl' => $pembayaran['tgl']
+        ];
+
+        $file_foto = $request->file('file');
+
+        if($file_foto){
+            unlink('images/dokumentasi/'.$dokumentasi['file']);
+            $fileName = $file_foto->getClientOriginalName();
+            $data['file'] = $fileName;
+
+            $proses = $file_foto->move('images/dokumentasi/', $fileName);
+        }elseif($dokumentasi->type_file == 2){
+            $dokumentasi->update($request->all());
+        }
+        try{
+            DB::table('dok_prakerin')->where('id', $dokumentasi->id)->update($data);
+            return redirect()->route('dokumentasi.index')->with('sukses','Data Berhasil Diperbaharui');
+        }
+        catch(\Exception $e){
+            return redirect()->route('dokumentasi.edit');
+        }
+
     }
 
     /**
@@ -135,8 +157,16 @@ class PembayaranController extends Controller
     public function statuspembayaran()
     {
         $id = auth()->user()->id;
-        $pembayaran = Pembayaran::where('user_id', $id)->get();
+        $pembayaran = Pembayaran::where('user_id', $id)->first();
         return view('pembayaran.status_pembayaran', ['pembayaran' => $pembayaran]);
+    }
+
+    public function cobadulu(Request $request)
+    {
+        $this->validate($request, [
+            'struk' => 'required|mimes:jpg,jpeg,png'
+        ]);
+        dd($request->all());
     }
 
 }
