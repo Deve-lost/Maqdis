@@ -40,7 +40,12 @@
     </div>
 </div>
     @else
-        KOSONG
+        <div class="row mt-5">
+            <div class="col-md-12 mt-5">
+                <h3 class="text-center mt-5">Data tidak ditemukan.</h3>
+                <p class="text-center mt-3"><a href="{{ route('daftar.index') }}" class="btn btn-sm btn-primary text-center">Kembali</a></p>
+            </div>
+        </div>
     @endif
 
 @endsection

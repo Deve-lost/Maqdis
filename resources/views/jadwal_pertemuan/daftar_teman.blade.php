@@ -32,28 +32,16 @@
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 50px;">Email</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Jenis Kelamin</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Kontak</th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 20px;">Opsi</th>
                   </tr>
                 </thead>
                 <tbody>
                   @forelse($peserta as $data)
                     <tr role="row" class="odd">
                       <td class="sorting_1">{{ $loop->iteration }}</td>
-                      <td class="sorting_1">{{ $data->nama }}</td>
-                      <td>{{ $data->email }}</td>
-                      <td>{{ $data->jk }}</td>
-                      <td>{{ $data->kontak }}</td>
-                      <td>
-                        <label class="control-inline fancy-checkbox {{ $errors->has('add') ? 'has-error' : '' }}">
-                          <input type="checkbox" name="add[]" value="{{ $data->id }}">
-                          <span></span>
-                          @if($errors->has('add'))
-                          <span class="help-block">
-                            <p>{{ $errors->first('add') }}</p>
-                          </span>
-                          @endif
-                        </label>
-                      </td>
+                      <td class="sorting_1">{{ $data->peserta->nama }}</td>
+                      <td>{{ $data->peserta->email }}</td>
+                      <td>{{ $data->peserta->jk }}</td>
+                      <td>{{ $data->peserta->kontak }}</td>
                     </tr>
                     @empty
                     <tr role="row" class="odd">
@@ -61,16 +49,6 @@
                     </tr>
                     @endforelse
                   </tbody>
-                  <tfoot>
-                  <tr>
-                    <td class="border-right-0"></td>
-                    <td class="border-right-0"></td>
-                    <td class="border-right-0"></td>
-                    <td class="border-right-0"></td>
-                    <td></td>
-                    <td><button type="submit" class="btn btn-sm btn-primary">Tambah</button></td>
-                  </tr>
-                </tfoot>
               </table>
             </div>
           </div>
