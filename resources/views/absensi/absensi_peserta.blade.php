@@ -10,20 +10,24 @@
                         <strong class="h4">Absensi</strong>
                     </div>
                     <div class="card-body">
+                        @if($absensi > '0')
                         <form action="{{ route('absen.store') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="pengajar_id" value="{{ $absensi->pengajar_id }}">
-                        <p>Nama Program : {{ $absensi->program->nm_program }}</p>
-                        <p>Nama Pengajar : {{ $absensi->pengajar->nm_pengajar }}</p>
+                        <input type="hidden" name="pengajar_id" value="{{ $absensi->nm_pengajar }}">
+                        <p>Nama Program : {{ $absensi->nm_program }}</p>
+                        <p>Nama Pengajar : {{ $absensi->nm_pengajar }}</p>
                         <p>Kelas : {{ $absensi->kelas }}</p>
 
                             {{-- expr --}}
         {{-- {{ \Carbon\Carbon::parse($hari)->formatLocalized('%A, %d %B %Y %H:%I:%S')}} --}}
-        <?php $h = \Carbon\Carbon::parse($hari)->formatLocalized('%A') ?>
-
-                        @if ($absensi->hari === $h )
-                        <button class="btn btn-sm btn-primary">Absen</button>
+                        @elseif($verif < '0')
+                        <p class="mt-3">Silahkan Verifikasi Pembayaran terlebih dahulu.</p>
+                        <a  href="{{ route('status.pembayaran') }}" class="btn btn-sm btn-primary">Status Pembayaran</a>
                         @endif
+
+
+
+                        <button class="btn btn-sm btn-primary">Absen</button>
                         </form>
                     </div>
                 </div>
@@ -32,7 +36,7 @@
 
     @if ($abs > '0')
         {{-- expr --}}
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-md-12">
              <div class="card mb-3">
             <div class="card-header">
@@ -60,8 +64,8 @@
                                 <tr>
                                    <td>{{ $no++ }}</td>
                                    <td>{{ $abs->user->name }}</td>
-                                   <td>{{ $absensi->pengajar->nm_pengajar }}</td>
-                                   <td>{{ $absensi->program->nm_program }}</td>
+                                   <td>{{ $absensi->nm_pengajar }}</td>
+                                   <td>{{ $absensi->nm_program }}</td>
                                    <td>{{ $abs->tgl_kegiatan }}</td>
                                    <td class="text-primary">{{ $abs->status }}</td>
                                 </tr>

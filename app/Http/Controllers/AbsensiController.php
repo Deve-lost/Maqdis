@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Absensi;
 use App\Jadwal;
+use App\Pembayaran;
 
 class AbsensiController extends Controller
 {
@@ -36,7 +37,7 @@ class AbsensiController extends Controller
     {
         $absen = Absensi::create([
             'user_id' => auth()->user()->id,
-            'pengajar_id' => $request->pengajar_id,
+            'nm_pengajar' => $request->pengajar_id,
             'tgl_kegiatan' => \Carbon\Carbon::now()->format('d-m-Y'),
             'absensi' => 'Hadir',
             'status' => 'Hadir'
@@ -95,8 +96,10 @@ class AbsensiController extends Controller
     {
         $id = auth()->user()->id;
         $abs = Absensi::where('user_id', $id)->orderBy('id', 'DESC')->first();
-        $absensi = Jadwal::first();
-        $hari = \Carbon\Carbon::now()->format('l');
-        return view('absensi.absensi_peserta', ['absensi' => $absensi, 'abs' => $abs, 'hari' => $hari]);
+        // $absensi = Jadwal::first();
+        $verif = Pembayaran::pluck('status')->first();
+        $absensi = Pembayaran::first();
+        $hari = \Carbon\Carbon::tomorrow()->format('l');
+        return view('absensi.absensi_peserta', ['absensi' => $absensi, 'abs' => $abs, 'hari' => $hari, 'verif' => $verif]);
     }
 }

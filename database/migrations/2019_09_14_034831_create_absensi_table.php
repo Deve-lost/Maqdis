@@ -16,7 +16,7 @@ class CreateAbsensiTable extends Migration
         Schema::create('absensi', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
-            $table->integer('pengajar_id');
+            $table->string('nm_pengajar', 191);
             $table->string('tgl_kegiatan', 191);
             $table->string('absensi', 191);
             $table->string('status', 191);
