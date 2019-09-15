@@ -8,9 +8,9 @@
     <!-- Admin -->
     @if(auth()->user()->role == 'Admin')
     <li class="nav-item">
-      <a class="nav-link" href="charts.html">
+      <a class="nav-link" href="{{ route('konfirmasipem.index') }}">
         <i class="fas fa-fw fa-clipboard-check"></i>
-        <span>Konfirmasi Pembayaran</span></a>
+        <span>Verifikasi Pembayaran</span></a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('dp.index') }}">

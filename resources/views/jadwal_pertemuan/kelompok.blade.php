@@ -1,6 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'Data Peserta')
+@section('title')
+  Kelompok Peserta {{ $ketua->name }}
+@stop
 
 @section('content')
 <div id="content-wrapper">
@@ -10,13 +12,13 @@
       <li class="breadcrumb-item">
         <a href="{{ route('dashboard') }}">Dashboard</a>
       </li>
-      <li class="breadcrumb-item active">Data Peserta</li>
+      <li class="breadcrumb-item active">Kelompok Peserta</li>
     </ol>
     <!-- DataTables Example -->
     <div class="card mb-3">
       <div class="card-header">
         <i class="fas fa-table"></i>
-        Data Peserta
+        Kelompok Peserta {{ $ketua->name }}
       </div>
       <div class="card-body">
         <div class="table-responsive">

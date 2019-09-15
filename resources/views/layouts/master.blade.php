@@ -122,6 +122,37 @@
     </script>
     <!-- /alert -->
   <script src="{{asset('admin/js/script.js')}}"></script>
+  <!-- Konfirmasi Pembayaran -->
+  <script>
+      $('#showkonfirmasipembayaran').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var dfpid = button.data('dfpid')
+        var nm = button.data('nm')
+        var jmlorg = button.data('jmlorg')
+        var nmprog = button.data('nmprog')
+        var nmpeng = button.data('nmpeng')
+        var hari = button.data('hari')
+        var waktu = button.data('waktu')
+        var kelas = button.data('kelas')
+        var harga = button.data('harga')
+        var status = button.data('status')
+
+        var modal = $(this)
+
+        modal.find('.modal-body #dfpid').val(dfpid);
+        modal.find('.modal-body #nm').val(nm);
+        modal.find('.modal-body #jmlorg').val(jmlorg);
+        modal.find('.modal-body #nmprog').val(nmprog);
+        modal.find('.modal-body #nmpeng').val(nmpeng);
+        modal.find('.modal-body #hari').val(hari);
+        modal.find('.modal-body #waktu').val(waktu);
+        modal.find('.modal-body #kelas').val(kelas);
+        modal.find('.modal-body #harga').val(harga);
+        modal.find('.modal-body #status').val(status);
+      })
+  </script>
+  <!-- /konfirmasi pembayaran -->
+
    <!-- Modal -->
     <script>
         $('#show').on('show.bs.modal', function (event) {

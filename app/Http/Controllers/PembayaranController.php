@@ -122,7 +122,7 @@ class PembayaranController extends Controller
 
         try{
             DB::table('pembayaran')->where('user_id', $data['user_id'])->update($data);
-            return redirect()->route('status.pembayaran')->with('sukses','Struk Berhasil Diupload');
+            return redirect()->route('status.pembayaran')->with('sukses','Pembayaran Berhasil');
         }
         catch(\Exception $e){
             return redirect()->route('status.pembayaran')->with('error','');

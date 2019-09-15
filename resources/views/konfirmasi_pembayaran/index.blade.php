@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Jadwal Peserta')
+@section('title', 'Verifikasi Pembayaran')
 
 @section('content')
 <div id="content-wrapper">
@@ -10,13 +10,13 @@
             <li class="breadcrumb-item">
                 <a href="{{ route('dashboard') }}">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Jadwal Peserta</li>
+            <li class="breadcrumb-item active">Verifikasi Pembayaran</li>
         </ol>
         <!-- DataTables Example -->
         <div class="card mb-3">
             <div class="card-header">
                 <i class="fas fa-table"></i>
-                Jadwal Peserta
+                Data Pembayaran
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -26,25 +26,24 @@
                                 <thead>
                                     <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 6px;">No</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Nama Peserta</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Nama Program</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Nama Pengajar</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Kelas</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Program</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Pengajar</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Status</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 20px;">Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($peserta as $data)
+                                @forelse($pembayaran as $data)
                                 <tr role="row" class="odd">
                                     <td class="sorting_1">{{ $loop->iteration }}</td>
-                                    <td class="sorting_1"><a class="nav-link" href="{{ route('kelompok.peserta', $data->user_id) }}">{{ $data->user->name }}</a></td>
+                                    <td class="sorting_1">{{ $data->user->name }}</td>
                                     <td>{{ $data->nm_program }}</td>
                                     <td>{{ $data->nm_pengajar }}</td>
-                                    <td>{{ $data->kelas }}</td>
+                                    <td>{{ $data->status }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-info" data-nmps="{{ $data->user->name }}" data-nmprog="{{ $data->nm_program }}" data-nmpeng="{{ $data->nm_pengajar }}" data-hari="{{ $data->hari }}" data-waktu="{{ $data->waktu }}" data-kelas="{{ $data->kelas }}" data-status="{{ $data->status }}" data-toggle="modal" data-target="#showjp"><i class="fa fa-eye"></i>
+                                        <a href="" class="btn btn-sm btn-info" data-dfpid="{{ $data->id }}" data-nm="{{ $data->user->name }}" data-jmlorg="{{ $data->jml_org }} Orang" data-nmprog="{{ $data->nm_program }}" data-nmpeng="{{ $data->nm_pengajar }}" data-hari="{{ $data->hari }}" data-waktu="{{ $data->waktu }}" data-kelas="{{ $data->kelas }}" data-harga="{{ $data->harga }}" data-status="{{ $data->status }}" data-toggle="modal" data-target="#showkonfirmasipembayaran"><i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('dp.edit', $data->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                                        <a href="#" class="btn btn-sm btn-danger delete" pengajar-id="{{ $data->id }}" pengajar-nm="{{ $data->nm_pengajar }}"><i class="fa fa-trash"></i></a>
+                                        <a href="#" class="btn btn-sm btn-danger delete" peserta-id="{{ $data->id }}" peserta-nm="{{ $data->user->name }}"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                                 @empty
@@ -63,22 +62,24 @@
 </div>
 <!-- /.container-fluid -->
 <!-- Modal -->
-<div class="modal fade" id="showjp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="showkonfirmasipembayaran" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Jadwal Peserta</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Verifikasi Pembayaran</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form method="POST" action="">
+      <form method="POST" action="{{ route('konfirmasipem.update', 'test') }}">
         @csrf
         <div class="modal-body">
-          @include('jadwal_peserta.jadwal_peserta')
+          <input type="hidden" name="dfp_id" id="dfpid" value="">
+          @include('konfirmasi_pembayaran.konfirmasi')
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Verifikasi</button>
         </div>
      </form>
     </div>
@@ -89,18 +90,18 @@
 @section('footer')
     <script type="text/javascript">
         $('.delete').click(function(){
-            var pengajar_id = $(this).attr('pengajar-id');
-            var nm_pengajar = $(this).attr('pengajar-nm');
+            var peserta_id = $(this).attr('peserta-id');
+            var peserta_nm = $(this).attr('peserta-nm');
             swal({
                   title: "Hapus!",
-                  text: "Pengajar "+nm_pengajar+"?",
+                  text: "Pembayaran "+peserta_nm+"?",
                   icon: "warning",
                   buttons: true,
                   dangerMode: true,
                 })
                 .then((willDelete) => {
                   if (willDelete) {
-                    window.location = "/Maqdis/destroy/"+pengajar_id+"/pengajar";
+                    window.location = "/Maqdis/destroy/"+peserta_id+"/verifikasi-pembayaran";
                   }
                 });
         });

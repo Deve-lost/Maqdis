@@ -17,7 +17,7 @@
         <div class="col-sm-4 pull-left mb-3">
             <div class="card-columns-fluid">
                 <div class="card" style="width: 22rem;">
-                    <img src="{{ asset('user.png') }}" style="width:100px;" class="mx-auto pt-2" alt="image">
+                    <img src="{{ asset('images/avatar/'.$data->avatar) }}" style="width:100px;" class="mx-auto pt-2" alt="image">
                     <div class="card-body">
                         <h5 class="card-title text-center h2">{{ $data->nm_pengajar }}</h5>
                         <p class="card-text text-center"><strong>Jenis Kelamin</strong> : {{ $data->jk }}</p>
@@ -42,7 +42,7 @@
     @else
         <div class="row mt-5">
             <div class="col-md-12 mt-5">
-                <h3 class="text-center mt-5">Data tidak ditemukan.</h3>
+                <h3 class="text-center mt-5">Tidak Ada Pengajar Yang Sesuai.</h3>
                 <p class="text-center mt-3"><a href="{{ route('daftar.index') }}" class="btn btn-sm btn-primary text-center">Kembali</a></p>
             </div>
         </div>
