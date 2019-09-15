@@ -30,23 +30,24 @@
                             <tbody>
                                 @php
                                     $id = auth()->user()->id;
+                                    $no = 1;
                                 @endphp
-                                @forelse($pembayaran as $data)
+                                @if($pembayaran > '0')
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1">{{ $loop->iteration }}</td>
+                                    <td class="sorting_1">{{ $no++ }}</td>
                                     <td class="sorting_1"><a class="nav-link" href="{{ route('jadwal.temuid', $id) }}">{{ auth()->user()->name }}</a></td>
-                                    <td class="sorting_1">{{ $data->nm_pengajar }}</td>
-                                    <td class="sorting_1">{{ $data->nm_program }}</td>
-                                    <td class="sorting_1">{{ $data->hari }}</td>
-                                    <td class="sorting_1">{{ $data->waktu }}</td>
-                                    <td class="sorting_1 text-primary">{{ $data->status }}</td>
+                                    <td class="sorting_1">{{ $pembayaran->nm_pengajar }}</td>
+                                    <td class="sorting_1">{{ $pembayaran->nm_program }}</td>
+                                    <td class="sorting_1">{{ $pembayaran->hari }}</td>
+                                    <td class="sorting_1">{{ $pembayaran->waktu }}</td>
+                                    <td class="sorting_1 text-primary">{{ $pembayaran->status }}</td>
                                     <td class="sorting_1"><a href="{{ route('cek.peserta', $id) }}" class="btn btn-sm btn-primary"> Tambah</a></td>
                                 </tr>
-                                @empty
+                                @else
                                 <tr role="row" class="odd">
                                     <td class="sorting_1" colspan="8">Data tidak ditemukan.</td>
                                 </tr>
-                                @endforelse
+                                @endif
                             </tbody>
                         </table></div></div>
                     </div>
