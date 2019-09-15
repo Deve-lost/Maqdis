@@ -54,9 +54,7 @@
         <div class="row">
           <div  class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Masuk</h2>
-
             <h3 class="section-subheading text-muted" style="color: white !important;">Masukkan Email Dan Password.</h3>
-
           </div>
         </div>
         <div class="row">

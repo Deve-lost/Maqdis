@@ -14,8 +14,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $program = Program::all();
-        return view('dashboard.index', ['program' => $program]);
+        $programs = Program::latest()->get();
+
+        return view('dashboard.index', compact('programs'));
     }
 
     /**
