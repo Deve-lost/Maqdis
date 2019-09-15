@@ -18,13 +18,20 @@
                         <p>Kelas : {{ $absensi->kelas }}</p>
 
                             {{-- expr --}}
-                        <button @if (!empty($abs)) disabled="" @endif class="btn btn-sm btn-primary">Absen</button>
+        {{-- {{ \Carbon\Carbon::parse($hari)->formatLocalized('%A, %d %B %Y %H:%I:%S')}} --}}
+        <?php $h = \Carbon\Carbon::parse($hari)->formatLocalized('%A') ?>
+
+                        @if ($absensi->hari === $h )
+                        <button class="btn btn-sm btn-primary">Absen</button>
+                        @endif
                         </form>
                     </div>
                 </div>
             </div>
     </div>
 
+    @if ($abs > '0')
+        {{-- expr --}}
     <div class="row">
         <div class="col-md-12">
              <div class="card mb-3">
@@ -66,6 +73,10 @@
         </div>
         </div>
     </div>
+    @else
+
+    @endif
+
 
 </div>
 @endsection
