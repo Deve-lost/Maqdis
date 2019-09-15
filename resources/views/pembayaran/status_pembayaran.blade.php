@@ -14,7 +14,6 @@
                         <strong class="h4">Status Pembayaran</strong>
                     </div>
                     <div class="card-body">
-                        <p class="card-title h5">Nama :  {{ $pembayaran->user->name }}</p>
                         <p class="card-text">Nama Program : {{ $pembayaran->nm_program }}</p>
                         <p class="card-text">Nama Pengajar : {{ $pembayaran->nm_pengajar }}</p>
                         <p class="card-text">Hari : {{ $pembayaran->hari }}</p>

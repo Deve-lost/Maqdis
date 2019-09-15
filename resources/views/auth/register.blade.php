@@ -90,10 +90,10 @@
                       <span class="help-block text-danger">{{$errors->first('tgl_lahir')}}</span>
                     @endif
                   </div>
-                  
+
                   <div class="form-group {{$errors->has('jk') ? ' has-error' : ''}}">
+                    <p>*Jenis Kelamin</p>
                     <select class="form-control" id="jk" name="jk">
-                      <option selected="">-- Jenis Kelamin --</option>
                       <option value="Laki-laki">Laki-Laki</option>
                       <option value="Perempuan">Perempuan</option>
                     </select>

@@ -18,6 +18,6 @@ class Peserta extends Model
 	    				];
     public function kelompokpeserta()
     {
-        return $this->belongsTo(KelompokPeserta::class);
+        return $this->hasMany(KelompokPeserta::class);
     }
 }
