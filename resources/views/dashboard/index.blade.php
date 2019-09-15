@@ -36,7 +36,7 @@
 	        <div class="card-body-icon">
 	          <i class="fas fa-fw fa-users"></i>
 	        </div>
-	        <div class="mr-5">11 Total Pengajar</div>
+	        <div class="mr-5">{{ $pengajar }} Total Pengajar</div>
 	      </div>
 	      <a class="card-footer text-white clearfix small z-1" href="{{ route('dp.index') }}">
 	        <span class="float-left">View Details</span>
@@ -52,7 +52,7 @@
 	        <div class="card-body-icon">
 	          <i class="fas fa-fw fa-users"></i>
 	        </div>
-	        <div class="mr-5">123 Total Peserta</div>
+	        <div class="mr-5">{{ $peserta }} Total Peserta</div>
 	      </div>
 	      <a class="card-footer text-white clearfix small z-1" href="{{ route('ds.index') }}">
 	        <span class="float-left">View Details</span>
@@ -68,7 +68,7 @@
 	        <div class="card-body-icon">
 	          <i class="fas fa-fw fa-users"></i>
 	        </div>
-	        <div class="mr-5">13 Total Pengguna</div>
+	        <div class="mr-5">{{ $pengguna }} Total Pengguna</div>
 	      </div>
 	      <a class="card-footer text-white clearfix small z-1" href="{{ route('pengguna.index') }}">
 	        <span class="float-left">View Details</span>

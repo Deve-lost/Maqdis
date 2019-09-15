@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pembayaran;
 use App\KelompokPeserta;
+use App\User;
 
 class JadwalPesertaController extends Controller
 {
@@ -15,7 +16,7 @@ class JadwalPesertaController extends Controller
      */
     public function index()
     {
-        $peserta = Pembayaran::where('status', 'Terkonfirmasi')->latest()->get();
+        $peserta = Pembayaran::where('status', 'Terverifikasi')->latest()->get();
 
         return view('jadwal_peserta.index', compact('peserta'));
     }
@@ -88,7 +89,9 @@ class JadwalPesertaController extends Controller
 
     public function kelompok($id)
     {
+        $ketua = User::find($id);
         $peserta = KelompokPeserta::where('user_id', $id)->get();
-        return view('jadwal_pertemuan.daftar_teman', ['peserta' => $peserta]);
+
+        return view('jadwal_pertemuan.kelompok', ['peserta' => $peserta, 'ketua' => $ketua]);
     }
 }

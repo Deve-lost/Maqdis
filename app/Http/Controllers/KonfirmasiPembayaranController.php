@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Program;
-use App\Pengajar;
-use App\Peserta;
-use App\User;
+use App\Pembayaran;
 
-class DashboardController extends Controller
+class KonfirmasiPembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +14,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $programs = Program::latest()->get();
-        $pengajar = Pengajar::count();
-        $peserta  = Peserta::count();
-        $user     = User::count();
+        $pembayaran = Pembayaran::where('status', 'Belum Terverifikasi')->latest()->get();
 
-        return view('dashboard.index', compact('programs'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user]);
+        return view('konfirmasi_pembayaran.index', compact('pembayaran'));
     }
 
     /**
@@ -75,9 +69,13 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $dfp = Pembayaran::findOrFail($request->dfp_id);
+        $dfp->status = 'Terverifikasi';
+        $dfp->update();
+
+        return redirect()->route('konfirmasipem.index')->with('sukses', 'Terverifikasi');
     }
 
     /**
@@ -86,8 +84,11 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pembayaran $pembayaran)
     {
-        //
+        // unlink('images/struk/'.$pembayaran->struk);
+        $pembayaran->delete();
+
+        return redirect()->route('konfirmasipem.index')->with('sukses', 'Data Berhasil Dihapus');
     }
 }

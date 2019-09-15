@@ -60,7 +60,28 @@ Route::get('/logout', [
 
 // Admin
 Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
-	// Data Pengajar
+	// Verifikasi Pembayaran
+    Route::get('Maqdis/verifikasi-pembayaran', [
+        'uses' => 'KonfirmasiPembayaranController@index',
+        'as' => 'konfirmasipem.index'
+    ]);
+
+    Route::post('Maqdis/update/verifikasi-pembayaran', [
+        'uses' => 'KonfirmasiPembayaranController@update',
+        'as' => 'konfirmasipem.update'
+    ]);
+
+    Route::get('Maqdis/destroy/{pembayaran}/verifikasi-pembayaran', [
+        'uses' => 'KonfirmasiPembayaranController@destroy',
+        'as' => 'konfirmasipem.destroy'
+    ]);
+
+    Route::get('Maqdis/kelompok/{kelompok}/peserta', [
+        'uses' => 'JadwalPesertaController@kelompok',
+        'as' => 'kelompok.peserta'
+    ]);
+
+    // Data Pengajar
     Route::get('/Maqdis/data-pengajar', [
         'uses' => 'PengajarController@index',
         'as' => 'dp.index'

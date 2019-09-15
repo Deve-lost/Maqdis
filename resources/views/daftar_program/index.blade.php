@@ -59,20 +59,20 @@
             <div class="row">
                 <div class="col-md-6">
                     <select name="hari" id="" class="form-control">
-                        <option value="senin">Senin</option>
-                        <option value="selasa">Selasa</option>
-                        <option value="rabu">Rabu</option>
-                        <option value="kamis">Kamis</option>
-                        <option value="jumat">Jum'at</option>
-                        <option value="sabtu">Sabtu</option>
-                        <option value="minggu">Minggu</option>
+                        <option value="Senin">Senin</option>
+                        <option value="Selasa">Selasa</option>
+                        <option value="Rabu">Rabu</option>
+                        <option value="Kamis">Kamis</option>
+                        <option value="Jumat">Jum'at</option>
+                        <option value="Sabtu">Sabtu</option>
+                        <option value="Minggu">Minggu</option>
                     </select>
                 </div>
                 <div class="col-md-6">
                     <select name="jam" id="" class="form-control">
                         <option value="08.00 WIB">08.00 WIB</option>
-                        <option value="13.00 WIB">13.00 WIB</option>
                         <option value="10.00 WIB">10.00 WIB</option>
+                        <option value="13.00 WIB">13.00 WIB</option>
                         <option value="15.30 WIB">15.30 WIB</option>
                     </select>
                 </div>
