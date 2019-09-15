@@ -17,7 +17,8 @@ class Pembayaran extends Model
         'waktu',
         'kelas',
         'harga',
-        'status'
+        'status',
+        'struk'
     ];
 
     public function user()

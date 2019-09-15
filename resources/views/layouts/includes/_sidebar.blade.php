@@ -80,7 +80,7 @@
       <span>Jadwal Pertemuan</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('absen.peserta') }}">
       <i class="fas fa-fw fa-user-check"></i>
       <span>Absensi</span></a>
     </li>

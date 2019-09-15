@@ -100,37 +100,32 @@ class PembayaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Pembayaran $pembayaran)
     {
         $this->validate($request, [
             'struk' => 'required|mimes:jpg,jpeg,png'
         ]);
 
-        $pembayaran = $request->all();
+        $bayar = $request->all();
         $data = [
-            'user_id' => auth()->user()->id,
-            'nm_kegiatan' => $pembayaran['nm_kegiatan'],
-            'ket_kegiatan' => $pembayaran['ket_kegiatan'],
-            'tgl' => $pembayaran['tgl']
+            'user_id' => auth()->user()->id
         ];
 
-        $file_foto = $request->file('file');
+        $file_foto = $request->file('struk');
 
         if($file_foto){
-            unlink('images/dokumentasi/'.$dokumentasi['file']);
             $fileName = $file_foto->getClientOriginalName();
-            $data['file'] = $fileName;
+            $data['struk'] = $fileName;
 
-            $proses = $file_foto->move('images/dokumentasi/', $fileName);
-        }elseif($dokumentasi->type_file == 2){
-            $dokumentasi->update($request->all());
+            $proses = $file_foto->move('images/struk/', $fileName);
         }
+
         try{
-            DB::table('dok_prakerin')->where('id', $dokumentasi->id)->update($data);
-            return redirect()->route('dokumentasi.index')->with('sukses','Data Berhasil Diperbaharui');
+            DB::table('pembayaran')->where('user_id', $data['user_id'])->update($data);
+            return redirect()->route('status.pembayaran')->with('sukses','Struk Berhasil Diupload');
         }
         catch(\Exception $e){
-            return redirect()->route('dokumentasi.edit');
+            return redirect()->route('status.pembayaran')->with('error','');
         }
 
     }

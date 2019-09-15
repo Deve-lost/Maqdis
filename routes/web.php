@@ -291,4 +291,16 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'update.struk'
     ]);
 
+    // Absensi Peserta
+    Route::get('Maqdis/absensi-peserta', [
+        'uses' => 'AbsensiController@absensipeserta',
+        'as' => 'absen.peserta'
+    ]);
+
+    // Post Absensi Peserta
+    Route::post('Maqdis/store-absensi-peserta', [
+        'uses' => 'AbsensiController@store',
+        'as' => 'absen.store'
+    ]);
+
 });

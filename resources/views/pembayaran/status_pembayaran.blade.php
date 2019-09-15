@@ -25,6 +25,10 @@
                     </div>
                 </div>
             </div>
+
+            @if (!empty($pembayaran->struk))
+                {{-- expr --}}
+            @else
             <div class="col-md-12">
                 <form action="{{ route('update.struk', $pembayaran->user_id) }}" enctype="multipart/form-data" method="POST">
                     @csrf
@@ -73,6 +77,8 @@
 
                 </form>
             </div>
+            @endif
+
             @else
             <div class="col-md-12 mt-3">
                 <div class="card text-center">

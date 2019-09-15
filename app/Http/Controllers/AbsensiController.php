@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Absensi;
+use App\Jadwal;
 
 class AbsensiController extends Controller
 {
@@ -33,7 +34,15 @@ class AbsensiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $absen = Absensi::create([
+            'user_id' => auth()->user()->id,
+            'pengajar_id' => $request->pengajar_id,
+            'tgl_kegiatan' => '2019-14-09',
+            'absensi' => 'Hadir',
+            'status' => 'Hadir'
+        ]);
+
+        return redirect()->route('absen.peserta')->with('sukses', 'Anda Telah Absen Hari Ini');
     }
 
     /**
@@ -42,9 +51,9 @@ class AbsensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+
     }
 
     /**
@@ -79,5 +88,13 @@ class AbsensiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function absensipeserta()
+    {
+        $id = auth()->user()->id;
+        $abs = Absensi::where('user_id',$id)->first();
+        $absensi = Jadwal::first();
+        return view('absensi.absensi_peserta', ['absensi' => $absensi, 'abs' => $abs]);
     }
 }
