@@ -136,6 +136,9 @@
         var kelas = button.data('kelas')
         var harga = button.data('harga')
         var status = button.data('status')
+        var struk = button.data('struk')
+        // var gambar = val(struk);
+        var newsrc = "{{asset('images/struk/')}}"
 
         var modal = $(this)
 
@@ -149,6 +152,11 @@
         modal.find('.modal-body #kelas').val(kelas);
         modal.find('.modal-body #harga').val(harga);
         modal.find('.modal-body #status').val(status);
+        modal.find('.modal-body #struk').val(struk);
+        modal.find('.modal-body #gambar').attr("src",newsrc +'/'+ struk );
+
+
+
       })
   </script>
   <!-- /konfirmasi pembayaran -->

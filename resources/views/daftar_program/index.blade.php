@@ -139,7 +139,7 @@
                             if (value.status == 'Dekat') {
                                 $('select[name="kelas"]').append('<option value="Dekat">Dekat</option>');
                             }else{
-                                $('select[name="kelas"]').append('<option value="Jauh">Jauh</option><option value="Malam">Malam</option><option value="Jauh+Malam">Jauh + Malam</option>');
+                                $('select[name="kelas"]').append('<option value="Jauh">Jauh</option><option value="Malam">Malam</option><option value="Jauh + Malam">Jauh + Malam</option>');
                             }
                             $('#search').removeAttr("disabled");
                         });

@@ -41,7 +41,7 @@
                                     <td>{{ $data->nm_pengajar }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-info" data-dfpid="{{ $data->id }}" data-nm="{{ $data->user->name }}" data-jmlorg="{{ $data->jml_org }} Orang" data-nmprog="{{ $data->nm_program }}" data-nmpeng="{{ $data->nm_pengajar }}" data-hari="{{ $data->hari }}" data-waktu="{{ $data->waktu }}" data-kelas="{{ $data->kelas }}" data-harga="{{ $data->harga }}" data-status="{{ $data->status }}" data-toggle="modal" data-target="#showkonfirmasipembayaran"><i class="fa fa-eye"></i>
+                                        <a href="" class="btn btn-sm btn-info" data-dfpid="{{ $data->id }}" data-nm="{{ $data->user->name }}" data-jmlorg="{{ $data->jml_org }} Orang" data-nmprog="{{ $data->nm_program }}" data-nmpeng="{{ $data->nm_pengajar }}" data-hari="{{ $data->hari }}" data-waktu="{{ $data->waktu }}" data-kelas="{{ $data->kelas }}" data-harga="{{ $data->harga }}" data-status="{{ $data->status }}" data-struk="{{ $data->struk}}" data-toggle="modal" data-target="#showkonfirmasipembayaran"><i class="fa fa-eye"></i>
                                         </a>
                                         <a href="#" class="btn btn-sm btn-danger delete" peserta-id="{{ $data->id }}" peserta-nm="{{ $data->user->name }}"><i class="fa fa-trash"></i></a>
                                     </td>
