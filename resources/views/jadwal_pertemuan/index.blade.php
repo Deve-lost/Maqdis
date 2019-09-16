@@ -40,7 +40,7 @@
                                 </tr>
                                 @else
                                 <tr role="row" class="odd">
-                                    <td class="sorting_1" colspan="8">Data tidak ditemukan.</td>
+                                    <td class="sorting_1" colspan="8">Hanya Ketua yang bisa melihat ini.</td>
                                 </tr>
                                 @endif
                             </tbody>

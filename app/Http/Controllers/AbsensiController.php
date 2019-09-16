@@ -55,7 +55,7 @@ class AbsensiController extends Controller
             'nm_pengajar' => $request->pengajar_id,
             'tgl_kegiatan' => \Carbon\Carbon::now()->format('d-m-Y'),
             'absensi' => 'Hadir',
-            'status' => 'Hadir'
+            'nm_program' => $request->nm_program
         ]);
 
 

@@ -211,7 +211,6 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
 
 // Pengajar
 Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar']], function() {
-
     // Absensi Pengajar
     Route::get('Maqdis/absensi-pengajar', [
         'uses' => 'AbsensiController@absensipengajar',
@@ -224,7 +223,7 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar']], function() 
         'as' => 'absen.store_pengajar'
     ]);
 
-    Route::get('Maqdis/jadwalpengajar', [
+    Route::get('Maqdis/jadwal-pengajar', [
         'uses' => 'PembayaranController@jadwalpengajar',
         'as' => 'jadwal.pengajar'
     ]);
