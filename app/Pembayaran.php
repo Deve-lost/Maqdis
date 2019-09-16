@@ -26,4 +26,9 @@ class Pembayaran extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function pengajar()
+    {
+        return $this->belongsTo(Pengajar::class);
+    }
+
 }

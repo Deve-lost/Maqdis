@@ -91,7 +91,6 @@ class JadwalPesertaController extends Controller
     {
         $ketua = User::find($id);
         $peserta = KelompokPeserta::where('user_id', $id)->get();
-
         return view('jadwal_pertemuan.kelompok', ['peserta' => $peserta, 'ketua' => $ketua]);
     }
 }

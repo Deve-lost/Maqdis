@@ -14,7 +14,6 @@
                         <strong class="h4">Status Pembayaran</strong>
                     </div>
                     <div class="card-body">
-                        <p class="card-title h5">Nama :  {{ $pembayaran->user->name }}</p>
                         <p class="card-text">Nama Program : {{ $pembayaran->nm_program }}</p>
                         <p class="card-text">Nama Pengajar : {{ $pembayaran->nm_pengajar }}</p>
                         <p class="card-text">Hari : {{ $pembayaran->hari }}</p>
@@ -41,7 +40,8 @@
             <input type="file" name="struk" id="image" style="display: none;"/>
             <!--<input type="hidden" style="display: none" value="0" name="remove" id="remove">-->
             <a href="javascript:changeProfile()">Pilih</a> |
-            <a style="color: red" href="javascript:removeImage()">Remove</a> <br>
+            <a style="color: red" href="javascript:removeImage()">Remove</a> <br> <br>
+            <span>Silahkan Upload Struk Pembayaran</span> <br>
             @if($errors->has('struk'))
               <span class="help-block text-danger">{{$errors->first('struk')}}</span>
             @endif
@@ -75,7 +75,7 @@
             }
             </script>
             </div>
-            <button class="btn btn-sm btn-primary mx-auto mt-3 mb-4">Upload</button>
+            <button class="btn btn-sm btn-primary mx-auto mt-2 mb-4">Upload</button>
 
                 </form>
             </div>

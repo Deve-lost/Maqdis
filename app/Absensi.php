@@ -9,7 +9,7 @@ class Absensi extends Model
     protected $table = 'absensi';
     protected $fillable = [
     						'user_id',
-    						'pengajar_id',
+    						'nm_pengajar',
     						'tgl_kegiatan',
     						'absensi',
     						'status'
