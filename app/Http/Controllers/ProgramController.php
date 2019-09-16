@@ -18,7 +18,7 @@ class ProgramController extends Controller
     public function index(Request $request)
     {
         $program = Program::all();
-        $kecamatan = Kecamatan::all();
+        $kecamatan = Kecamatan::orderBy('nm_kecamatan', 'ASC')->get();
          $country_list = DB::table('pengajar')
          ->get();
         return view('daftar_program.index', ['program' => $program], ['kecamatan' => $kecamatan], ['country_list' => $country_list]);
