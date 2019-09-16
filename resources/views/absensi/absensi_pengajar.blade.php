@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Absensi Peserta')
+@section('title', 'Absensi Pengajar')
 
 @section('content')
 <div class="container-fluid">
@@ -11,12 +11,11 @@
                     </div>
                     <div class="card-body">
                         @if($absensi > '0')
-                        <form action="{{ route('absen.store') }}" method="POST">
+                        <form action="{{ route('absen.store_pengajar') }}" method="POST">
                         @csrf
                         <input type="hidden" name="pengajar_id" value="{{ $absensi->nm_pengajar }}">
-                        <input type="hidden" name="nm_program" value="{{ $absensi->nm_program }}">
                         <p>Nama Program : {{ $absensi->nm_program }}</p>
-                        <p>Nama Pengajar : {{ $absensi->nm_pengajar }}</p>
+                        {{-- <p>Nama Pengajar : {{ $absensi->nm_pengajar }}</p> --}}
                         <p>Kelas : {{ $absensi->kelas }}</p>
 
                             {{-- expr --}}
@@ -59,17 +58,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($abs as $absen)
-                                    {{-- expr --}}
+                                @php
+                                    $no=1;
+                                @endphp
                                 <tr>
-                                   <td>{{ $loop->iteration }}</td>
-                                   <td>{{ $absen->user->name }}</td>
-                                   <td>{{ $absen->nm_pengajar }}</td>
-                                   <td>{{ $absen->nm_program }}</td>
-                                   <td>{{ $absen->tgl_kegiatan }}</td>
-                                   <td class="text-primary">{{ $absen->absensi }}</td>
+                                   <td>{{ $no++ }}</td>
+                                   <td>{{ $abs->user->name }}</td>
+                                   <td>{{ $absensi->nm_pengajar }}</td>
+                                   <td>{{ $absensi->nm_program }}</td>
+                                   <td>{{ $abs->tgl_kegiatan }}</td>
+                                   <td class="text-primary">{{ $abs->status }}</td>
                                 </tr>
-                                @endforeach
                             </tbody>
                         </table></div></div>
                     </div>

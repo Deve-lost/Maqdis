@@ -55,12 +55,12 @@
     <!-- Pengajar -->
     @if(auth()->user()->role == 'Pengajar')
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('absen.pengajar') }}">
       <i class="fas fa-fw fa-calendar-check"></i>
       <span>Absensi</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="{{ route('jadwal.pengajar') }}">
       <i class="fas fa-fw fa-clipboard-list"></i>
       <span>Jadwal</span></a>
     </li>

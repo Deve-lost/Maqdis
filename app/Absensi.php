@@ -12,10 +12,15 @@ class Absensi extends Model
     						'nm_pengajar',
     						'tgl_kegiatan',
     						'absensi',
-    						'status'
+    						'nm_program'
     					];
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class);
     }
 }

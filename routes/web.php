@@ -216,7 +216,28 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
 
 // Pengajar
 Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar']], function() {
+    Route::get('/Maqdis/dashboard', [
+        'uses' => 'DashboardController@index',
+        'as' => 'dashboard'
+    ]);
 
+
+    // Absensi Pengajar
+    Route::get('Maqdis/absensi-pengajar', [
+        'uses' => 'AbsensiController@absensipengajar',
+        'as' => 'absen.pengajar'
+    ]);
+
+    // Post Absensi Peserta
+    Route::post('Maqdis/store-absensi-pengajar', [
+        'uses' => 'AbsensiController@store_pengajar',
+        'as' => 'absen.store_pengajar'
+    ]);
+
+    Route::get('Maqdis/jadwalpengajar', [
+        'uses' => 'PembayaranController@jadwalpengajar',
+        'as' => 'jadwal.pengajar'
+    ]);
 });
 
 // Peserta

@@ -15,4 +15,9 @@ class Program extends Model
     {
     	return $this->belongsTo(Jadwal::class);
     }
+
+    public function absensi()
+    {
+        return $this->belongsTo(Absensi::class);
+    }
 }

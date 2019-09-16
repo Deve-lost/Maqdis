@@ -40,11 +40,26 @@ class AbsensiController extends Controller
             'nm_pengajar' => $request->pengajar_id,
             'tgl_kegiatan' => \Carbon\Carbon::now()->format('d-m-Y'),
             'absensi' => 'Hadir',
+            'nm_program' => $request->nm_program,
             'status' => 'Hadir'
         ]);
 
 
         return redirect()->route('absen.peserta')->with('sukses', 'Anda Telah Absen Hari Ini');
+    }
+
+    public function store_pengajar(Request $request)
+    {
+        $absen = Absensi::create([
+            'user_id' => auth()->user()->id,
+            'nm_pengajar' => $request->pengajar_id,
+            'tgl_kegiatan' => \Carbon\Carbon::now()->format('d-m-Y'),
+            'absensi' => 'Hadir',
+            'status' => 'Hadir'
+        ]);
+
+
+        return redirect()->route('absen.pengajar')->with('sukses', 'Anda Telah Absen Hari Ini');
     }
 
     /**
@@ -95,11 +110,22 @@ class AbsensiController extends Controller
     public function absensipeserta()
     {
         $id = auth()->user()->id;
+        $abs = Absensi::where('user_id', $id)->get();
+        // $absensi = Jadwal::first();
+        $verif = Pembayaran::pluck('status')->first();
+        $absensi = Pembayaran::first();
+        $hari = \Carbon\Carbon::tomorrow()->format('l');
+        return view('absensi.absensi_peserta', compact('absensi', 'verif', 'abs'));
+    }
+
+    public function absensipengajar()
+    {
+        $id = auth()->user()->id;
         $abs = Absensi::where('user_id', $id)->orderBy('id', 'DESC')->first();
         // $absensi = Jadwal::first();
         $verif = Pembayaran::pluck('status')->first();
         $absensi = Pembayaran::first();
         $hari = \Carbon\Carbon::tomorrow()->format('l');
-        return view('absensi.absensi_peserta', ['absensi' => $absensi, 'abs' => $abs, 'hari' => $hari, 'verif' => $verif]);
+        return view('absensi.absensi_pengajar', ['absensi' => $absensi, 'abs' => $abs, 'hari' => $hari, 'verif' => $verif]);
     }
 }
