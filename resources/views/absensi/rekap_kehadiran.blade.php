@@ -45,9 +45,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-
-{{--                                 @foreach ($absensi as $data)
+                            @foreach ($absensi as $data)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->nm_pengajar }}</td>
@@ -55,8 +53,8 @@
                                     <td>{{ $data->tgl_kegiatan }}</td>
                                     <td>{{ $data->absensi }}</td>
                                 </tr>
-                                @endforeach
- --}}                            </tbody>
+                            @endforeach
+                           </tbody>
                         </table></div></div>
                     </div>
                 </div>
@@ -78,7 +76,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                            @foreach ($absensi as $data)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $data->nm_pengajar }}</td>
+                                    <td>{{ $data->user_id }}</td>
+                                    <td>{{ $data->tgl_kegiatan }}</td>
+                                    <td>{{ $data->absensi }}</td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table></div></div>
                     </div>

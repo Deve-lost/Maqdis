@@ -18,7 +18,7 @@
         <span>Data Pengajar</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="{{ route('jp.index') }}">
+    <a class="nav-link" href="/Maqdis/jadwal-pengajar">
       <i class="fas fa-fw fa-clipboard-list"></i>
       <span>Jadwal Pengajar</span></a>
     </li>
@@ -38,10 +38,11 @@
       <span>Rekap Kehadiran</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="{{ route('konfirmasi.index') }}">
+    {{-- <a class="nav-link" href="{{ route('konfirmasi.index') }}">
       <i class="fas fa-fw fa-check-double"></i>
       <span>Konfirmasi Lanjut Program</span></a>
     </li>
+    --}}
     <!-- Super Admin -->
     <li class="nav-item">
     <a class="nav-link" href="{{ route('pengguna.index') }}">
