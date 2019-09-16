@@ -42,5 +42,8 @@
 	<label for="status">Status</label>
 	<input type="text" class="form-control" name="status" id="status" disabled="">
 </div>
-
+<div class="form-group">
+	<label for="struk">Struk</label>
+	<img src="{{ asset('images/struk/') }}" alt="" name="struk" id="gambar" style="width: 100%">
+</div>
 
