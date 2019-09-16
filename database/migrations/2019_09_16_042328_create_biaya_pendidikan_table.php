@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAbsensiTable extends Migration
+class CreateBiayaPendidikanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateAbsensiTable extends Migration
      */
     public function up()
     {
-        Schema::create('absensi', function (Blueprint $table) {
+        Schema::create('biaya_pendidikan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->string('nm_pengajar', 191);
-            $table->string('tgl_kegiatan', 191);
-            $table->string('absensi', 191);
-            $table->string('nm_program', 191);
-            $table->string('status', 191);
+            $table->string('jml_peserta', 191);
+            $table->string('dekat', 20);
+            $table->string('jauh_malam', 20);
+            $table->string('jauhdanmalam', 20);
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateAbsensiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('absensi');
+        Schema::dropIfExists('biaya_pendidikan');
     }
 }

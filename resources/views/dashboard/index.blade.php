@@ -82,23 +82,50 @@
 	@endif
 
 	@if(auth()->user()->role == 'Pengajar')
-	<div class="row">
-	  <div class="col-xl-3 col-sm-6 mb-3">
-	    <div class="card text-white bg-primary o-hidden h-100">
-	      <div class="card-body">
-	        <div class="card-body-icon">
-	          <i class="fas fa-fw fa-users"></i>
-	        </div>
-	        <div class="mr-5">10 Total Peserta Yang Di Ajar</div>
-	      </div>
-	      <a class="card-footer text-white clearfix small z-1" href="#">
-	        <span class="float-left">View Details</span>
-	        <span class="float-right">
-	          <i class="fas fa-angle-right"></i>
-	        </span>
-	      </a>
-	    </div>
-	  </div>
+	<div class="container-fluid">
+	<div class="card mb-3">
+		<div class="card-header">
+			<i class="fas fa-table">
+				Biaya Pendidikan
+			</i>
+		</div>
+		<div class="card-body">
+			<p class="text-primary"><b>Biaya Pendaftaran Rp.100.000</b></p>
+			<div class="row">
+            	<div class="col-md-12">
+            		<div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="row"><div class="col-sm-12">
+                            <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                <thead>
+                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 6px;">No</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Jumlah Peserta</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Dekat</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Jauh/Malam</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Jauh + Malam</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($biayapendidikan as $bi)
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">{{ $loop->iteration }}</td>
+                                    <td class="sorting_1">{{ $bi->jml_peserta }}</td>
+                                    <td>{{ $bi->dekat }}</td>
+                                    <td>{{ $bi->jauh_malam }}</td>
+                                    <td>{{ $bi->jauhdanmalam }}</td>
+                                </tr>
+                                @empty
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1" colspan="5">Tidak Ada Data</td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table></div></div>
+                    </div>
+                </div>
+            	</div>
+            </div>
+		</div>
 	</div>
 	@endif
 
@@ -133,10 +160,11 @@
 	<div class="card mb-3">
 		<div class="card-header">
 			<i class="fas fa-table">
-				Daftar Harga Berdasarkan Kelas
+				Biaya Pendidikan
 			</i>
 		</div>
 		<div class="card-body">
+			<p class="text-primary"><b>Biaya Pendaftaran Rp.100.000</b></p>
 			<div class="row">
             	<div class="col-md-12">
             		<div class="table-responsive">
@@ -145,15 +173,26 @@
                             <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                 <thead>
                                     <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 6px;">No</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Nama Pengajar</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Jenis Kelamin</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Pendidikan</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Kontak</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 20px;">Opsi</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Jumlah Peserta</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Dekat</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Jauh/Malam</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Jauh + Malam</th>
                                 </tr>
                             </thead>
                             <tbody>
-                               
+                                @forelse($biayapendidikan as $bi)
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">{{ $loop->iteration }}</td>
+                                    <td class="sorting_1">{{ $bi->jml_peserta }}</td>
+                                    <td>{{ $bi->dekat }}</td>
+                                    <td>{{ $bi->jauh_malam }}</td>
+                                    <td>{{ $bi->jauhdanmalam }}</td>
+                                </tr>
+                                @empty
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1" colspan="5">Tidak Ada Data</td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table></div></div>
                     </div>

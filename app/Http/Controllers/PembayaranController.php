@@ -42,20 +42,6 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        // foreach ($request->jml_org as $isi) {
-        //     $pembayaran = new Pembayaran;
-        //     $pembayaran->user_id = auth()->user()->id;
-        //     $pembayaran->jml_org = $isi;
-        //     $pembayaran->nm_program = $request->nm_program;
-        //     $pembayaran->nm_pengajar = $request->nm_pengajar;
-        //     $pembayaran->hari = $request->hari;
-        //     $pembayaran->waktu = $request->waktu;
-        //     $pembayaran->kelas = $request->kelas;
-        //     $pembayaran->harga = $request->harga;
-        //     $pembayaran->status = 'Belum Terkonfirmasi';
-        //     $pembayaran->save();
-        // }
         $pembayaran = Pembayaran::create([
             'user_id' => auth()->user()->id,
             'jml_org' => $request->jml_org,
@@ -145,10 +131,18 @@ class PembayaranController extends Controller
     public function jadwalpertemuan()
     {
         $id = auth()->user()->id;
+        $pembayaran = Pembayaran::where('user_id', $id)->where('status', 'Terverifikasi')->first();
+
+        return view('jadwal_pertemuan.index', ['pembayaran' => $pembayaran]);
+    }
+
+    public function jadwalpengajar()
+    {
+        $id = auth()->user()->id;
         $idp = KelompokPeserta::pluck('user_id')->first();
         $pembayaran = Pembayaran::where('user_id', $id)->orWhere('status', 'Terverifikasi')->orWhere('user_id', '$idp')->first();
         // dd($pembayaran);
-        return view('jadwal_pertemuan.index', ['pembayaran' => $pembayaran]);
+        return view('jadwal_pertemuan.jadwal_pengajar', ['pembayaran' => $pembayaran]);
     }
 
     public function statuspembayaran()
@@ -157,14 +151,6 @@ class PembayaranController extends Controller
         $idp = KelompokPeserta::pluck('user_id')->first();
         $pembayaran = Pembayaran::where('user_id', $id)->orWhere('user_id', $idp)->first();
         return view('pembayaran.status_pembayaran', ['pembayaran' => $pembayaran]);
-    }
-
-    public function cobadulu(Request $request)
-    {
-        $this->validate($request, [
-            'struk' => 'required|mimes:jpg,jpeg,png'
-        ]);
-        dd($request->all());
     }
 
 }

@@ -8,6 +8,7 @@ use App\Pengajar;
 use App\Peserta;
 use App\Pembayaran;
 use App\User;
+use App\biaya_pendidikan;
 
 class DashboardController extends Controller
 {
@@ -19,12 +20,13 @@ class DashboardController extends Controller
     public function index()
     {
         $programs = Program::latest()->get();
+        $biayapendidikan = biaya_pendidikan::all();
         $pembayaran = Pembayaran::count();
         $pengajar = Pengajar::count();
         $peserta  = Peserta::count();
         $user     = User::count();
 
-        return view('dashboard.index', compact('programs'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user, 'pembayaran' => $pembayaran]);
+        return view('dashboard.index', compact('programs', 'biayapendidikan'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user, 'pembayaran' => $pembayaran]);
     }
 
     /**

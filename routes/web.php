@@ -76,11 +76,6 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
         'as' => 'konfirmasipem.destroy'
     ]);
 
-    Route::get('Maqdis/kelompok/{kelompok}/peserta', [
-        'uses' => 'JadwalPesertaController@kelompok',
-        'as' => 'kelompok.peserta'
-    ]);
-
     // Data Pengajar
     Route::get('/Maqdis/data-pengajar', [
         'uses' => 'PengajarController@index',
@@ -216,10 +211,23 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
 
 // Pengajar
 Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar']], function() {
-    // Jadwal Mengajar
-    // Route::get('Maqdis/jadwal-mengajar', [
-    //     'uses' => 'PembayaranController@'
-    // ]);
+    // Absensi Pengajar
+    Route::get('Maqdis/absensi-pengajar', [
+        'uses' => 'AbsensiController@absensipengajar',
+        'as' => 'absen.pengajar'
+    ]);
+
+    // Post Absensi Peserta
+    Route::post('Maqdis/store-absensi-pengajar', [
+        'uses' => 'AbsensiController@store_pengajar',
+        'as' => 'absen.store_pengajar'
+    ]);
+
+    Route::get('Maqdis/jadwal-mengajar', [
+        'uses' => 'PembayaranController@jadwalpengajar',
+        'as' => 'jadwal.pengajar'
+    ]);
+
 });
 
 // Peserta
@@ -260,8 +268,6 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
     ]);
 
     // Jadwal Pertemuan
-
-
     Route::get('Maqdis/jadwal-pertemuan', [
         'uses' => 'PembayaranController@jadwalpertemuan',
         'as' => 'jadwal.pertemuan'
@@ -269,7 +275,6 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
 
 
     // Jadwal Pertemuan ID
-
     Route::get('Maqdis/jadwal-pertemuan/{id}', [
         'uses' => 'JadwalPesertaController@kelompok',
         'as' => 'jadwal.temuid'
@@ -319,6 +324,12 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
     Route::get('Maqdis/absensi-peserta', [
         'uses' => 'AbsensiController@absensipeserta',
         'as' => 'absen.peserta'
+    ]);
+
+    // Kelompok Peserta
+    Route::get('Maqdis/kelompok/{kelompok}/peserta', [
+        'uses' => 'JadwalPesertaController@kelompok',
+        'as' => 'kelompok.peserta'
     ]);
 
     // Post Absensi Peserta
