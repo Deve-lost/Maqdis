@@ -12,7 +12,8 @@ class Absensi extends Model
     						'nm_pengajar',
     						'tgl_kegiatan',
     						'absensi',
-    						'nm_program'
+                            'nm_program',
+    						'status'
     					];
     public function user()
     {

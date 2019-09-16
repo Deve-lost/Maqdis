@@ -14,7 +14,6 @@
                             <label for="pengajar_id" class="col-xs-3 control-label">Pengajar</label>
                             <div class="col-xs-9">
                                 <select class="form-control" id="pengajar_id" name="pengajar_id">
-                                    <option selected="">-- Pilih Pengajar --</option>
                                     @foreach($pengajars as $pengajar)
                                     <option value="{{ $pengajar->id }}">{{ $pengajar->nm_pengajar }}</option>
                                     @endforeach
@@ -25,7 +24,7 @@
                             @endif
                         </div>
                       </div>
-                        
+
                         <div class="col-md-5">
                         <div class="form-group {{$errors->has('program_id') ? ' has-error' : ''}}">
                             <label for="program_id" class="col-xs-3 control-label">Program</label>
@@ -75,7 +74,7 @@
                             @endif
                         </div>
                     </div>
-                 
+
                 <div class="col-md-10 mt-3">
                     <div class="form-group">
                         <div class="col-xs">
