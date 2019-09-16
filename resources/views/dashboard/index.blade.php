@@ -20,7 +20,7 @@
 	        <div class="card-body-icon">
 	          <i class="fas fa-fw fa-check"></i>
 	        </div>
-	        <div class="mr-5">Konfirmasi Pembayaran</div>
+	        <div class="mr-5">{{ $pembayaran }} Konfirmasi Pembayaran</div>
 	      </div>
 	      <a class="card-footer text-white clearfix small z-1" href="#">
 	        <span class="float-left">View Details</span>
@@ -128,6 +128,39 @@
                 @endforelse
             </div>
 	    </div>
+	</div>
+
+	<div class="card mb-3">
+		<div class="card-header">
+			<i class="fas fa-table">
+				Daftar Harga Berdasarkan Kelas
+			</i>
+		</div>
+		<div class="card-body">
+			<div class="row">
+            	<div class="col-md-12">
+            		<div class="table-responsive">
+                    <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        <div class="row"><div class="col-sm-12">
+                            <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                <thead>
+                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 6px;">No</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Nama Pengajar</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Jenis Kelamin</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Pendidikan</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Kontak</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 20px;">Opsi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                            </tbody>
+                        </table></div></div>
+                    </div>
+                </div>
+            	</div>
+            </div>
+		</div>
 	</div>
 	@endif
 </div>

@@ -216,7 +216,10 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
 
 // Pengajar
 Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar']], function() {
-
+    // Jadwal Mengajar
+    // Route::get('Maqdis/jadwal-mengajar', [
+    //     'uses' => 'PembayaranController@'
+    // ]);
 });
 
 // Peserta

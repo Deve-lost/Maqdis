@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Program;
 use App\Pengajar;
 use App\Peserta;
+use App\Pembayaran;
 use App\User;
 
 class DashboardController extends Controller
@@ -18,11 +19,12 @@ class DashboardController extends Controller
     public function index()
     {
         $programs = Program::latest()->get();
+        $pembayaran = Pembayaran::count();
         $pengajar = Pengajar::count();
         $peserta  = Peserta::count();
         $user     = User::count();
 
-        return view('dashboard.index', compact('programs'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user]);
+        return view('dashboard.index', compact('programs'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user, 'pembayaran' => $pembayaran]);
     }
 
     /**
