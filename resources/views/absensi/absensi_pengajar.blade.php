@@ -19,8 +19,7 @@
                         <p>Kelas : {{ $absensi->kelas }}</p>
                         {{-- expr --}}
                         @elseif($verif < '0')
-                        <p class="mt-3">Silahkan Verifikasi Pembayaran terlebih dahulu.</p>
-                        <a  href="{{ route('status.pembayaran') }}" class="btn btn-sm btn-primary">Status Pembayaran</a>
+                        <p class="mt-2">Belum Ada Jadwal.</p>
                         @endif
 
                         <button class="btn btn-sm btn-primary">Absen</button>
