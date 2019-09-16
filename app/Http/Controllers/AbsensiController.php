@@ -12,9 +12,10 @@ class AbsensiController extends Controller
     /*--- Function Admin ---*/
     public function index()
     {
-        $absensi = Absensi::latest()->get();
+        $absensipeng = Absensi::where('status', 'Pengajar')->latest()->get();
+        $absensipes = Absensi::where('status', 'Peserta')->latest()->get();
 
-        return view('absensi.rekap_kehadiran', compact('absensi'));
+        return view('absensi.rekap_kehadiran', compact('absensipeng','absensipes'));
     }
 
     /**

@@ -45,7 +45,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($absensi as $data)
+                            @foreach ($absensipeng as $data)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->nm_pengajar }}</td>
@@ -76,7 +76,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach ($absensi as $data)
+                            @foreach ($absensipes as $data)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->nm_pengajar }}</td>
