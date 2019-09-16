@@ -223,7 +223,7 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar']], function() 
         'as' => 'absen.store_pengajar'
     ]);
 
-    Route::get('Maqdis/jadwal-pengajar', [
+    Route::get('Maqdis/jadwal-mengajar', [
         'uses' => 'PembayaranController@jadwalpengajar',
         'as' => 'jadwal.pengajar'
     ]);

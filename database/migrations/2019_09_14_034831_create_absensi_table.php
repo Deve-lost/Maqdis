@@ -20,6 +20,7 @@ class CreateAbsensiTable extends Migration
             $table->string('tgl_kegiatan', 191);
             $table->string('absensi', 191);
             $table->string('nm_program', 191);
+            $table->string('status', 191);
             $table->timestamps();
         });
     }
