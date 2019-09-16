@@ -1,4 +1,5 @@
 @extends('layouts.master')
+
 @section('title', 'Pembayaran')
 
 @section('content')
@@ -46,7 +47,8 @@
                                 <tr>
                                     <td><strong>Jumlah Orang</strong></td>
                                     <td class="text-center"><strong>Harga</strong></td>
-                                    <td class="text-right"><strong>Total Harga</strong></td>
+                                    <td class="text-center"><strong>Biaya Pendidikan</strong></td>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,7 +89,7 @@
                                     @php
                                         $jml = 9;
                                     @endphp
-                                @elseif ($request['jml_org'] == '600.000')
+                                @elseif ($request['jml_org'] == '600000')
                                     @php
                                         $jml = 10;
                                     @endphp

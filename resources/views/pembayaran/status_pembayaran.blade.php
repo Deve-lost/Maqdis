@@ -18,7 +18,7 @@
                         <p class="card-text">Nama Pengajar : {{ $pembayaran->nm_pengajar }}</p>
                         <p class="card-text">Hari : {{ $pembayaran->hari }}</p>
                         <p class="card-text">Waktu : {{ $pembayaran->waktu }}</p>
-                        <p class="card-text">Harga : {{ $pembayaran->harga }}</p>
+                        <p class="card-text">Biaya Pendidikan : {{ $pembayaran->harga }}</p>
                         <p class="card-text text-primary">Status : {{ $pembayaran->status }}</p>
 
                     </div>
