@@ -60,7 +60,7 @@
       <span>Absensi</span></a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="{{ route('jadwalmengajar.index') }}">
+    <a class="nav-link" href="">
       <i class="fas fa-fw fa-clipboard-list"></i>
       <span>Jadwal</span></a>
     </li>

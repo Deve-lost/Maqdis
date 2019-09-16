@@ -1,4 +1,5 @@
 @extends('layouts.master')
+
 @section('title', 'Pembayaran')
 
 @section('content')
@@ -45,48 +46,48 @@
                             <thead>
                                 <tr>
                                     <td><strong>Jumlah Orang</strong></td>
-                                    <td class="text-center"><strong>Harga</strong></td>
+                                    <td class="text-center"><strong>Biaya Pendidikan</strong></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- foreach ($order->lineItems as $line) or some such thing here -->
-                                @if ($request['jml_org'] == '1000')
+                                @if ($request['jml_org'] == '350.000')
                                     @php
                                         $jml = 1;
                                     @endphp
-                                @elseif ($request['jml_org'] == '2000')
+                                @elseif ($request['jml_org'] == '450.000')
                                     @php
                                         $jml = 2;
                                     @endphp
-                                @elseif ($request['jml_org'] == '3000')
+                                @elseif ($request['jml_org'] == '450.000')
                                     @php
                                         $jml = 3;
                                     @endphp
-                                @elseif ($request['jml_org'] == '4000')
+                                @elseif ($request['jml_org'] == '500.000')
                                     @php
                                         $jml = 4;
                                     @endphp
-                                @elseif ($request['jml_org'] == '5000')
+                                @elseif ($request['jml_org'] == '500.000')
                                     @php
                                         $jml = 5;
                                     @endphp
-                                @elseif ($request['jml_org'] == '6000')
+                                @elseif ($request['jml_org'] == '500.000')
                                     @php
                                         $jml = 6;
                                     @endphp
-                                @elseif ($request['jml_org'] == '7000')
+                                @elseif ($request['jml_org'] == '550.000')
                                     @php
                                         $jml = 7;
                                     @endphp
-                                @elseif ($request['jml_org'] == '8000')
+                                @elseif ($request['jml_org'] == '550.000')
                                     @php
                                         $jml = 8;
                                     @endphp
-                                @elseif ($request['jml_org'] == '9000')
+                                @elseif ($request['jml_org'] == '600.000')
                                     @php
                                         $jml = 9;
                                     @endphp
-                                @elseif ($request['jml_org'] == '10000')
+                                @elseif ($request['jml_org'] == '600.000')
                                     @php
                                         $jml = 10;
                                     @endphp
