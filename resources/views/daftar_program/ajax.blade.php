@@ -24,7 +24,7 @@
                         <p class="card-text text-center"><strong>Pendidikan</strong> : {{ $data->pendidikan }}</p>
                         <p class="card-text text-center"><strong>Kontak</strong> : {{ $data->kontak }}</p>
                         <p class="card-text text-center"><strong>Program</strong> : {{ $data->nm_program }}</p>
-                        <button class="btn btn-primary">Pesan</button>
+                        <button class="btn btn-primary text-center">Pilih</button>
                     </div>
                 </div>
             </div>

@@ -80,10 +80,10 @@
                             @endif
                         </div>
                     </div>
-                    
+
                     <div class="col-md-10">
                         <div class="form-group {{$errors->has('avatar') ? ' has-error' : ''}}">
-                            <label for="avatar" class="col-xs-3 control-label">Avatar</label>
+                            <label for="avatar" class="col-xs-3 control-label">Foto</label>
                             <div class="col-xs-9">
                                 <input type="file" class="" id="avatar" name="avatar" placeholder="No Wa/Hp">
                             </div>
