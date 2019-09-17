@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Hash;
 use Auth;
+use App\Peserta;
 
 class PenggunaController extends Controller
 {

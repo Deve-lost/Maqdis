@@ -25,10 +25,8 @@
                 </div>
             </div>
 
-            @if (!empty($pembayaran->struk))
-                {{-- expr --}}
-            @else
-            <div class="col-md-12">
+            @if ($pembayaran->status == 'Belum Terverifikasi')
+                       <div class="col-md-12">
                 <br>
                 <div class="text-center">Tanda Bukti Pembayaran</div>
                 <form action="{{ route('update.struk', $pembayaran->user_id) }}" enctype="multipart/form-data" method="POST">
@@ -79,6 +77,8 @@
 
                 </form>
             </div>
+            @else
+
             @endif
 
             @else
