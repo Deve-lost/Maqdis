@@ -17,6 +17,7 @@ class CreateKelompokPesertaTable extends Migration
             $table->bigIncrements('id');
             $table->integer('peserta_id');
             $table->integer('user_id');
+            $table->string('status', 191);
             $table->timestamps();
         });
     }
