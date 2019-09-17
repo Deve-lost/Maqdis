@@ -9,6 +9,7 @@ use App\Peserta;
 use App\Pembayaran;
 use App\User;
 use App\BiayaPendidikan;
+use App\KelompokPeserta;
 
 class DashboardController extends Controller
 {
@@ -25,8 +26,11 @@ class DashboardController extends Controller
         $pengajar = Pengajar::count();
         $peserta  = Peserta::count();
         $user     = User::count();
+        // $id = User::find(7);
+        $konfirm = KelompokPeserta::where('user_id', '7')->where('status', 'Belum Dikonfirmasi')->get();
+        // dd($konfirm);
 
-        return view('dashboard.index', compact('programs', 'biayapendidikan'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user, 'pembayaran' => $pembayaran]);
+        return view('dashboard.index', compact('programs', 'biayapendidikan','konfirm'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user, 'pembayaran' => $pembayaran]);
     }
 
     /**

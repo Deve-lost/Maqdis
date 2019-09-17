@@ -44,10 +44,12 @@ class PesertaController extends Controller
             'add' => 'required',
         ]);
 
+        // dd($request->all());
         foreach ($request->add as $isi) {
              $check = new KelompokPeserta;
              $check->user_id = $id;
              $check->peserta_id = $isi;
+             $check->status = 'Belum dikonfirmasi';
              $check->save();
          }
 

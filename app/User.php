@@ -47,4 +47,9 @@ class User extends Authenticatable
         return $this->belongsTo(Absensi::class);
     }
 
+    public function kelompokpeserta()
+    {
+        return $this->hasOne('App\KelompokPeserta');
+    }
+
 }

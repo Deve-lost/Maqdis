@@ -131,8 +131,20 @@
 		@endif
 
 		@if(auth()->user()->role == 'Peserta')
-		<div class="container-fluid">
+
+
+    	<div class="container-fluid">
 			<!-- Icon Cards-->
+              @foreach ($konfirm as $data)
+            <div class="alert alert-primary" role="alert">
+                  {{ $data->user->name }} mengundang anda untuk bergabung!
+
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+              @endforeach
+
 			<div class="card mb-3">
 				<div class="card-header">
 					<i class="fas fa-table"></i>
