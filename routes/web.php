@@ -305,6 +305,12 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'pengguna.proflie'
     ]);
 
+    // Ganti Foto Profile
+    Route::post('foto-post/{id}', [
+        'uses' => 'PesertaController@gantifoto',
+        'as' => 'update.foto'
+    ]);
+
     Route::get('/Maqdis/ubah/{user}/password-pengguna', [
         'uses' => 'PenggunaController@ubahpw',
         'as' => 'pengguna.ubahpw'
@@ -315,6 +321,7 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'pengguna.up'
     ]);
 
+    // Struk
     Route::post('struk-post/{id}', [
         'uses' => 'PembayaranController@update',
         'as' => 'update.struk'

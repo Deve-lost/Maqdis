@@ -62,6 +62,7 @@ class PengajarController extends Controller
         $user->name = $request->nm_pengajar;
         $user->email = $request->email;
         $user->password = bcrypt('inovindo');
+        $user->avatar = 'user.png';
         $user->remember_token = str_random(60);
         $user->save();
 

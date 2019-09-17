@@ -109,4 +109,34 @@ class PesertaController extends Controller
         return view('peserta.tambah_peserta', ['peserta' => $peserta, 'idp' => $idp]);
     }
 
+    public function gantifoto(Request $request, $id)
+    {
+        $this->validate($request, [
+            'avatar' => 'required|mimes:jpg,jpeg,png'
+        ]);
+
+        // $bayar = $request->all();
+        // $data = [
+        //     'id' => $peserta->id
+        // ];
+
+
+        $file_foto = $request->file('avatar');
+
+        if($file_foto){
+            $fileName = $file_foto->getClientOriginalName();
+            $data['avatar'] = $fileName;
+
+            $proses = $file_foto->move('images/avatar/', $fileName);
+        }
+
+        try{
+            DB::table('users')->where('id', $id)->update($data);
+            return redirect()->back()->with('sukses','Berhasil diganti');
+        }
+        catch(\Exception $e){
+            return redirect()->back()->with('error','');
+        }
+    }
+
 }
