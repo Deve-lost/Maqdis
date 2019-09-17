@@ -59,7 +59,7 @@
       <div class="contanier">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Tentang Kita</h2>
+            <h2 class="section-heading text-uppercase">Tentang Kami</h2>
             <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
           </div>
           <div class="row text-center">
@@ -77,11 +77,27 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <h2 class="section-heading text-uppercase">Program Kita</h2>
+              <h2 class="section-heading text-uppercase">Program Kami</h2>
               <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
             </div>
           </div>
           <div class="row text-center">
+            <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="service-heading">Ihsan</h4>
+              <p class="text-muted">Program belajar membaca Al-Quran dari dasar dengan target menjadi pembaca Al-Quran yang lancar, baik dan benar</p>
+            </div>
+            <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                <i class="fas fa-praying-hands fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="service-heading">Tahsin</h4>
+              <p class="text-muted">Program memperbaiki bacaan Al-Quran dengan target menjadi guru Al-Quran yang produktif</p>
+            </div>
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
@@ -90,28 +106,12 @@
               <h4 class="service-heading">Tahfidz</h4>
               <p class="text-muted">Program menghafal Al-Quran</p>
             </div>
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-book fa-stack-1x fa-inverse"></i>
-              </span>
-              <h4 class="service-heading">Tahsin</h4>
-              <p class="text-muted">Program memperbaiki bacaan Al-Quran dengan target menjadi guru Al-Quran yang produktif</p>
-            </div>
-            <div class="col-md-4">
-              <span class="fa-stack fa-4x">
-                <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-quran fa-stack-1x fa-inverse"></i>
-              </span>
-              <h4 class="service-heading">Ihsan</h4>
-              <p class="text-muted">Program belajar membaca Al-Quran dari dasar dengan target menjadi pembaca Al-Quran yang lancar, baik dan benar</p>
-            </div>
           </div>
           <div class="row text-center">
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-user-graduate fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-assistive-listening-systems fa-stack-1x fa-inverse"></i>
               </span>
               <h4 class="service-heading">Maqomat (Irama)</h4>
               <p class="text-muted">Program memperindah bacaan Al-Quran'</p>
@@ -119,7 +119,7 @@
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-kaaba fa-stack-1x fa-inverse"></i>
               </span>
               <h4 class="service-heading">Bahasa Arabqu</h4>
               <p class="text-muted">Program bimbingan bahasa arab untuk menerjemahkan Al-Quran</p>
@@ -127,7 +127,7 @@
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-graduation-cap fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-star-and-crescent fa-stack-1x fa-inverse"></i>
               </span>
               <h4 class="service-heading">TakTik</h4>
               <p class="text-muted">Program Tafsir kajian tematik</p>
@@ -137,7 +137,7 @@
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-book-reader fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-mosque fa-stack-1x fa-inverse"></i>
               </span>
               <h4 class="service-heading">Ta-Mat Al-Jazary</h4>
               <p class="text-muted">Program Talaqi Matan Al-Jazary</p>
@@ -145,7 +145,7 @@
             <div class="col-md-4">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                <i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+                <i class="fas fa-book-reader fa-stack-1x fa-inverse"></i>
               </span>
               <h4 class="service-heading">Mahir Membaca Mushaf Madinah</h4>
               <p class="text-muted">Program penguasaan tanda-tanda baca dalam mushaf madinah</p>
@@ -160,26 +160,31 @@
           <div class="row">
             <div class="col-lg-12 text-center">
               <h2 class="section-heading text-uppercase">Kontak</h2>
-              <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
             </div>
           </div>
           <div class="row align-items-center text-center">
-            <div class="col-sm-4 mt-5 pb-3">
-              <a href="https://facebook.com" target="_blank">
+            <div class="col-sm-3 mt-5 pb-3">
+              <a href="https://www.facebook.com/pages/category/Education/Maqdis-Bandung-705553549487717/" target="_blank">
                 <i class="fab fa-facebook fa-7x kontak"></i>
-                <h4>Maqdis</h4>
+                <h4>Maqdis Bandung</h4>
               </a>
             </div>
-            <div class="col-sm-4 mt-5 pb-3">
-              <a href="https://wa.me/6285">
+            <div class="col-sm-3 mt-5 pb-3">
+              <a href="te:0227536272" target="_blank">
+                <i class="fas fa-phone fa-7x kontak"></i>
+                <h4>022-7536272</h4>
+              </a>
+            </div>
+            <div class="col-sm-3 mt-5 pb-3">
+              <a href="https://api.whatsapp.com/send?phone=6285871368920&amp;text=">
                 <i class="fab fa-whatsapp fa-7x kontak"></i>
-                <h4>+6285</h4>
+                <h4>+6285871368920</h4>
               </a>
             </div>
-            <div class="col-sm-4 mt-5 pb-3">
-              <a href="https://instagram.com" target="_blank">
+            <div class="col-sm-3 mt-5 pb-3">
+              <a href="https://www.instagram.com/metodemaqdis/?hl=id" target="_blank">
                 <i class="fab fa-instagram fa-7x kontak"></i>
-                <h4>Maqdis</h4>
+                <h4>@metodemaqdis</h4>
               </a>
             </div>
           </div>
@@ -192,10 +197,10 @@
       </section>
       <ul class="bodoamat">
         <li>
-          <a href="https://api.whatsapp.com/send?phone=6285" target="_BLANK" class="whatsapp"><i class="fab fa-whatsapp fa-2x"></i></a>
+          <a href="https://api.whatsapp.com/send?phone=6285871368920&amp;text=" target="_BLANK" class="whatsapp"><i class="fab fa-whatsapp fa-2x"></i></a>
         </li>
         <li>
-          <a href="http://instagram.com/" target="_BLANK" class="instagram"><i class="fab fa-instagram fa-2x"></i></a>
+          <a href="https://www.instagram.com/metodemaqdis/?hl=id" target="_BLANK" class="instagram"><i class="fab fa-instagram fa-2x"></i></a>
         </li>
       </ul>
       

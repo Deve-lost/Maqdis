@@ -83,11 +83,11 @@
 
                   </div>
 
-                  <div class="form-group {{$errors->has('tgl_lahir') ? ' has-error' : ''}}">
+                  <div class="form-group {{$errors->has('ttl') ? ' has-error' : ''}}">
                     <p>*Tempat Tanggal Lahir</p>
-                    <input class="form-control" id="tgl_lahir" type="text" placeholder="Kab/Kota, Tanggal Bulan Tahun" required="required" name="tgl_lahir" value="{{ old('tgl_lahir') }}">
-                    @if($errors->has('tgl_lahir'))
-                      <span class="help-block text-danger">{{$errors->first('tgl_lahir')}}</span>
+                    <input class="form-control" id="ttl" type="text" placeholder="Kab/Kota, Tanggal Bulan Tahun" required="required" name="ttl" value="{{ old('ttl') }}">
+                    @if($errors->has('ttl'))
+                      <span class="help-block text-danger">{{$errors->first('ttl')}}</span>
                     @endif
                   </div>
 
@@ -105,20 +105,20 @@
                 </div>
 
                 <div class="col-md-6">
-                  <div class="form-group {{$errors->has('no_wa') ? ' has-error' : ''}}">
-                    <input class="form-control" id="no_wa" type="text" placeholder="No.Hp / Whatsapp" required="required" name="no_wa" value="{{ old('no_wa') }}">
+                  <div class="form-group {{$errors->has('kontak') ? ' has-error' : ''}}">
+                    <input class="form-control" id="kontak" type="text" placeholder="No.Hp / Whatsapp" required="required" name="kontak" value="{{ old('kontak') }}">
 
-                    @if($errors->has('no_wa'))
-                      <span class="help-block text-danger">{{$errors->first('no_wa')}}</span>
+                    @if($errors->has('kontak'))
+                      <span class="help-block text-danger">{{$errors->first('kontak')}}</span>
                     @endif
 
                   </div>
 
-                  <div class="form-group {{$errors->has('alamat_lengkap') ? ' has-error' : ''}}">
-                    <textarea class="form-control" id="alamat" placeholder="Alamat" required="required"  name="alamat_lengkap">{{ old('alamat_lengkap') }}</textarea>
+                  <div class="form-group {{$errors->has('alamat') ? ' has-error' : ''}}">
+                    <textarea class="form-control" id="alamat" placeholder="Alamat" required="required"  name="alamat">{{ old('alamat') }}</textarea>
 
-                    @if($errors->has('alamat_lengkap'))
-                      <span class="help-block text-danger">{{$errors->first('alamat_lengkap')}}</span>
+                    @if($errors->has('alamat'))
+                      <span class="help-block text-danger">{{$errors->first('alamat')}}</span>
                     @endif
 
                   </div>
