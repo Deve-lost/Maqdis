@@ -53,52 +53,223 @@
                             </thead>
                             <tbody>
                                 <!-- foreach ($order->lineItems as $line) or some such thing here -->
-                                @if ($request['jml_org'] == '350000')
+                                {{-- 1 Orang --}}
+                                @if ($request['jml_org'] == '1' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 1;
+                                        $bp = 350000;
                                     @endphp
-                                @elseif ($request['jml_org'] == '450000')
+                                @elseif ($request['jml_org'] == '1' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 1;
+                                        $bp = 400000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '1' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 1;
+                                        $bp = 400000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '1' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 1;
+                                        $bp = 450000;
+                                    @endphp
+                                {{-- 2 Orang --}}
+                                @elseif ($request['jml_org'] == '2' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 2;
+                                        $bp = 450000;
                                     @endphp
-                                @elseif ($request['jml_org'] == '450000')
+                                @elseif ($request['jml_org'] == '2' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 2;
+                                        $bp = 500000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '2' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 2;
+                                        $bp = 500000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '2' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 2;
+                                        $bp = 550000;
+                                    @endphp
+                                {{-- 3 Orang --}}
+                                @elseif ($request['jml_org'] == '3' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 3;
+                                        $bp = 450000;
                                     @endphp
-                                @elseif ($request['jml_org'] == '500000')
+                                @elseif ($request['jml_org'] == '3' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 3;
+                                        $bp = 500000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '3' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 3;
+                                        $bp = 500000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '3' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 3;
+                                        $bp = 550000;
+                                    @endphp
+                                {{-- 4 Orang --}}
+                                @elseif ($request['jml_org'] == '4' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 4;
+                                        $bp = 500000;
                                     @endphp
-                                @elseif ($request['jml_org'] == '500000')
+                                @elseif ($request['jml_org'] == '4' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 4;
+                                        $bp = 550000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '4' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 4;
+                                        $bp = 550000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '4' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 4;
+                                        $bp = 600000;
+                                    @endphp
+                                {{-- 5 Orang --}}
+                                @elseif ($request['jml_org'] == '5' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 5;
+                                        $bp = 500000;
                                     @endphp
-                                @elseif ($request['jml_org'] == '500000')
+                                @elseif ($request['jml_org'] == '5' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 5;
+                                        $bp = 550000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '5' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 5;
+                                        $bp = 550000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '5' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 5;
+                                        $bp = 600000;
+                                    @endphp
+                                {{-- 6 Orang --}}
+                                @elseif ($request['jml_org'] == '6' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 6;
+                                        $bp = 500000;
                                     @endphp
-                                @elseif ($request['jml_org'] == '550000')
+                                @elseif ($request['jml_org'] == '6' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 6;
+                                        $bp = 550000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '6' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 6;
+                                        $bp = 550000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '6' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 6;
+                                        $bp = 600000;
+                                    @endphp
+                                {{-- 7 Orang --}}
+                                @elseif ($request['jml_org'] == '7' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 7;
+                                        $bp = 550000;
                                     @endphp
-                                @elseif ($request['jml_org'] == '550000')
+                                @elseif ($request['jml_org'] == '7' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 7;
+                                        $bp = 600000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '7' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 7;
+                                        $bp = 600000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '7' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 7;
+                                        $bp = 650000;
+                                    @endphp
+                                {{-- 8 Orang --}}
+                                @elseif ($request['jml_org'] == '8' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 8;
+                                        $bp = 550000;
                                     @endphp
-                                @elseif ($request['jml_org'] == '600000')
+                                @elseif ($request['jml_org'] == '8' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 8;
+                                        $bp = 600000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '8' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 8;
+                                        $bp = 600000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '8' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 8;
+                                        $bp = 650000;
+                                    @endphp
+                                {{-- 9 Orang --}}
+                                @elseif ($request['jml_org'] == '9' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 9;
+                                        $bp = 600000;
                                     @endphp
-                                @elseif ($request['jml_org'] == '600000')
+                                @elseif ($request['jml_org'] == '9' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 9;
+                                        $bp = 650000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '9' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 9;
+                                        $bp = 650000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '9' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 9;
+                                        $bp = 700000;
+                                    @endphp
+                                {{-- 10 Orang --}}
+                                @elseif ($request['jml_org'] == '10' && $request['kelas'] == 'Dekat')
                                     @php
                                         $jml = 10;
+                                        $bp = 600000;
                                     @endphp
+                                @elseif ($request['jml_org'] == '10' && $request['kelas'] == 'Jauh')
+                                    @php
+                                        $jml = 10;
+                                        $bp = 650000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '10' && $request['kelas'] == 'Malam')
+                                    @php
+                                        $jml = 10;
+                                        $bp = 650000;
+                                    @endphp
+                                @elseif ($request['jml_org'] == '10' && $request['kelas'] == 'Jauh + Malam')
+                                    @php
+                                        $jml = 10;
+                                        $bp = 700000;
+                                    @endphp
+
 
                                 @endif
                                 <tr>
                                     <td class="thick-line">{{ $jml }} Orang</td>
-                                    <td class="thick-line text-center"><strong>Rp.{{ number_format($request['jml_org'],0,',','.')}}</strong></td>
-                                    <td class="thick-line text-right"><strong>Rp.{{ number_format($hrg = $request['jml_org']+100000,0,',','.') }}</strong></td>
+                                    <td class="thick-line text-center"><strong>Rp.{{ number_format($bp,0,',','.')}}</strong></td>
+                                    <td class="thick-line text-right"><strong>Rp.{{ number_format($hrg = $bp+100000,0,',','.') }}</strong></td>
                                 </tr>
 
                                 <tr>

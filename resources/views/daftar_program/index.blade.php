@@ -78,16 +78,16 @@
                 </div>
                 <div class="col-md-12 mt-3">
                     <select name="jml_org" id="" class="form-control">
-                        <option value="350000">1 Orang</option>
-                        <option value="450000">2 Orang</option>
-                        <option value="450000">3 Orang</option>
-                        <option value="500000">4 Orang</option>
-                        <option value="500000">5 Orang</option>
-                        <option value="500000">6 Orang</option>
-                        <option value="550000">7 Orang</option>
-                        <option value="550000">8 Orang</option>
-                        <option value="600000">9 Orang</option>
-                        <option value="600000">10 Orang</option>
+                        <option value="1">1 Orang</option>
+                        <option value="2">2 Orang</option>
+                        <option value="3">3 Orang</option>
+                        <option value="4">4 Orang</option>
+                        <option value="5">5 Orang</option>
+                        <option value="6">6 Orang</option>
+                        <option value="7">7 Orang</option>
+                        <option value="8">8 Orang</option>
+                        <option value="9">9 Orang</option>
+                        <option value="10">10 Orang</option>
                     </select>
                 </div>
                 <div class="col-md-12 mt-3">
