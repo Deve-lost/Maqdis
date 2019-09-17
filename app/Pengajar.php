@@ -16,7 +16,6 @@ class Pengajar extends Model
 					        'ttl',
 					        'pengalaman_kerja',
 					        'alamat',
-					        'avatar'
 					    ];
 					    
     public function jadwal()

@@ -56,7 +56,7 @@
             }
             </script>
             </div>
-            <button class="btn btn-sm btn-primary mt mb-3 mx-auto">Ganti Foto Profile</button>
+            <button class="btn btn-sm btn-primary mt mb-3 mx-auto">Ubah Foto Profile</button>
 
                 </form>
             </div>

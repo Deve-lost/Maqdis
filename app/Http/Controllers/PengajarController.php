@@ -62,19 +62,20 @@ class PengajarController extends Controller
         $user->name = $request->nm_pengajar;
         $user->email = $request->email;
         $user->password = bcrypt('inovindo');
-        $user->avatar = 'user.png';
+        $user->avatar = $request->avatar;
         $user->remember_token = str_random(60);
         $user->save();
+            
+            if ($request->hasFile('avatar')) {
+                $request->file('avatar')->move('images/avatar/',$request->file('avatar')->getClientOriginalName());
+
+                $user->avatar = $request->file('avatar')->getClientOriginalName();
+                $user->save();
+            }
 
         // Pengajar
         $request->request->add(['user_id' => $user->id]);
         $pengajar = Pengajar::create($request->all());
-        if ($request->hasFile('avatar')) {
-            $request->file('avatar')->move('images/avatar/',$request->file('avatar')->getClientOriginalName());
-
-            $pengajar->avatar = $request->file('avatar')->getClientOriginalName();
-            $pengajar->save();
-        }
 
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Ditambahkan');
     }
@@ -91,8 +92,6 @@ class PengajarController extends Controller
     {
 
         $search = $request->all();
-        // $data = json_encode($search);
-        // $newdata = json_decode($data);
         $program = Program::all();
         $kecamatan = Kecamatan::all();
         $jdw = DB::table('jadwal')
@@ -146,7 +145,6 @@ class PengajarController extends Controller
      */
     public function destroy(Pengajar $pengajar)
     {
-        unlink('images/avatar/'.$pengajar->avatar);
         $pengajar->delete();
 
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Dihapus');
