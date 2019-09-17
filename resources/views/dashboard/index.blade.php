@@ -135,7 +135,7 @@
 
     	<div class="container-fluid">
 			<!-- Icon Cards-->
-              @foreach ($konfirm as $data)
+              @forelse ($konfirm as $data)
             <div class="alert alert-primary" role="alert">
                   {{ $data->user->name }} mengundang anda untuk bergabung!
 
@@ -143,7 +143,9 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
             </div>
-              @endforeach
+            @empty
+
+            @endforelse
 
 			<div class="card mb-3">
 				<div class="card-header">
