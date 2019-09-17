@@ -140,7 +140,6 @@
 				</div>
 				<div class="card-body">
 					<div class="row">
-						<?php $icon = ["quran","books"] ?>
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
@@ -155,7 +154,7 @@
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
-								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-praying-hands fa-stack-1x fa-inverse"></i>
 							</span>
 							<h4 class="service-heading">
 								Tahsin
@@ -168,7 +167,7 @@
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
-								<i class="fas fa-praying-hands fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-book-reader fa-stack-1x fa-inverse"></i>
 							</span>
 							<h4 class="service-heading">
 								Tahfizh
