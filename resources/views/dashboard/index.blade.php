@@ -1,5 +1,7 @@
 @extends('layouts.master')
+
 @section('title', 'Dashboard')
+
 @section('content')
 <div class="container-fluid">
 	<!-- Breadcrumbs-->
@@ -7,8 +9,8 @@
 		<li class="breadcrumb-item">
 			<a href="{{ route('dashboard') }}">Dashboard</a>
 		</li>
-		<!-- <li class="breadcrumb-item active">Overview</li> -->
 	</ol>
+
 	@if(auth()->user()->role == 'Admin')
 	<!-- Icon Cards-->
 	<div class="row">
@@ -79,6 +81,7 @@
 		</div>
 	</div>
 	@endif
+
 	@if(auth()->user()->role == 'Pengajar')
 	<div class="container-fluid">
 		<div class="card mb-3">
@@ -126,6 +129,7 @@
 			</div>
 		</div>
 		@endif
+
 		@if(auth()->user()->role == 'Peserta')
 		<div class="container-fluid">
 			<!-- Icon Cards-->
@@ -137,28 +141,107 @@
 				<div class="card-body">
 					<div class="row">
 						<?php $icon = ["quran","books"] ?>
-						@forelse($programs as $data)
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
 								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
 							</span>
-							<h4 class="service-heading">{{ $data->nm_program }}</h4>
-							<p class="text-muted">{{ $data->deskripsi }}</p>
+							<h4 class="service-heading">
+								Ihsan
+							</h4>
+							<p class="text-muted">Program belajar membaca Al-Quran dari dasar dengan target menjadi pembaca Al-Quran yang lancar, baik dan benar</p>
 						</div>
-						<!-- <div class="col-md-3">
-							<label>
-								<div class="panel panel-default card-input tinggi" style="height: 230px">
-									<div class="panel-heading">{{ $data->nm_program }}</div>
-									<div class="panel-body">
-										{{ $data->deskripsi }}
-									</div>
-								</div>
-							</label>
-						</div> -->
-						@empty
-						Data Tidak ada.
-						@endforelse
+
+						<div class="col-md-4 text-center" >
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+							</span>
+							<h4 class="service-heading">
+								Tahsin
+							</h4>
+							<p class="text-muted">
+								Program memperbaiki bacaan Al-Quran dengan target menjadi guru Al-Quran yang produktif
+							</p>
+						</div>
+
+						<div class="col-md-4 text-center" >
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+							</span>
+							<h4 class="service-heading">
+								Tahfizh
+							</h4>
+							<p class="text-muted">
+								Program menghafal Al-Quran
+							</p>
+						</div>
+
+						<div class="col-md-4 text-center" >
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+							</span>
+							<h4 class="service-heading">
+								Maqomat (Irama)
+							</h4>
+							<p class="text-muted">
+								Program memperindah bacaan Al-Quran
+							</p>
+						</div>
+
+						<div class="col-md-4 text-center" >
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+							</span>
+							<h4 class="service-heading">
+								Bahasa Arabqu
+							</h4>
+							<p class="text-muted">
+								Program bimbingan bahasa arab untuk menerjemahkan Al-Quran
+							</p>
+						</div>
+
+						<div class="col-md-4 text-center" >
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+							</span>
+							<h4 class="service-heading">
+								TakTik
+							</h4>
+							<p class="text-muted">
+								Program Tafsir kajian tematik
+							</p>
+						</div>
+
+						<div class="col-md-4 text-center" >
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+							</span>
+							<h4 class="service-heading">
+								Ta-Mat Al-Jazary
+							</h4>
+							<p class="text-muted">
+								Program Talaqi Matan Al-Jazary
+							</p>
+						</div>
+
+						<div class="col-md-4 text-center" >
+							<span class="fa-stack fa-4x">
+								<i class="fas fa-circle fa-stack-2x text-primary"></i>
+								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+							</span>
+							<h4 class="service-heading">
+								Mahir Membaca Mushaf Madinah
+							</h4>
+							<p class="text-muted">
+								Program penguasaan tanda-tanda baca dalam mushaf madinah
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -209,4 +292,3 @@
 			@endif
 		</div>
 		@stop
-
