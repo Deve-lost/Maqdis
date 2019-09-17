@@ -45,7 +45,6 @@ class AbsensiController extends Controller
             'status' => 'Peserta'
         ]);
 
-
         return redirect()->route('absen.peserta')->with('sukses', 'Anda Telah Absen Hari Ini');
     }
 

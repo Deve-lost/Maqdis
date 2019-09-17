@@ -47,7 +47,7 @@
                                 <tr>
                                     <td><strong>Jumlah Orang</strong></td>
                                     <td class="text-center"><strong>Harga</strong></td>
-                                    <td class="text-center"><strong>Biaya Pendidikan</strong></td>
+                                    <td class="text-right"><strong>Biaya Pendidikan</strong></td>
 
                                 </tr>
                             </thead>
@@ -97,8 +97,8 @@
                                 @endif
                                 <tr>
                                     <td class="thick-line">{{ $jml }} Orang</td>
-                                    <td class="thick-line text-center"><strong>Rp.{{ $request['jml_org']}}</strong></td>
-                                    <td class="thick-line text-right"><strong>Rp.{{ $hrg = $request['jml_org']+100000 }}</strong></td>
+                                    <td class="thick-line text-center"><strong>Rp.{{ number_format($request['jml_org'],0,',','.')}}</strong></td>
+                                    <td class="thick-line text-right"><strong>Rp.{{ number_format($hrg = $request['jml_org']+100000,0,',','.') }}</strong></td>
                                 </tr>
 
                                 <tr>

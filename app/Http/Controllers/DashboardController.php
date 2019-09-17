@@ -8,7 +8,7 @@ use App\Pengajar;
 use App\Peserta;
 use App\Pembayaran;
 use App\User;
-use App\biaya_pendidikan;
+use App\BiayaPendidikan;
 
 class DashboardController extends Controller
 {
@@ -20,8 +20,8 @@ class DashboardController extends Controller
     public function index()
     {
         $programs = Program::latest()->get();
-        $biayapendidikan = biaya_pendidikan::all();
-        $pembayaran = Pembayaran::count();
+        $biayapendidikan = BiayaPendidikan::all();
+        $pembayaran = Pembayaran::where('status', 'Belum Terverifikasi')->count();
         $pengajar = Pengajar::count();
         $peserta  = Peserta::count();
         $user     = User::count();
