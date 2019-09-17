@@ -105,6 +105,9 @@ class PesertaController extends Controller
     {
         $idp = DB::table('users')->find($id);
         $peserta = DB::table('peserta')->get();
+        // $users = DB::table('peserta')
+        //             ->whereNotIn('id', $id)
+        //             ->get();
 
         return view('peserta.tambah_peserta', ['peserta' => $peserta, 'idp' => $idp]);
     }
