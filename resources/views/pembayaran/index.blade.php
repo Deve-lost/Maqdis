@@ -269,7 +269,7 @@
                                 <tr>
                                     <td class="thick-line">{{ $jml }} Orang</td>
                                     <td class="thick-line text-center"><strong>Rp.{{ number_format($bp,0,',','.')}}</strong></td>
-                                    <td class="thick-line text-right"><strong>Rp.{{ number_format($hrg = $jml*$bp+100000,0,',','.') }}</strong></td>
+                                    <td class="thick-line text-right"><strong>Rp.{{ number_format($hrg = $bp+100000,0,',','.') }}</strong></td>
                                 </tr>
 
                                 <tr>
