@@ -22,31 +22,26 @@ class AuthController extends Controller
             'jk' => 'required',
             'email' => 'required|max:191|unique:users',
             'password' => 'required|min:8|max:50',
-            'alamat_lengkap' => 'required',
-            'no_wa' => 'required|max:15',
-            'tgl_lahir' => 'required'
+            'alamat' => 'required',
+            'kontak' => 'required|max:15',
+            'ttl' => 'required'
         ]);
 
         // Insert Users
-        User::create([
-            'role' => 'Peserta',
-            'name' => $request->name,
-    		'email' => $request->email,
-    		'password' => bcrypt($request->password),
-            'avatar' => 'user.png'
-    	]);
+        $user  = new User;
+        $user->role = 'Peserta';
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->avatar = 'user.png';
+        $user->remember_token = str_random(60);
+        $user->save();
 
         // Insert Peserta
-        Peserta::create([
-            'nama' => $request->name,
-            'email' => $request->email,
-            'ttl' => $request->tgl_lahir,
-            'jk' => $request->jk,
-            'kontak' => $request->no_wa,
-            'alamat' => $request->alamat_lengkap,
-        ]);
+        $request->request->add(['user_id' => $user->id]);
+        $peserta = Peserta::create($request->all());
 
-         return redirect()->route('login')->with('sukses','Register Berhasil');
+        return redirect()->route('login')->with('sukses','Register Berhasil');
     }
 
     // Login
