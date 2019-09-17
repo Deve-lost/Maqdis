@@ -154,9 +154,6 @@
         modal.find('.modal-body #status').val(status);
         modal.find('.modal-body #struk').val(struk);
         modal.find('.modal-body #gambar').attr("src",newsrc +'/'+ struk );
-
-
-
       })
   </script>
   <!-- /konfirmasi pembayaran -->
@@ -256,8 +253,27 @@
           modal.find('.modal-body #status').val(status);
         })
     </script>
-    <!-- /jadwal peserta -->
+  <!-- /jadwal peserta -->
+  
+  <!-- Profile Pengguna -->
+  <script>
+      $('#showprofpeng').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var nm = button.data('nm')
+        var email = button.data('email')
+        var role = button.data('role')
+        var avatar = button.data('avatar')
+        var newsrc = "{{asset('images/avatar/')}}"
 
+        var modal = $(this)
+
+        modal.find('.modal-body #nm').val(nm);
+        modal.find('.modal-body #email').val(email);
+        modal.find('.modal-body #role').val(role);
+        modal.find('.modal-body #avatar').attr("src",newsrc +'/'+ avatar);
+      })
+  </script>
+  <!-- /profile pengguna -->
   @yield('footer')
 </body>
 </html>

@@ -47,6 +47,8 @@
                                           <a href="#" class="btn btn-sm btn-primary reset" rs-id="{{ $data->id }}" rs-name="{{ $data->name }}">Reset Password</a>
                                       </td>
                                       <td>
+                                          <a href="" class="btn btn-sm btn-info" data-nm="{{ $data->name }}" data-email="{{ $data->email }}" data-role="{{ $data->role }}" data-avatar="{{ $data->avatar }}" data-toggle="modal" data-target="#showprofpeng"><i class="fa fa-eye"></i>
+                                          </a>
                                           <a href="{{ route('pengguna.edit', $data->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
                                           <a href="#" class="btn btn-sm btn-danger delete" nm-peng="{{ $data->name }}" peng-id="{{ $data->id }}"><i class="fa fa-trash"></i></a>
                                       </td>
@@ -69,11 +71,11 @@
 </div>
 <!-- /.container-fluid -->
 <!-- Modal -->
-<div class="modal fade" id="showjp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="showprofpeng" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Jadwal Peserta</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Profile Pengguna</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -81,7 +83,7 @@
       <form method="POST" action="">
         @csrf
         <div class="modal-body">
-          @include('jadwal_peserta.jadwal_peserta')
+          @include('pengguna._profile_pengguna')
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
