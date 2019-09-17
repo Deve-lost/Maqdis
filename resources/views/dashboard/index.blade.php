@@ -144,7 +144,7 @@
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
-								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
 							</span>
 							<h4 class="service-heading">
 								Ihsan
@@ -168,7 +168,7 @@
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
-								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-praying-hands fa-stack-1x fa-inverse"></i>
 							</span>
 							<h4 class="service-heading">
 								Tahfizh
@@ -181,7 +181,7 @@
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
-								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-assistive-listening-systems fa-stack-1x fa-inverse"></i>
 							</span>
 							<h4 class="service-heading">
 								Maqomat (Irama)
@@ -194,7 +194,7 @@
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
-								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-kaaba fa-stack-1x fa-inverse"></i>
 							</span>
 							<h4 class="service-heading">
 								Bahasa Arabqu
@@ -207,7 +207,7 @@
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
-								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-star-and-crescent fa-stack-1x fa-inverse"></i>
 							</span>
 							<h4 class="service-heading">
 								TakTik
@@ -220,7 +220,7 @@
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
-								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-mosque fa-stack-1x fa-inverse"></i>
 							</span>
 							<h4 class="service-heading">
 								Ta-Mat Al-Jazary
@@ -233,7 +233,7 @@
 						<div class="col-md-4 text-center" >
 							<span class="fa-stack fa-4x">
 								<i class="fas fa-circle fa-stack-2x text-primary"></i>
-								<i class="fas fa-quran fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-book-reader fa-stack-1x fa-inverse"></i>
 							</span>
 							<h4 class="service-heading">
 								Mahir Membaca Mushaf Madinah
