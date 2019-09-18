@@ -18,9 +18,14 @@ class Pengajar extends Model
 					        'alamat',
 					        'avatar'
 					    ];
-					    
+
     public function jadwal()
     {
         return $this->belongsTo(Jadwal::class);
+    }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
     }
 }

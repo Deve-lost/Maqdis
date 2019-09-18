@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            @if ($pembayaran->status == 'Belum Terverifikasi' && $pembayaran->struk == 'NULL')
+            @if (empty($pembayaran->struk))
                        <div class="col-md-12">
                 <br>
                 <div class="text-center">Tanda Bukti Pembayaran</div>
@@ -34,7 +34,7 @@
             <center>
             <br/>
             <div class="form-group" {{$errors->has('struk') ? ' has-error' : ''}}>
-            <img id="preview" src="{{ asset('images/default.svg') }}" width="230px" height="220px"/><br/>
+            <img id="preview" src="{{ asset('images/default-image.png') }}" width="230px" height="220px"/><br/>
             <input type="file" name="struk" id="image" style="display: none;"/>
             <!--<input type="hidden" style="display: none" value="0" name="remove" id="remove">-->
             <a href="javascript:changeProfile()">Pilih</a> |
@@ -68,7 +68,7 @@
             }
             }
             function removeImage() {
-            $('#preview').attr('src', '{{ asset('images/default.svg') }}');
+            $('#preview').attr('src', '{{ asset('images/default-image.png') }}');
             //      $("#remove").val(1);
             }
             </script>

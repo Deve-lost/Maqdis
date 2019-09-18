@@ -77,7 +77,7 @@ class PengajarController extends Controller
                 $pengajar->avatar = $request->file('avatar')->getClientOriginalName();
                 $pengajar->save();
             }
-            
+
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Ditambahkan');
     }
 
@@ -103,6 +103,7 @@ class PengajarController extends Controller
             ['waktu', '=', $request->jam],
             ['kelas', '=', $request->kelas],
             ])->get();
+
 
         return view('daftar_program.ajax', ['search' => $search, 'program' => $program, 'kecamatan' => $kecamatan, 'jdw' => $jdw]);
 

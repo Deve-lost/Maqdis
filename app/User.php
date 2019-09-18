@@ -52,4 +52,9 @@ class User extends Authenticatable
         return $this->hasOne('App\KelompokPeserta');
     }
 
+    public function pengajar()
+    {
+        return $this->belongsTo(Pengajar::class);
+    }
+
 }
