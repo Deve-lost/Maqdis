@@ -66,16 +66,17 @@ class PengajarController extends Controller
         $user->remember_token = str_random(60);
         $user->save();
 
+        // Pengajar
+        $request->request->add(['user_id' => $user->id]);
+        $pengajar = Pengajar::create($request->all());
             if ($request->hasFile('avatar')) {
                 $request->file('avatar')->move('images/avatar/',$request->file('avatar')->getClientOriginalName());
 
                 $user->avatar = $request->file('avatar')->getClientOriginalName();
                 $user->save();
+                $pengajar->avatar = $request->file('avatar')->getClientOriginalName();
+                $pengajar->save();
             }
-
-        // Pengajar
-        $request->request->add(['user_id' => $user->id]);
-        $pengajar = Pengajar::create($request->all());
 
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Ditambahkan');
     }

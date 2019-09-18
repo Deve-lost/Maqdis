@@ -88,7 +88,7 @@
                         <strong class="h4">Status Pembayaran</strong>
                     </div>
                     <div class="card-body">
-                        <p class="card-title h5">Belum mendaftar program</p>
+                        <p class="card-title h5">Anda belum mendaftar program</p>
                         <a href="{{ route('daftar.index') }}" class="btn btn-primary">Daftar Program</a>
                     </div>
                 </div>
