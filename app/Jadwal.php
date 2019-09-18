@@ -12,7 +12,7 @@ class Jadwal extends Model
                             'kelas',
     						'hari',
     						'program_id',
-    						'pengajar_id'
+                            'pengajar_id'
     					];
 
     public function pengajar()

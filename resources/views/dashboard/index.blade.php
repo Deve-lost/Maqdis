@@ -131,8 +131,6 @@
 		@endif
 
 		@if(auth()->user()->role == 'Peserta')
-
-
     	<div class="container-fluid">
 			<!-- Icon Cards-->
               @foreach ($konfirm as $data)
