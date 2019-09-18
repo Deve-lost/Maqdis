@@ -27,18 +27,38 @@ class AuthController extends Controller
             'ttl' => 'required'
         ]);
 
-        // Insert Users
-        $user  = new User;
-        $user->role = 'Peserta';
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->remember_token = str_random(60);
-        $user->save();
-
+        // $peserta = Peserta::create($request->all());
         // Insert Peserta
-        $request->request->add(['user_id' => $user->id]);
-        $peserta = Peserta::create($request->all());
+        $peserta = new Peserta;
+        $peserta->name = $request->name;
+        $peserta->email = $request->email;
+        $peserta->ttl = $request->ttl;
+        $peserta->jk = $request->jk;
+        $peserta->kontak = $request->kontak;
+        $peserta->alamat = $request->alamat;
+        $peserta->save();
+
+
+
+
+        // Insert Users
+        // $user = [
+        //     $user  = new User,
+        //     $user->role = 'Peserta',
+        //     $user->$peserta->id,
+        //     $user->name = $request->name,
+        //     $user->email = $request->email,
+        //     $user->password = bcrypt($request->password),
+        //     $user->remember_token = str_random(60)
+        // ];
+
+        $user = User::create([
+            'role' => 'Peserta',
+            'peserta_id' => $peserta->id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
 
         return redirect()->route('login')->with('sukses','Register Berhasil');
     }

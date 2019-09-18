@@ -106,11 +106,11 @@ class PesertaController extends Controller
     public function cek(Request $request,$id)
     {
         $idp = DB::table('users')->find($id);
-        $peserta = DB::table('peserta')->get();
-        // $users = DB::table('peserta')
-        //             ->whereNotIn('id', $id)
-        //             ->get();
-
+        // $peserta = DB::table('peserta')->get();
+        $peserta = DB::table('peserta')
+                    // ->whereNotIn('user_id', ['auth()->user()->id'])
+                    ->get();
+        // dd($peserta);
         return view('peserta.tambah_peserta', ['peserta' => $peserta, 'idp' => $idp]);
     }
 
@@ -142,6 +142,25 @@ class PesertaController extends Controller
         catch(\Exception $e){
             return redirect()->back()->with('error','');
         }
+    }
+
+    public function konfirmasigrup(KelompokPeserta $kelompokpeserta)
+    {
+        $update = DB::table('kelompok_peserta')
+              ->where('peserta_id', auth()->user()->peserta_id)
+              ->update([
+                'status' => 'Dikonfirmasi'
+            ]);
+        return redirect()->route('dashboard')->with('sukses', 'Anda telah berhasil bergabung');
+    }
+
+    public function konfirmasidelete(KelompokPeserta $kelompokpeserta)
+    {
+        $delete = DB::table('kelompok_peserta')
+              ->where('peserta_id', auth()->user()->peserta_id)
+              ->delete();
+
+        return redirect()->route('dashboard')->with('sukses', 'Penolakan berhasil');
     }
 
 }

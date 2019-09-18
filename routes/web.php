@@ -305,6 +305,17 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'as' => 'pengguna.proflie'
     ]);
 
+    // Konfirmasi Teman
+    Route::post('/Maqdis/konfirm/teman', [
+        'uses' => 'PesertaController@konfirmasigrup',
+        'as' => 'konfir.grup'
+    ]);
+
+    Route::post('/Maqdis/konfirm/teman/delete', [
+        'uses' => 'PesertaController@konfirmasidelete',
+        'as' => 'konfir.delete'
+    ]);
+
     // Ganti Foto Profile
     Route::post('foto-post/{id}', [
         'uses' => 'PesertaController@gantifoto',

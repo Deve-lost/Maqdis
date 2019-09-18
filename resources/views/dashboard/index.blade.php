@@ -22,7 +22,7 @@
 					</div>
 					<div class="mr-5">{{ $pembayaran }} Konfirmasi Pembayaran</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="{{ route('konfirmasipem.index') }}">
 					<span class="float-left">View Details</span>
 					<span class="float-right">
 						<i class="fas fa-angle-right"></i>
@@ -136,10 +136,20 @@
               @forelse ($konfirm as $data)
             <div class="alert alert-primary" role="alert">
                   {{ $data->user->name }} mengundang anda untuk bergabung!
+                  <div class="float-right">
 
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                <form action="{{ route('konfir.grup') }}" method="POST" class="form-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-primary btn-sm">Konfirmasi</button>
+                </form>
+                  </div>
+                  <div class="float-right mr-2">
+
+                <form action="{{ route('konfir.delete') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-sm btn-danger">Tolak</button>
+                </form>
+                  </div>
             </div>
             @empty
 

@@ -39,7 +39,7 @@
                   @forelse($peserta as $data)
                     <tr role="row" class="odd">
                       <td class="sorting_1">{{ $loop->iteration }}</td>
-                      <td class="sorting_1">{{ $data->nama }}</td>
+                      <td class="sorting_1">{{ $data->name }}</td>
                       <td>{{ $data->email }}</td>
                       <td>{{ $data->jk }}</td>
                       <td>{{ $data->kontak }}</td>

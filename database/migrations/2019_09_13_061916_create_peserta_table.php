@@ -15,7 +15,7 @@ class CreatePesertaTable extends Migration
     {
         Schema::create('peserta', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->string('name', 50);
             $table->string('email', 191);
             $table->string('ttl', 191);
