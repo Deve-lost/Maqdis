@@ -26,7 +26,7 @@ class DashboardController extends Controller
         $pengajar = Pengajar::count();
         $peserta  = Peserta::count();
         $user     = User::count();
-        // $id = User::find(7);
+        // $id = User::find(id);
         $konfirm = KelompokPeserta::where('user_id', '7')->where('status', 'Belum Dikonfirmasi')->get();
         // dd($konfirm);
 
