@@ -20,9 +20,9 @@
 					<div class="card-body-icon">
 						<i class="fas fa-fw fa-check"></i>
 					</div>
-					<div class="mr-5">{{ $pembayaran }} Konfirmasi Pembayaran</div>
+					<div class="mr-5">{{ $pembayaran }} Verifikasi Pembayaran</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="{{ route('konfirmasipem.index') }}">
 					<span class="float-left">View Details</span>
 					<span class="float-right">
 						<i class="fas fa-angle-right"></i>

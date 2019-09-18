@@ -6,7 +6,7 @@
 <div id="content-wrapper">
     <div class="container">
         <div class="container-fluid">
-            <form action="{{ route('dp.update', $pengajar->id) }}" class="form-horizontal" method="POST">
+            <form action="{{ route('dp.update', $pengajar->id) }}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row mx-auto mt-5 justify-content-center">
                     <div class="col-md-10">
@@ -86,6 +86,20 @@
                             </div>
                             @if($errors->has('alamat'))
                                 <span class="help-block text-danger">{{$errors->first('alamat')}}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <img id="preview" src="{{ asset('images/avatar/'.$pengajar->avatar)}}" class="img-thumbnail" width="200px" height="200px" alt="Foto Profile Pengajar" />
+
+                        <div class="form-group {{$errors->has('avatar') ? ' has-error' : ''}}">
+                            <label for="avatar" class="col-xs-3 control-label">Foto</label>
+                            <div class="col-xs-9">
+                                <input type="file" class="" id="avatar" name="avatar" placeholder="No Wa/Hp">
+                            </div>
+                            @if($errors->has('avatar'))
+                                <span class="help-block text-danger">{{$errors->first('avatar')}}</span>
                             @endif
                         </div>
                     </div>

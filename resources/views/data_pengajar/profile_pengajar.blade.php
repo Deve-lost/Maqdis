@@ -32,3 +32,8 @@
     <label for="alamat">Alamat</label>
     <textarea class="form-control" name="alamat" id="alamat" disabled="" rows="3"></textarea>
 </div>
+
+<div class="form-group">
+	<label for="avatar">Foto Profile</label>
+	<img src="{{ asset('images/avatar/') }}" class="img-thumbnail form-control" alt="" name="avatar" id="avatar" style="width: 50%; height: 50%;">
+</div>

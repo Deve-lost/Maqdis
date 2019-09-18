@@ -34,20 +34,28 @@
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 50px;">Email</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Jenis Kelamin</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Kontak</th>
+                    @if(auth()->user()->role == 'Admin')
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Opsi</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
                   @forelse($peserta as $data)
                     <tr role="row" class="odd">
                       <td class="sorting_1">{{ $loop->iteration }}</td>
-                      <td class="sorting_1">{{ $data->peserta->nama }}</td>
+                      <td class="sorting_1">{{ $data->peserta->name }}</td>
                       <td>{{ $data->peserta->email }}</td>
                       <td>{{ $data->peserta->jk }}</td>
                       <td>{{ $data->peserta->kontak }}</td>
+                      @if(auth()->user()->role == 'Admin')
+                      <td>
+                          <a href="#" class="btn btn-sm btn-danger delete" peserta-id="{{ $data->id }}" peserta-nm="{{ $data->peserta->name }}" ketua-nm="{{ $ketua->name }}"><i class="fa fa-trash"></i></a>
+                      </td>
+                      @endif
                     </tr>
                     @empty
                     <tr role="row" class="odd">
-                      <td class="sorting_1" colspan="7">Data tidak ditemukan.</td>
+                      <td class="sorting_1" colspan="6">Data tidak ditemukan.</td>
                     </tr>
                     @endforelse
                   </tbody>
@@ -86,3 +94,24 @@
 </div>
 @endsection
 
+@section('footer')
+    <script type="text/javascript">
+        $('.delete').click(function(){
+            var peserta_id = $(this).attr('peserta-id');
+            var peserta_nm = $(this).attr('peserta-nm');
+            var ketua_nm = $(this).attr('ketua-nm');
+            swal({
+                  title: "Hapus!",
+                  text: "Peserta "+peserta_nm+" Dari Kelompok "+ketua_nm+"?",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+                })
+                .then((willDelete) => {
+                  if (willDelete) {
+                    window.location = "/Maqdis/destroy-peserta/"+peserta_id+"/kelompok";
+                  }
+                });
+        });
+    </script>
+@stop
