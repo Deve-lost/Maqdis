@@ -17,9 +17,14 @@ class Pengajar extends Model
 					        'pengalaman_kerja',
 					        'alamat',
 					    ];
-					    
+
     public function jadwal()
     {
         return $this->belongsTo(Jadwal::class);
+    }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
     }
 }

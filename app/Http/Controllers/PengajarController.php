@@ -65,7 +65,7 @@ class PengajarController extends Controller
         $user->avatar = $request->avatar;
         $user->remember_token = str_random(60);
         $user->save();
-            
+
             if ($request->hasFile('avatar')) {
                 $request->file('avatar')->move('images/avatar/',$request->file('avatar')->getClientOriginalName());
 
@@ -102,6 +102,7 @@ class PengajarController extends Controller
             ['waktu', '=', $request->jam],
             ['kelas', '=', $request->kelas],
             ])->get();
+
 
         return view('daftar_program.ajax', ['search' => $search, 'program' => $program, 'kecamatan' => $kecamatan, 'jdw' => $jdw]);
 

@@ -32,8 +32,7 @@ class AuthController extends Controller
         $user->role = 'Peserta';
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
-        $user->avatar = 'user.png';
+        $user->password = bcrypt($request->password);
         $user->remember_token = str_random(60);
         $user->save();
 

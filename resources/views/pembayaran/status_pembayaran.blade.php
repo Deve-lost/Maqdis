@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            @if ($pembayaran->status == 'Belum Terverifikasi' && $pembayaran->struk == 'NULL')
+            @if ($pembayaran->status == 'Belum Terverifikasi')
                        <div class="col-md-12">
                 <br>
                 <div class="text-center">Tanda Bukti Pembayaran</div>
