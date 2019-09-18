@@ -94,4 +94,11 @@ class JadwalPesertaController extends Controller
 
         return view('jadwal_pertemuan.kelompok', ['peserta' => $peserta, 'ketua' => $ketua]);
     }
+
+    public function destroykelompok(KelompokPeserta $kelompokpeserta)
+    {
+        $kelompokpeserta->delete();
+
+        return redirect()->route('jpeserta.index')->with('sukses', 'Data Berhasil Dihapus');
+    }
 }

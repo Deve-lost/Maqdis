@@ -38,20 +38,7 @@ class AuthController extends Controller
         $peserta->alamat = $request->alamat;
         $peserta->save();
 
-
-
-
         // Insert Users
-        // $user = [
-        //     $user  = new User,
-        //     $user->role = 'Peserta',
-        //     $user->$peserta->id,
-        //     $user->name = $request->name,
-        //     $user->email = $request->email,
-        //     $user->password = bcrypt($request->password),
-        //     $user->remember_token = str_random(60)
-        // ];
-
         $user = User::create([
             'role' => 'Peserta',
             'peserta_id' => $peserta->id,

@@ -44,7 +44,7 @@
                                     <td>{{ $data->pendidikan }}</td>
                                     <td>{{ $data->kontak }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-info" data-nm="{{ $data->nm_pengajar }}" data-jk="{{ $data->jk }}" data-pendidikan="{{ $data->pendidikan }}" data-kontak="{{ $data->kontak }}" data-ttl="{{ $data->ttl }}" data-pengalaman="{{ $data->pengalaman_kerja }}" data-alamat="{{ $data->alamat }}" data-toggle="modal" data-target="#show"><i class="fa fa-eye"></i>
+                                        <a href="" class="btn btn-sm btn-info" data-nm="{{ $data->nm_pengajar }}" data-jk="{{ $data->jk }}" data-pendidikan="{{ $data->pendidikan }}" data-kontak="{{ $data->kontak }}" data-ttl="{{ $data->ttl }}" data-pengalaman="{{ $data->pengalaman_kerja }}" data-alamat="{{ $data->alamat }}" data-avatar="{{ $data->avatar }}" data-toggle="modal" data-target="#show"><i class="fa fa-eye"></i>
                                         </a>
                                         <a href="{{ route('dp.edit', $data->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
                                         <a href="#" class="btn btn-sm btn-danger delete" pengajar-id="{{ $data->id }}" pengajar-nm="{{ $data->nm_pengajar }}"><i class="fa fa-trash"></i></a>

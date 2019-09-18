@@ -135,6 +135,12 @@ class PengajarController extends Controller
     public function update(Request $request, Pengajar $pengajar)
     {
         $pengajar->update($request->all());
+        if ($request->hasFile('avatar')) {
+                $request->file('avatar')->move('images/avatar/',$request->file('avatar')->getClientOriginalName());
+
+                $pengajar->avatar = $request->file('avatar')->getClientOriginalName();
+                $pengajar->save();
+            }
 
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Diperbaharui');
     }

@@ -202,6 +202,12 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
         'as' => 'absen.index'
     ]);
 
+    // Hapus Kelompok Peserta
+    Route::get('/Maqdis/destroy-peserta/{kelompokpeserta}/kelompok', [
+        'uses' => 'JadwalPesertaController@destroykelompok',
+        'as' => 'kelompokpeserta.destroykelompok'
+    ]);
+    
     // Konfirmasi Lanjut Program
     Route::get('/Maqdis/konfirmasi-lanjut/program', [
         'uses' => 'KonfirmasiProgramController@index',

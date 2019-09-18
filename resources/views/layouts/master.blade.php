@@ -169,6 +169,8 @@
           var ttl = button.data('nm')
           var pengalaman = button.data('pengalaman')
           var alamat = button.data('alamat')
+          var avatar = button.data('avatar')
+          var newsrc = "{{asset('images/avatar/')}}"
 
           var modal = $(this)
 
@@ -179,6 +181,7 @@
           modal.find('.modal-body #ttl').val(ttl);
           modal.find('.modal-body #pengalaman').val(pengalaman);
           modal.find('.modal-body #alamat').val(alamat);
+          modal.find('.modal-body #avatar').attr("src",newsrc +'/'+ avatar);
         })
     </script>
     <!-- /modal -->
