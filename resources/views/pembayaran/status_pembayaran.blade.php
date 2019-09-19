@@ -83,6 +83,8 @@
 
             @endif
             {{-- @elseif($pembayaran->status2 == 'member') --}}
+
+            @elseif(empty($pembayaran) && $member)
             <div class="col-md-12 mt-3">
                 <div class="card text-center">
                     <div class="card-header">
@@ -93,9 +95,6 @@
                     </div>
                 </div>
             </div>
-
-            @elseif(!$pembayaran && $member)
-            hanya admin yang dapat melihat ini coeg.
 
             @else
             <div class="col-md-12 mt-3">
