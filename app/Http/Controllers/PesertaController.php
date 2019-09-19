@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Peserta;
 use App\KelompokPeserta;
+use App\Pembayaran;
 use DB;
 
 class PesertaController extends Controller
@@ -45,6 +46,9 @@ class PesertaController extends Controller
         ]);
 
         // dd($request->all());
+        $jmlorg = $request->jmlorg;
+        $jumlah = count($request->add);
+        $tes = $jmlorg-$jumlah;
         foreach ($request->add as $isi) {
              $check = new KelompokPeserta;
              $check->user_id = $id;
@@ -52,6 +56,12 @@ class PesertaController extends Controller
              $check->status = 'Belum dikonfirmasi';
              $check->save();
          }
+
+         $jml = DB::table('pembayaran')
+            ->where('user_id', $id)
+            ->update(['jml_org' => $tes]);
+
+
 
          return redirect()->route('jadwal.pertemuan')->with('sukses', 'Berhasil Ditambahkan');
     }
@@ -107,11 +117,12 @@ class PesertaController extends Controller
     {
         $idp = DB::table('users')->find($id);
         // $peserta = DB::table('peserta')->get();
+        $jmltmn = Pembayaran::where('user_id', auth()->user()->id)->pluck('jml_org')->first();
         $peserta = DB::table('peserta')
                     // ->whereNotIn('user_id', ['auth()->user()->id'])
                     ->get();
         // dd($peserta);
-        return view('peserta.tambah_peserta', ['peserta' => $peserta, 'idp' => $idp]);
+        return view('peserta.tambah_peserta', ['peserta' => $peserta, 'idp' => $idp, 'jml' => $jmltmn]);
     }
 
     public function gantifoto(Request $request, $id)

@@ -18,7 +18,7 @@
                         <p class="card-text">Nama Pengajar : {{ $pembayaran->nm_pengajar }}</p>
                         <p class="card-text">Hari : {{ $pembayaran->hari }}</p>
                         <p class="card-text">Waktu : {{ $pembayaran->waktu }}</p>
-                        <p class="card-text">Biaya Pendidikan : {{ $pembayaran->harga }}</p>
+                        <p class="card-text">Biaya Pendidikan : Rp.{{ number_format($pembayaran->harga,0,',','.') }}</p>
                         <p class="card-text text-primary">Status : {{ $pembayaran->status }}</p>
             @if ($pembayaran->status == 'Belum Terverifikasi')
                 <p class="card-text text-danger">* Tunggu Verifikasi Dari Admin.</p>

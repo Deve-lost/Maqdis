@@ -36,7 +36,13 @@
                                     <td class="sorting_1">{{ $pembayaran->hari }}</td>
                                     <td class="sorting_1">{{ $pembayaran->waktu }}</td>
                                     <td class="sorting_1 text-primary">{{ $pembayaran->status }}</td>
-                                    <td class="sorting_1"><a href="{{ route('cek.peserta', auth()->user()->id) }}" class="btn btn-sm btn-primary"> Tambah</a></td>
+                                    <td class="sorting_1">
+                                        @if ($jml == 0)
+                                            <a href="{{ route('cek.peserta', auth()->user()->id) }}" class="btn btn-sm btn-primary disabled"> Tambah</a>
+                                        @else
+                                        <a href="{{ route('cek.peserta', auth()->user()->id) }}" class="btn btn-sm btn-primary"> Tambah</a>
+                                        @endif
+                                    </td>
                                 </tr>
                                 @else
                                 <tr role="row" class="odd">

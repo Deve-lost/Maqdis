@@ -268,7 +268,7 @@
                                 @endif
                                 <tr>
                                     <td class="thick-line">{{ $jml }} Orang</td>
-                                    <td class="thick-line text-center"><strong>Rp.{{ number_format($bp,0,',','.')}}</strong></td>
+                                    <td class="thick-line text-center"><strong>Rp.{{ number_format($bp,0,',','.') }}</strong></td>
                                     <td class="thick-line text-right"><strong>Rp.{{ number_format($hrg = $bp+100000,0,',','.') }}</strong></td>
                                 </tr>
 
@@ -286,7 +286,11 @@
                             </tbody>
                         </table>
 
-
+                        @if ($jml == 1)
+                            @php
+                                $jml = 0;
+                            @endphp
+                        @endif
                         <input type="hidden" name="nm_pengajar" value="{{ $request['pengajar_id'] }}">
                         <input type="hidden" name="nm_program" value="{{ $request['program_id'] }}">
                         <input type="hidden" name="hari" value="{{ $request['hari'] }}">

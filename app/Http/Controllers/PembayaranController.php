@@ -132,8 +132,9 @@ class PembayaranController extends Controller
     {
         $id = auth()->user()->id;
         $pembayaran = Pembayaran::where('user_id', $id)->where('status', 'Terverifikasi')->first();
+        $jmlorg = Pembayaran::where('user_id', $id)->where('status', 'Terverifikasi')->pluck('jml_org')->first();
 
-        return view('jadwal_pertemuan.index', ['pembayaran' => $pembayaran]);
+        return view('jadwal_pertemuan.index', ['pembayaran' => $pembayaran, 'jml' => $jmlorg]);
     }
 
     public function jadwalpengajar()

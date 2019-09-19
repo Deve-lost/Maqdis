@@ -25,6 +25,7 @@
               <div class="col-sm-12">
                   <form action="{{ route('tambah.kelompok', $idp->id) }}" method="POST">
                     @csrf
+                <input type="hidden" name="jmlorg" value="{{ $jml }}">
                 <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                   <thead>
                     <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 6px;">No</th>
@@ -45,7 +46,7 @@
                       <td>{{ $data->kontak }}</td>
                       <td>
                         <label class="btn btn-primary control-inline fancy-checkbox {{ $errors->has('add') ? 'has-error' : '' }}">
-                          <input type="checkbox" name="add[]" value="{{ $data->id }}">
+                          <input data-id="{{ $jml }}" type="checkbox" class="check" name="add[]" value="{{ $data->id }}">
                           <span></span>
                           @if($errors->has('add'))
                           <span class="help-block">
@@ -68,7 +69,9 @@
                     <td class="border-right-0"></td>
                     <td class="border-right-0"></td>
                     <td></td>
-                    <td><button type="submit" class="btn btn-sm btn-primary">Tambah</button></td>
+                    <td>
+                        <button id="tambah" type="submit" class="btn btn-sm btn-primary">Tambah</button>
+                    </td>
                   </tr>
                 </tfoot>
                 </form>
@@ -125,5 +128,22 @@
                   }
                 });
         });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var n = $("input:checkbox").attr("data-id");
+            if(n == 0){
+             $("input:checkbox:not(:checked)").attr("disabled", true);
+            } else {
+             $("input:checkbox:not(:checked)").attr("disabled", false);
+            }
+        });
+
+             $("input:checkbox").click(function() {
+                var jml = $("input:checkbox").attr("data-id");
+                var bol = $("input:checkbox:checked").length >= jml;
+                $("input:checkbox").not(":checked").attr("disabled",bol);
+            });
     </script>
 @stop
