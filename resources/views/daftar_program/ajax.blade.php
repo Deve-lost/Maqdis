@@ -4,6 +4,7 @@
 @extends('layouts.master')
 
 @section('title', 'Cari Pengajar')
+
 @section('content')
 
     @if (count($jdw) > 0)

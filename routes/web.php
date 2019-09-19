@@ -66,6 +66,11 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
         'as' => 'konfirmasipem.index'
     ]);
 
+    Route::get('Maqdis/pembayaran-terverifikasi', [
+        'uses' => 'KonfirmasiPembayaranController@terverifikasi',
+        'as' => 'terverifikasi.index'
+    ]);
+
     Route::post('Maqdis/update/verifikasi-pembayaran', [
         'uses' => 'KonfirmasiPembayaranController@update',
         'as' => 'konfirmasipem.update'
@@ -74,6 +79,11 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
     Route::get('Maqdis/destroy/{pembayaran}/verifikasi-pembayaran', [
         'uses' => 'KonfirmasiPembayaranController@destroy',
         'as' => 'konfirmasipem.destroy'
+    ]);
+
+    Route::get('Maqdis/destroy/{pembayaran}/pembayaran-terverifikasi', [
+        'uses' => 'KonfirmasiPembayaranController@destroyterverifikasi',
+        'as' => 'terverifikasi.destroy'
     ]);
 
     // Data Pengajar
@@ -223,7 +233,7 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar']], function() 
         'as' => 'absen.pengajar'
     ]);
 
-    // Post Absensi Peserta
+    // Post Absensi Pengajar
     Route::post('Maqdis/store-absensi-pengajar', [
         'uses' => 'AbsensiController@store_pengajar',
         'as' => 'absen.store_pengajar'

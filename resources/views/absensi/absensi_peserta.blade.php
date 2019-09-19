@@ -1,4 +1,5 @@
 @extends('layouts.master')
+
 @section('title', 'Absensi Peserta')
 
 @section('content')
@@ -18,25 +19,20 @@
                         <p>Nama Program : {{ $absensi->nm_program }}</p>
                         <p>Nama Pengajar : {{ $absensi->nm_pengajar }}</p>
                         <p>Kelas : {{ $absensi->kelas }}</p>
-
-                            {{-- expr --}}
-        {{-- {{ \Carbon\Carbon::parse($hari)->formatLocalized('%A, %d %B %Y %H:%I:%S')}} --}}
-                        @elseif($verif < '0')
-                        <p class="mt-3">Silahkan Verifikasi Pembayaran terlebih dahulu.</p>
-                        <a  href="{{ route('status.pembayaran') }}" class="btn btn-sm btn-primary">Status Pembayaran</a>
-                        @endif
-
-
+                        <p>Waktu : {{ $absensi->waktu }}</p>
 
                         <button class="btn btn-sm btn-primary">Absen</button>
+                        
+                            @elseif($absensi < '0')
+                            <p class="mt-3">Silahkan Verifikasi Pembayaran terlebih dahulu.</p>
+                            <a  href="{{ route('status.pembayaran') }}" class="btn btn-sm btn-primary">Status Pembayaran</a>
+                            @endif
                         </form>
                     </div>
                 </div>
             </div>
     </div>
 
-    @if ($abs > '0')
-        {{-- expr --}}
     <div class="row mt-3">
         <div class="col-md-12">
              <div class="card mb-3">
@@ -59,8 +55,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($abs as $absen)
-                                    {{-- expr --}}
+                                @foreach ($absn as $absen)
                                 <tr>
                                    <td>{{ $loop->iteration }}</td>
                                    <td>{{ $absen->user->name }}</td>
@@ -78,10 +73,5 @@
         </div>
         </div>
     </div>
-    @else
-
-    @endif
-
-
 </div>
 @endsection

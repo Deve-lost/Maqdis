@@ -23,6 +23,7 @@ class DashboardController extends Controller
         $programs = Program::latest()->get();
         $biayapendidikan = BiayaPendidikan::all();
         $pembayaran = Pembayaran::where('status', 'Belum Terverifikasi')->count();
+        $terverifikasi = Pembayaran::where('status', 'Terverifikasi')->count();
         $pengajar = Pengajar::count();
         $peserta  = Peserta::count();
         $user     = User::count();
@@ -30,7 +31,7 @@ class DashboardController extends Controller
         $konfirm = KelompokPeserta::where('peserta_id', auth()->user()->peserta_id)->where('status', 'Belum dikonfirmasi')->get();
         // dd($konfirm);
 
-        return view('dashboard.index', compact('programs', 'biayapendidikan','konfirm'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user, 'pembayaran' => $pembayaran]);
+        return view('dashboard.index', compact('programs', 'biayapendidikan','konfirm'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user, 'pembayaran' => $pembayaran, 'terverifikasi' => $terverifikasi]);
     }
 
     /**

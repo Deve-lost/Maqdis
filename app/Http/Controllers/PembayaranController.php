@@ -139,10 +139,11 @@ class PembayaranController extends Controller
     public function jadwalpengajar()
     {
         $id = auth()->user()->id;
+        $ids = auth()->user()->name;
         $idp = KelompokPeserta::pluck('user_id')->first();
-        $pembayaran = Pembayaran::where('user_id', $id)->orWhere('status', 'Terverifikasi')->orWhere('user_id', '$idp')->first();
-        // dd($pembayaran);
-        return view('jadwal_pertemuan.jadwal_pengajar', ['pembayaran' => $pembayaran]);
+        $pembayarans = Pembayaran::where('nm_pengajar', $ids)->where('status', 'Terverifikasi')->get();
+
+        return view('jadwal_pertemuan.jadwal_pengajar', compact('pembayarans'));
     }
 
     public function statuspembayaran()

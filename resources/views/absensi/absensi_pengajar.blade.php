@@ -1,4 +1,5 @@
 @extends('layouts.master')
+
 @section('title', 'Absensi Pengajar')
 
 @section('content')
@@ -17,19 +18,17 @@
                         <input type="hidden" name="nm_program" value="{{ $absensi->nm_program }}">
                         <p>Nama Program : {{ $absensi->nm_program }}</p>
                         <p>Kelas : {{ $absensi->kelas }}</p>
-                        {{-- expr --}}
-                        @elseif($verif < '0')
-                        <p class="mt-2">Belum Ada Jadwal.</p>
-                        @endif
 
                         <button class="btn btn-sm btn-primary">Absen</button>
+                            @elseif($absensi < '0')
+                            <h5>Anda Belum Memiliki Jadwal.</h5>
+                            @endif
                         </form>
                     </div>
                 </div>
             </div>
     </div>
 
-    @if ($abs > '0')
         {{-- expr --}}
     <div class="row mt-3">
         <div class="col-md-12">
@@ -53,17 +52,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @php
-                                    $no=1;
-                                @endphp
+                                @foreach($absn as $abs)
                                 <tr>
-                                   <td>{{ $no++ }}</td>
+                                   <td>{{ $loop->iteration }}</td>
                                    <td>{{ $abs->user->name }}</td>
-                                   <td>{{ $absensi->nm_pengajar }}</td>
-                                   <td>{{ $absensi->nm_program }}</td>
+                                   <td>{{ $abs->nm_pengajar }}</td>
+                                   <td>{{ $abs->nm_program }}</td>
                                    <td>{{ $abs->tgl_kegiatan }}</td>
-                                   <td>{{ $abs->absensi }}</td>
+                                   <td class="text-primary">{{ $abs->absensi }}</td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table></div></div>
                     </div>
@@ -72,10 +70,5 @@
         </div>
         </div>
     </div>
-    @else
-
-    @endif
-
-
 </div>
 @endsection

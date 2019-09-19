@@ -13,6 +13,11 @@
         <span>Verifikasi Pembayaran</span></a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" href="{{ route('terverifikasi.index') }}">
+        <i class="fas fa-fw fa-check-circle"></i>
+        <span>Pembayaran Terverifikasi</span></a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" href="{{ route('dp.index') }}">
         <i class="fas fa-fw fa-table"></i>
         <span>Data Pengajar</span></a>

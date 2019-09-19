@@ -91,4 +91,19 @@ class KonfirmasiPembayaranController extends Controller
 
         return redirect()->route('konfirmasipem.index')->with('sukses', 'Data Berhasil Dihapus');
     }
+
+    // Terverifikasi
+    public function terverifikasi()
+    {
+        $pembayaran = Pembayaran::where('status', 'Terverifikasi')->latest()->get();
+
+        return view('konfirmasi_pembayaran.terverifikasi', compact('pembayaran'));
+    }
+
+    public function destroyterverifikasi(Pembayaran $pembayaran)
+    {
+        $pembayaran->delete();
+
+        return redirect()->route('terverifikasi.index')->with('sukses', 'Data Berhasil Dihapus');
+    }
 }
