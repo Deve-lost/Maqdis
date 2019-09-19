@@ -17,7 +17,7 @@
         <div class="col-sm-4 pull-left mb-3">
             <div class="card-columns-fluid">
                 <div class="card" style="width: 22rem;">
-                    <img src="{{ asset('images/avatar/'.auth()->user()->avatar) }}" style="width:100px;" class="mx-auto pt-2" alt="image">
+                    <img src="{{ asset('images/avatar/'.$data->avatar) }}" style="width:100px;" class="mx-auto pt-2" alt="image">
                     <div class="card-body">
                         <h5 class="card-title text-center h2">{{ $data->nm_pengajar }}</h5>
                         <p class="card-text text-center"><strong>Jenis Kelamin</strong> : {{ $data->jk }}</p>
