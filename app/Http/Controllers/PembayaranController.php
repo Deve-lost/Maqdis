@@ -149,8 +149,10 @@ class PembayaranController extends Controller
     {
         $id = auth()->user()->id;
         $idp = KelompokPeserta::pluck('user_id')->first();
-        $pembayaran = Pembayaran::where('user_id', $id)->orWhere('user_id', $idp)->first();
-        return view('pembayaran.status_pembayaran', ['pembayaran' => $pembayaran]);
+        // $pembayaran = Pembayaran::where('user_id', $id)->orWhere('user_id', $idp)->first();
+        $pembayaran = Pembayaran::where('user_id', $id)->where('user_id', $idp)->first();
+        $member = KelompokPeserta::where('peserta_id', auth()->user()->peserta_id)->where('status2', 'member')->first();
+        return view('pembayaran.status_pembayaran', ['pembayaran' => $pembayaran, 'member' => $member]);
     }
 
 }
