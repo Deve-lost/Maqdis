@@ -55,7 +55,7 @@
         </div>
       </div>
     </header>
-    <section class="page-section" id="services">
+    <section class="page-section bg-light" id="services">
       <div class="contanier">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -80,7 +80,6 @@
           <div class="row">
             <div class="col-lg-12 text-center">
               <h2 class="section-heading text-uppercase">Program Kami</h2>
-              <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
             </div>
           </div>
           <div class="row text-center">

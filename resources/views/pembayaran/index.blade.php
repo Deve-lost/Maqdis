@@ -279,7 +279,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="no-line text-primary"><span>*Biaya Pendaftaran : Rp.100.000</span></td>
+                                    <td class="no-line text-primary"><span>* Biaya Pendaftaran : Rp.100.000</span></td>
                                     <td class="no-line"></td>
                                     <td class="no-line text-right"><button class="btn btn-sm btn-primary">Bayar</button></td>
                                 </tr>
