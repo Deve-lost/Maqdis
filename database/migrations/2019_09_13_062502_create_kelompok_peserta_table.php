@@ -18,6 +18,7 @@ class CreateKelompokPesertaTable extends Migration
             $table->integer('peserta_id');
             $table->integer('user_id');
             $table->string('status', 191);
+            $table->string('status2', 191)->nullable();
             $table->timestamps();
         });
     }

@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
                 {{-- expr --}}
-            @if($pembayaran > '0')
+            @if($pembayaran)
             <div class="col-md-12 mt-3">
                 <div class="card text-center">
                     <div class="card-header">
@@ -82,6 +82,20 @@
             @else
 
             @endif
+            {{-- @elseif($pembayaran->status2 == 'member') --}}
+            <div class="col-md-12 mt-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <strong class="h4">Status Pembayaran</strong>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title h5">Hanya Ketua yang dapat melihat pembayaran.</p>
+                    </div>
+                </div>
+            </div>
+
+            @elseif(!$pembayaran && $member)
+            hanya admin yang dapat melihat ini coeg.
 
             @else
             <div class="col-md-12 mt-3">
@@ -96,6 +110,7 @@
                 </div>
             </div>
             @endif
+
         </div>
     </div>
 </div>
