@@ -142,7 +142,7 @@
 
              $("input:checkbox").click(function() {
                 var jml = $("input:checkbox").attr("data-id");
-                var bol = $("input:checkbox:checked").length >= jml;
+                var bol = $("input:checkbox:checked").length >= jml-1;
                 $("input:checkbox").not(":checked").attr("disabled",bol);
             });
     </script>
