@@ -7,31 +7,34 @@
     <div class="container-fluid">
         <div class="row">
                 {{-- expr --}}
-            @if($pembayaran)
+            @if($status > '0')
             <div class="col-md-12 mt-3">
                 <div class="card text-center">
                     <div class="card-header">
                         <strong class="h4">Status Pembayaran</strong>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">Nama Program : {{ $pembayaran->nm_program }}</p>
-                        <p class="card-text">Nama Pengajar : {{ $pembayaran->nm_pengajar }}</p>
-                        <p class="card-text">Hari : {{ $pembayaran->hari }}</p>
-                        <p class="card-text">Waktu : {{ $pembayaran->waktu }}</p>
-                        <p class="card-text">Biaya Pendidikan : Rp.{{ number_format($pembayaran->harga,0,',','.') }}</p>
-                        <p class="card-text text-primary">Status : {{ $pembayaran->status }}</p>
-            @if ($pembayaran->status == 'Belum Terverifikasi')
+                        <p class="card-text">Nama Program : {{ $status->nm_program }}</p>
+                        <p class="card-text">Nama Pengajar : {{ $status->nm_pengajar }}</p>
+                        <p class="card-text">Hari : {{ $status->hari }}</p>
+                        <p class="card-text">Waktu : {{ $status->waktu }}</p>
+                        <p class="card-text">Biaya Pendidikan : Rp.{{ number_format($status->harga,0,',','.') }}</p>
+                        <p class="card-text text-primary">Status : {{ $status->status }}</p>
+            @if ($status->status == 'Belum Terverifikasi' && $status->struk)
                 <p class="card-text text-danger">* Tunggu Verifikasi Dari Admin.</p>
             @endif
                     </div>
                 </div>
             </div>
+            {{-- @else --}}
+            {{-- {{ dd($status->user_id) }} --}}
+            {{-- @endif --}}
 
-            @if (empty($pembayaran->struk))
+            @if ($status->status == 'Belum Terverifikasi' && $status->struk == '')
             <div class="col-md-12">
                 <br>
                 <div class="text-center">Tanda Bukti Pembayaran</div>
-                <form action="{{ route('update.struk', $pembayaran->user_id) }}" enctype="multipart/form-data" method="POST">
+                <form action="{{ route('update.struk', $status->user_id) }}" enctype="multipart/form-data" method="POST">
                     @csrf
             <center>
             <br/>
@@ -79,12 +82,52 @@
 
                 </form>
             </div>
-            @else
+
+            @elseif($status->status == 'Terverifikasi')
 
             @endif
+
+            {{-- @elseif($pembayaran->struk) --}}
+
+
+
+            {{-- @endif --}}
             {{-- @elseif($pembayaran->status2 == 'member') --}}
 
-            @elseif(empty($pembayaran) && $member)
+            {{-- @elseif($status < '0' && $status->status == 'Terverifikasi' && $member)
+            <div class="col-md-12 mt-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <strong class="h4">Status Pembayaran</strong>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Nama Program : {{ $status->nm_program }}</p>
+                        <p class="card-text">Nama Pengajar : {{ $status->nm_pengajar }}</p>
+                        <p class="card-text">Hari : {{ $status->hari }}</p>
+                        <p class="card-text">Waktu : {{ $status->waktu }}</p>
+                        <p class="card-text">Biaya Pendidikan : Rp.{{ number_format($status->harga,0,',','.') }}</p>
+                        <p class="card-text text-primary">Status : {{ $status->status }}</p>
+            @if ($status->status == 'Belum Terverifikasi' && $status->struk)
+                <p class="card-text text-danger">* Tunggu Verifikasi Dari Admin.</p>
+            @endif
+                    </div>
+                </div>
+            </div> --}}
+            {{-- Jika yang sudah mempunyai pembayaran dan juga join grup --}}
+            {{-- <div class="col-md-12 mt-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <strong class="h4">Status Pembayaran</strong>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title h5">Hanya Ketua yang dapat melihat pembayaran.</p>
+                    </div>
+                </div>
+            </div> --}}
+
+
+            {{-- Jika sudah jadi member grup --}}
+            @elseif($status < '0' && $member)
             <div class="col-md-12 mt-3">
                 <div class="card text-center">
                     <div class="card-header">
@@ -96,7 +139,10 @@
                 </div>
             </div>
 
-            @else
+            {{-- @endif --}}
+
+            {{-- Jika tidak mempunyai pembayaran --}}
+            @elseif($status < '0')
             <div class="col-md-12 mt-3">
                 <div class="card text-center">
                     <div class="card-header">
