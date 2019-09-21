@@ -15,12 +15,12 @@
     </div>
     <!-- Icon Cards-->
     <div class="card mb-3">
-        <div class="card-header">
+        <div class="card-header bg-primary text-white">
             <i class="fas fa-table"></i>
         Daftar Program
     </div>
         <div class="card-body">
-            <h4>Pilihan Program</h4>
+            <h4 class="text-center">Pilihan Program</h4>
             <blockquote class="blockquote text-center">
                 <p class="mb-0">Pilih kelas yang sesuai dengan keingan anda & jarak rumah anda ke kantor Maqdis</p>
             </blockquote>
@@ -45,8 +45,8 @@
                     <label>
                         <input type="radio" id="program[{{ $data->id }}]" data-id="{{ $data->id }}" value="{{ $data->id }}{{ old('program') }}" name="program" class="card-input-element" />
                         <div class="panel panel-default card-input tinggi" style="height: 200px">
-                            <div class="panel-heading">{{ $data->nm_program }}</div>
-                            <div class="panel-body">
+                            <div class="panel-heading bg-primary text-white text-uppercase text-center">{{ $data->nm_program }}</div>
+                            <div class="panel-body text-center">
                                 {{ $data->deskripsi }}
                             </div>
                         </div>
