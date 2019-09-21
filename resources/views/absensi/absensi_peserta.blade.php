@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-md-12 mt-3">
                 <div class="card">
-                    <div class="card-header">
-                        <strong class="h4">Absensi</strong>
+                    <div class="card-header bg-primary">
+                        <strong class="h4 text-white">Absensi</strong>
                     </div>
                     <div class="card-body">
                         @if($absensi > '0')
@@ -16,29 +16,94 @@
                         @csrf
                         <input type="hidden" name="pengajar_id" value="{{ $absensi->nm_pengajar }}">
                         <input type="hidden" name="nm_program" value="{{ $absensi->nm_program }}">
-                        <p>Nama Program : {{ $absensi->nm_program }}</p>
-                        <p>Nama Pengajar : {{ $absensi->nm_pengajar }}</p>
-                        <p>Kelas : {{ $absensi->kelas }}</p>
-                        <p>Waktu : {{ $absensi->waktu }}</p>
-
-                        <button class="btn btn-sm btn-primary">Absen</button>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <table class="table">
+                                    <tr>
+                                        <td>Nama Pengajar</td>
+                                        <td> : </td>
+                                        <td class="pl-2">{{ $absensi->nm_pengajar }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Program</td>
+                                        <td> : </td>
+                                        <td class="pl-2">{{ $absensi->nm_program }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kelas</td>
+                                        <td> : </td>
+                                        <td class="pl-2">{{ $absensi->kelas }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Waktu</td>
+                                        <td> : </td>
+                                        <td class="pl-2">{{ $absensi->waktu }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presensi</td>
+                                        <td> : </td>
+                                        <td class="pl-2">
+                                            <button class="btn btn-sm btn-primary">Hadir</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                         
-                            @elseif($absensi < '0')
+                        @elseif($peserta > '0')
+                        <form action="{{ route('absen.storepes') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="nm_program" value="{{ $peserta->pembayaran->nm_program }}">
+                        <input type="hidden" name="pengajar_id" value="{{ $peserta->pembayaran->nm_pengajar }}">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <table class="table">
+                                    <tr>
+                                        <td>Nama Pengajar</td>
+                                        <td> : </td>
+                                        <td class="pl-2">{{ $peserta->pembayaran->nm_pengajar }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Program</td>
+                                        <td> : </td>
+                                        <td class="pl-2">{{ $peserta->pembayaran->nm_program }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kelas</td>
+                                        <td> : </td>
+                                        <td class="pl-2">{{ $peserta->pembayaran->kelas }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Waktu</td>
+                                        <td> : </td>
+                                        <td class="pl-2">{{ $peserta->pembayaran->waktu }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presensi</td>
+                                        <td> : </td>
+                                        <td class="pl-2">
+                                            <button class="btn btn-sm btn-primary">Hadir</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                            @else
                             <p class="mt-3">Silahkan Verifikasi Pembayaran terlebih dahulu.</p>
                             <a  href="{{ route('status.pembayaran') }}" class="btn btn-sm btn-primary">Status Pembayaran</a>
                             @endif
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
+        </div>
     </div>
 
     <div class="row mt-3">
         <div class="col-md-12">
              <div class="card mb-3">
-            <div class="card-header">
+            <div class="card-header bg-primary text-white">
                 <i class="fas fa-table"></i>
-                Absensi
+                Rekap Absensi
             </div>
             <div class="card-body">
                 <div class="table-responsive">

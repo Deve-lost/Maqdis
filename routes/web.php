@@ -309,13 +309,13 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
     ]);
 
     // Cek Peserta
-    Route::get('Maqdis/tambah/{id}/teman', [
+    Route::get('Maqdis/tambah/{users}/teman/{pembayaran}', [
         'uses' => 'PesertaController@cek',
         'as' => 'cek.peserta'
     ]);
 
     // Tambah Teman
-    Route::post('Maqdis/store/{id}/teman', [
+    Route::post('Maqdis/store/{user}/teman/{pembayaran}', [
         'uses' => 'PesertaController@store',
         'as' => 'tambah.kelompok'
     ]);
@@ -375,6 +375,11 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
     Route::post('Maqdis/store-absensi-peserta', [
         'uses' => 'AbsensiController@store',
         'as' => 'absen.store'
+    ]);
+
+    Route::post('Maqdis/store/absensi-peserta', [
+        'uses' => 'AbsensiController@storepes',
+        'as' => 'absen.storepes'
     ]);
 
 });

@@ -18,7 +18,7 @@ class CreatePengajar extends Migration
             $table->integer('user_id');
             $table->string('nm_pengajar', 50);
             $table->string('pendidikan', 191);
-            $table->string('kontak', 191);
+            $table->string('kontak', 15)->unique();
             $table->string('jk', 20);
             $table->string('ttl', 191);
             $table->string('pengalaman_kerja', 191);

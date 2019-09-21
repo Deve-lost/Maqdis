@@ -60,13 +60,22 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Tentang Kami</h2>
-            <!-- <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3> -->
           </div>
           <!-- <div class="row text-center"> -->
             <!-- <div class="col-lg-11"> -->
               <div class="col-lg-12 text-center">
               <div class="container"> 
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum praesentium nulla, eum aspernatur velit qui doloribus ea quo dolor, ratione, cum illo amet molestias delectus. Distinctio accusantium tempora voluptate vel ducimus quas, quos architecto perspiciatis vero. Quasi facilis pariatur, ipsum, cum a dolore modi libero soluta ducimus quis dignissimos tempora totam, reprehenderit officiis voluptatem error adipisci! Obcaecati eius reprehenderit quas. Nam facilis blanditiis ipsa libero placeat, iure ipsam minus et repellat, ea saepe modi magni alias dignissimos a, tempora voluptates! Soluta neque odit deleniti animi temporibus consequatur corrupti aperiam placeat ut explicabo debitis culpa, sint ratione similique incidunt accusamus cupiditate reprehenderit. Maxime, reprehenderit dicta ab, autem distinctio amet reiciendis ea nesciunt consectetur dolorem aut eum quis, quibusdam molestias explicabo eos atque nulla. Voluptates, voluptatem, suscipit odit eveniet beatae nihil perferendis molestiae consectetur ab repellat iste pariatur, aliquam enim? Maxime placeat, esse libero ratione vero obcaecati. Nesciunt fugiat, praesentium maiores quia!
+              <p>
+                <span class="text-center">Visi</span><br>
+                Menjadi lembaga da'wah yang mengangkat Al-Quran sebagai satu-satunya sahabat setia sepanjang masa.
+                <br><span class="text-center">Misi</span><br>
+                <div class="text-justify">
+                1. Menyediakan metode pembelajaran Al-Quran yang tepat sesuai dengan tuntutan semua lapis umat.<br>
+                2. Mengembangkan metode pembelajaran Al-Quran dalam tilawah, tartil, dzikir dan tadabbur.<br>
+                3. Mengantarkan semua lapisan umat untuk menikmati hidup dengan hidayah Al-Quran.<br>
+                4. Menjadikan lembaga Al-Quran yang kreatif, inovatif dan produktif.
+                  
+                </div>
               </p>
               </div>
               </div>

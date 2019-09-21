@@ -15,6 +15,7 @@ class Absensi extends Model
                             'nm_program',
     						'status'
     					];
+
     public function user()
     {
         return $this->belongsTo(User::class);

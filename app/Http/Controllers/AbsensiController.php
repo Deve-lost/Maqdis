@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Absensi;
 use App\Jadwal;
 use App\Pembayaran;
+use App\Peserta;
+use App\KelompokPeserta;
 
 class AbsensiController extends Controller
 {
@@ -28,12 +30,7 @@ class AbsensiController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    // Absensi Pengajar
     public function store(Request $request)
     {
         $user_id = auth()->user()->id;
@@ -59,6 +56,33 @@ class AbsensiController extends Controller
             }
     }
 
+    // Absensi Peserta
+    public function storepes(Request $request)
+    {
+        $user_id = auth()->user()->id;
+        $date = date('d-m-Y');
+        $absen = new Absensi;
+
+        // Cek Double Data
+        $cek_double = $absen->where(['tgl_kegiatan' => $date, 'user_id' => $user_id])
+                              ->count();
+
+            if ($cek_double>0) {
+                return redirect()->back()->with('error', 'Anda Sudah Absen Hari Ini!');
+            }else{
+                $absen->create([
+                    'user_id' => $user_id,
+                    'nm_pengajar' => $request->pengajar_id,
+                    'tgl_kegiatan' => $date,
+                    'absensi' => 'Hadir',
+                    'nm_program' => $request->nm_program,
+                    'status' => 'Peserta'
+                ]);
+
+            return redirect()->route('absen.peserta')->with('sukses', 'Absen Berhasil');
+            }
+    }
+
     public function store_pengajar(Request $request)
     {
         $user_id = auth()->user()->id;
@@ -80,9 +104,9 @@ class AbsensiController extends Controller
                     'nm_program' => $request->nm_program,
                     'status' => 'Pengajar'
                 ]);
+                
                 return redirect()->route('absen.pengajar')->with('sukses', 'Absen Berhasil');
             }
-
     }
 
     /**
@@ -133,10 +157,12 @@ class AbsensiController extends Controller
     public function absensipeserta()
     {
         $id = auth()->user()->id;
+        $peserta_id = auth()->user()->peserta_id;
         $absn = Absensi::where('user_id', $id)->orderBy('id', 'DESC')->get();
         $absensi = Pembayaran::where('user_id', $id)->where('status', 'Terverifikasi')->first();
+        $peserta = KelompokPeserta::where('peserta_id', $peserta_id)->where('status', 'Dikonfirmasi')->first();
 
-        return view('absensi.absensi_peserta', compact('absensi', 'absn'));
+        return view('absensi.absensi_peserta', compact('absensi', 'absn', 'peserta'));
     }
 
     public function absensipengajar()
@@ -145,7 +171,8 @@ class AbsensiController extends Controller
         $id = auth()->user()->name;
         $absn = Absensi::where('user_id', $ids)->orderBy('id', 'DESC')->get();
         $absensi = Pembayaran::where('nm_pengajar', $id)->first();
-        
-        return view('absensi.absensi_pengajar', compact('absn'), ['absensi' => $absensi]);
+        $abspes = Absensi::where('nm_pengajar', auth()->user()->name)->get();
+
+        return view('absensi.absensi_pengajar', compact('absn', 'abspes'), ['absensi' => $absensi]);
     }
 }

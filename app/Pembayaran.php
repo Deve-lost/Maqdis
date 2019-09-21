@@ -31,4 +31,9 @@ class Pembayaran extends Model
         return $this->belongsTo(Pengajar::class);
     }
 
+    public function kelompokpeserta()
+    {
+        return $this->hasMany(KelompokPeserta::class);
+    }
+
 }

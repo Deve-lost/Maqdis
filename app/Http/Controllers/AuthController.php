@@ -23,11 +23,10 @@ class AuthController extends Controller
             'email' => 'required|max:191|unique:users',
             'password' => 'required|min:8|max:50',
             'alamat' => 'required',
-            'kontak' => 'required|max:15',
+            'kontak' => 'required|max:15|unique:pengajar',
             'ttl' => 'required'
         ]);
 
-        // $peserta = Peserta::create($request->all());
         // Insert Peserta
         $peserta = new Peserta;
         $peserta->name = $request->name;
