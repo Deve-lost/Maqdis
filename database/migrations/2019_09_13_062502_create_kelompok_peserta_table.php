@@ -16,6 +16,7 @@ class CreateKelompokPesertaTable extends Migration
         Schema::create('kelompok_peserta', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('peserta_id');
+            $table->integer('pembayaran_id');
             $table->integer('user_id');
             $table->string('status', 191);
             $table->string('status2', 191)->nullable();

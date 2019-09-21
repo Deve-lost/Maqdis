@@ -8,7 +8,8 @@ class KelompokPeserta extends Model
 {
     protected $table = 'kelompok_peserta';
     protected $fillable = [
-    						'peserta_id',
+                            'peserta_id',
+    						'pembayaran_id',
     						'user_id',
                             'status'
     					];
@@ -21,5 +22,10 @@ class KelompokPeserta extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class);
     }
 }

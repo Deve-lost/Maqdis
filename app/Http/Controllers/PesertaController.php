@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Peserta;
 use App\KelompokPeserta;
 use App\Pembayaran;
+use App\User;
 use DB;
 
 class PesertaController extends Controller
@@ -32,33 +33,45 @@ class PesertaController extends Controller
         //
     }
 
+    public function cek(Request $request, $user, $pembayaran)
+    {
+        $idp = User::where('id', $user)->first();
+        $jmltmn = Pembayaran::where('user_id', auth()->user()->id)->pluck('jml_org')->first();
+        $pembayaran = Pembayaran::where('id', $pembayaran)->first();
+        $peserta = DB::table('peserta')->latest()->get();
+
+        return view('peserta.tambah_peserta',compact('pembayaran'), ['peserta' => $peserta, 'idp' => $idp, 'jml' => $jmltmn]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request, User $user, Pembayaran $pembayaran)
     {
         $this->validate(request(),
         [
             'add' => 'required',
         ]);
+        $idu = $user->id;
+        $bayar = $pembayaran->id;
 
-        // dd($request->all());
         $jmlorg = $request->jmlorg;
         $jumlah = count($request->add);
         $tes = $jmlorg-$jumlah;
         foreach ($request->add as $isi) {
              $check = new KelompokPeserta;
-             $check->user_id = $id;
+             $check->user_id = $idu;
+             $check->pembayaran_id = $bayar;
              $check->peserta_id = $isi;
              $check->status = 'Belum dikonfirmasi';
              $check->save();
          }
 
          $jml = DB::table('pembayaran')
-            ->where('user_id', $id)
+            ->where('user_id', $idu)
             ->update(['jml_org' => $tes]);
 
 
@@ -113,17 +126,6 @@ class PesertaController extends Controller
         return redirect()->route('ds.index')->with('sukses', 'Data Berhasil Dihapus');
     }
 
-    public function cek(Request $request,$id)
-    {
-        $idp = DB::table('users')->find($id);
-        // $peserta = DB::table('peserta')->get();
-        $jmltmn = Pembayaran::where('user_id', auth()->user()->id)->pluck('jml_org')->first();
-        $peserta = DB::table('peserta')
-                    // ->whereNotIn('user_id', ['auth()->user()->id'])
-                    ->get();
-        // dd($peserta);
-        return view('peserta.tambah_peserta', ['peserta' => $peserta, 'idp' => $idp, 'jml' => $jmltmn]);
-    }
 
     public function gantifoto(Request $request, $id)
     {
@@ -162,7 +164,7 @@ class PesertaController extends Controller
               ->update([
                 'status' => 'Dikonfirmasi'
             ]);
-        return redirect()->route('dashboard')->with('sukses', 'Anda telah berhasil bergabung');
+        return redirect()->route('dashboard')->with('sukses', 'Anda Berhasil Bergabung');
     }
 
     public function konfirmasidelete(KelompokPeserta $kelompokpeserta)
@@ -171,7 +173,7 @@ class PesertaController extends Controller
               ->where('peserta_id', auth()->user()->peserta_id)
               ->delete();
 
-        return redirect()->route('dashboard')->with('sukses', 'Penolakan berhasil');
+        return redirect()->route('dashboard')->with('sukses', 'Penolakan Berhasil');
     }
 
 }

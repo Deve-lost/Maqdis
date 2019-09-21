@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <!-- DataTables Example -->
         <div class="card mb-3">
-            <div class="card-header">
+            <div class="card-header bg-primary text-white">
                 <i class="fas fa-table"></i>
                 Jadwal Pertemuan
             </div>
@@ -17,7 +17,6 @@
                         <div class="row"><div class="col-sm-12">
                             <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                 <thead>
-                                    <!-- <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 6px;">No</th> -->
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Nama</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 100px;">Nama Pengajar</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Program</th>
@@ -38,9 +37,9 @@
                                     <td class="sorting_1 text-primary">{{ $pembayaran->status }}</td>
                                     <td class="sorting_1">
                                         @if ($jml == 0)
-                                            <a href="{{ route('cek.peserta', auth()->user()->id) }}" class="btn btn-sm btn-primary disabled"> Tambah</a>
+                                            <a href="/Maqdis/tambah/{{auth()->user()->id}}/teman/{{$pembayaran->id}}" class="btn btn-sm btn-primary disabled"> Tambah</a>
                                         @else
-                                        <a href="{{ route('cek.peserta', auth()->user()->id) }}" class="btn btn-sm btn-primary"> Tambah</a>
+                                        <a href="/Maqdis/tambah/{{auth()->user()->id}}/teman/{{$pembayaran->id}}" class="btn btn-sm btn-primary"> Tambah</a>
                                         @endif
                                     </td>
                                 </tr>
