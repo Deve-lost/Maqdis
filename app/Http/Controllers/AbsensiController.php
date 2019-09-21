@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Absensi;
 use App\Jadwal;
 use App\Pembayaran;
+use App\Peserta;
+use App\KelompokPeserta;
 
 class AbsensiController extends Controller
 {
@@ -133,10 +135,12 @@ class AbsensiController extends Controller
     public function absensipeserta()
     {
         $id = auth()->user()->id;
+        $peserta_id = auth()->user()->peserta_id;
         $absn = Absensi::where('user_id', $id)->orderBy('id', 'DESC')->get();
         $absensi = Pembayaran::where('user_id', $id)->where('status', 'Terverifikasi')->first();
+        $peserta = KelompokPeserta::where('peserta_id', $peserta_id)->where('status', 'Dikonfirmasi')->first();
 
-        return view('absensi.absensi_peserta', compact('absensi', 'absn'));
+        return view('absensi.absensi_peserta', compact('absensi', 'absn', 'peserta'));
     }
 
     public function absensipengajar()

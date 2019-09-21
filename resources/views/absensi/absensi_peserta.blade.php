@@ -23,7 +23,18 @@
 
                         <button class="btn btn-sm btn-primary">Absen</button>
                         
-                            @elseif($absensi < '0')
+                        @elseif($peserta > '0')
+                        <form action="{{ route('absen.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="pengajar_id" value="{{ $peserta->nm_pengajar }}">
+                        <input type="hidden" name="nm_program" value="{{ $peserta->nm_program }}">
+                        <p>Nama Program : {{ $peserta->nm_program }}</p>
+                        <p>Nama Pengajar : {{ $peserta->nm_pengajar }}</p>
+                        <p>Kelas : {{ $peserta->kelas }}</p>
+                        <p>Waktu : {{ $peserta->waktu }}</p>
+
+                        <button class="btn btn-sm btn-primary">Absen</button>
+                            @else
                             <p class="mt-3">Silahkan Verifikasi Pembayaran terlebih dahulu.</p>
                             <a  href="{{ route('status.pembayaran') }}" class="btn btn-sm btn-primary">Status Pembayaran</a>
                             @endif
