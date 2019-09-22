@@ -160,10 +160,51 @@ label1 {
 .panel-body {
     padding: 15px;
 }
-
+@keyframes bgcolor{
+    0%{
+        background: #3C3A4A ;
+    }
+    20%{
+        background:#9B273B ;
+    }
+    40%{
+        background:#349634 ;
+    }
+    60%{
+        background:#25439A;
+    }
+    80%{
+        background:#DF7D09;
+    }
+    100%{
+        background:#3C3A4A;
+    }
+}
 .btn span.glyphicon {
     opacity: 0;
 }
 .btn.active span.glyphicon {
     opacity: 1;
+}
+.bg-dark {
+    background-color: #2166ac !important;
+    animation: bgcolor infinite 60s;
+    box-shadow: 2px 2px 15px grey;
+}
+.sidebar {
+  padding-top: 5%;
+    background-color: whitesmoke;
+}
+.sidebar .nav-item .nav-link {
+    color: #494949;
+}
+.sidebar .nav-item .nav-link:hover {
+    color: blue;
+}
+.nav-item{
+    border-bottom: .5px solid #BFBFBF;
+
+}
+.bg-primary {
+    background-color: #5196e1 !important;
 }
