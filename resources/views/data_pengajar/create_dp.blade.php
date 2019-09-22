@@ -71,7 +71,7 @@
 
                     <div class="col-md-5">
                         <div class="form-group {{$errors->has('ttl') ? ' has-error' : ''}}">
-                            <label for="ttl" class="col-xs-3 control-label">Tanggal Lahir</label>
+                            <label for="ttl" class="col-xs-3 control-label">Tempat Tanggal Lahir</label>
                             <div class="col-xs-9">
                                 <input type="text" class="form-control" id="ttl" name="ttl" value="{{ old('ttl') }}" placeholder="Kab/Kota, Tanggal Bulan Tahun">
                             </div>
@@ -83,9 +83,9 @@
 
                     <div class="col-md-10">
                         <div class="form-group {{$errors->has('avatar') ? ' has-error' : ''}}">
-                            <label for="avatar" class="col-xs-3 control-label">Foto</label>
+                            <label for="avatar" class="col-xs-3 control-label">Foto Pengajar</label>
                             <div class="col-xs-9">
-                                <input type="file" class="" id="avatar" name="avatar" placeholder="No Wa/Hp">
+                                <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
                             </div>
                             @if($errors->has('avatar'))
                                 <span class="help-block text-danger">{{$errors->first('avatar')}}</span>

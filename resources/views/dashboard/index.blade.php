@@ -178,7 +178,7 @@
             <div class="card mb-3">
                 <div class="card-header bg-primary text-white">
                     <i class="fas fa-table"></i>
-                    Assalamu'alaikum {{ auth()->user()->name }}. Identitas anda belum lengkap.
+                    Assalamu'alaikum {{ auth()->user()->name }}. Identitas Kamu Belum Lengkap.
                 </div>
                 <div class="card-body">
                     <div class="row justify-content-center">

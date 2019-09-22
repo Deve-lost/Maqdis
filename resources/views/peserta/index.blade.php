@@ -6,15 +6,15 @@
 <div id="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
+        <ol class="breadcrumb bg-primary">
             <li class="breadcrumb-item">
-                <a href="{{ route('dashboard') }}">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="text-white">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Data Peserta</li>
+            <li class="breadcrumb-item active text-white">Data Peserta</li>
         </ol>
         <!-- DataTables Example -->
         <div class="card mb-3">
-            <div class="card-header">
+            <div class="card-header bg-primary text-white">
                 <i class="fas fa-table"></i>
                 Data Peserta
             </div>
@@ -42,7 +42,7 @@
                                     <td>{{ $data->jk }}</td>
                                     <td>{{ $data->kontak }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-info" data-nm="{{ $data->nama }}" data-jk="{{ $data->jk }}" data-email="{{ $data->email }}" data-kontak="{{ $data->kontak }}" data-ttl="{{ $data->ttl }}" data-alamat="{{ $data->alamat }}" data-toggle="modal" data-target="#showpeserta"><i class="fa fa-eye"></i>
+                                        <a href="" class="btn btn-sm btn-info" data-nm="{{ $data->name }}" data-jk="{{ $data->jk }}" data-email="{{ $data->email }}" data-kontak="{{ $data->kontak }}" data-ttl="{{ $data->ttl }}" data-alamat="{{ $data->alamat }}" data-toggle="modal" data-target="#showpeserta"><i class="fa fa-eye"></i>
                                         </a>
                                         <a href="#" class="btn btn-sm btn-danger delete" peserta-id="{{ $data->id }}" peserta-nm="{{ $data->name }}"><i class="fa fa-trash"></i></a>
                                     </td>

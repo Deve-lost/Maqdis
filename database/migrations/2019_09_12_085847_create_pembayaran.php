@@ -25,6 +25,7 @@ class CreatePembayaran extends Migration
             $table->integer('harga');
             $table->string('struk', 191)->nullable();
             $table->string('status', 191);
+            $table->string('avatar', 191)->nullable();
             $table->timestamps();
         });
     }

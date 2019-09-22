@@ -10,7 +10,7 @@
             @if($status > '0')
             <div class="col-md-12 mt-3">
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-white">
                         <strong class="h4">Status Pembayaran</strong>
                     </div>
                     <div class="card-body">
@@ -20,15 +20,12 @@
                         <p class="card-text">Waktu : {{ $status->waktu }}</p>
                         <p class="card-text">Biaya Pendidikan : Rp.{{ number_format($status->harga,0,',','.') }}</p>
                         <p class="card-text text-primary">Status : {{ $status->status }}</p>
-            @if ($status->status == 'Belum Terverifikasi' && $status->struk)
-                <p class="card-text text-danger">* Tunggu Verifikasi Dari Admin.</p>
-            @endif
+                        @if ($status->status == 'Belum Terverifikasi' && $status->struk)
+                            <p class="card-text text-danger">* Tunggu Verifikasi Dari Admin.</p>
+                        @endif
                     </div>
                 </div>
             </div>
-            {{-- @else --}}
-            {{-- {{ dd($status->user_id) }} --}}
-            {{-- @endif --}}
 
             @if ($status->status == 'Belum Terverifikasi' && $status->struk == '')
             <div class="col-md-12">
@@ -89,30 +86,6 @@
 
             {{-- @elseif($pembayaran->struk) --}}
 
-
-
-            {{-- @endif --}}
-            {{-- @elseif($pembayaran->status2 == 'member') --}}
-
-            {{-- @elseif($status < '0' && $status->status == 'Terverifikasi' && $member)
-            <div class="col-md-12 mt-3">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <strong class="h4">Status Pembayaran</strong>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Nama Program : {{ $status->nm_program }}</p>
-                        <p class="card-text">Nama Pengajar : {{ $status->nm_pengajar }}</p>
-                        <p class="card-text">Hari : {{ $status->hari }}</p>
-                        <p class="card-text">Waktu : {{ $status->waktu }}</p>
-                        <p class="card-text">Biaya Pendidikan : Rp.{{ number_format($status->harga,0,',','.') }}</p>
-                        <p class="card-text text-primary">Status : {{ $status->status }}</p>
-            @if ($status->status == 'Belum Terverifikasi' && $status->struk)
-                <p class="card-text text-danger">* Tunggu Verifikasi Dari Admin.</p>
-            @endif
-                    </div>
-                </div>
-            </div> --}}
             {{-- Jika yang sudah mempunyai pembayaran dan juga join grup --}}
             {{-- <div class="col-md-12 mt-3">
                 <div class="card text-center">
@@ -145,7 +118,7 @@
             @elseif($status < '0')
             <div class="col-md-12 mt-3">
                 <div class="card text-center">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-white">
                         <strong class="h4">Status Pembayaran</strong>
                     </div>
                     <div class="card-body">

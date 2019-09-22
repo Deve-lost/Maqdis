@@ -6,15 +6,15 @@
 <div id="content-wrapper">
     <div class="container-fluid">
         <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
+        <ol class="breadcrumb bg-primary">
             <li class="breadcrumb-item">
-                <a href="{{ route('dashboard') }}">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="text-white">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Rekap Kehadiran</li>
+            <li class="breadcrumb-item active text-white">Rekap Kehadiran</li>
         </ol>
         <!-- DataTables Example -->
         <div class="card mb-3">
-            <div class="card-header">
+            <div class="card-header bg-primary text-white">
                 <i class="fas fa-table"></i>
                 Rekap Kehadiran Pengajar Dan Peserta
             </div>

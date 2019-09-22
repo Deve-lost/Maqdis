@@ -12,31 +12,57 @@
                     </div>
                     <div class="card-body">
                         @if($absensi > '0')
-                        <form action="{{ route('absen.store_pengajar') }}" method="POST">
+                        <form action="{{ route('absen.store_pengajar') }}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="pengajar_id" value="{{ $absensi->nm_pengajar }}">
                         <input type="hidden" name="nm_program" value="{{ $absensi->nm_program }}">
                         <div class="row">
-                            <div class="col-md-4">
-                                <table class="table">
-                                    <tr>
-                                        <td>Nama Program</td>
-                                        <td> : </td>
-                                        <td class="pl-2">{{ $absensi->nm_program }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kelas</td>
-                                        <td> : </td>
-                                        <td class="pl-2">{{ $absensi->kelas }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Presensi</td>
-                                        <td> : </td>
-                                        <td>
-                                            <button class="btn btn-sm btn-primary">Hadir</button>
-                                        </td>
-                                    </tr>
-                                </table>
+                            <div class="col-md-8 offset-md-2">
+                                <div class="table-responsive">
+                                    <table class="table" border="0">
+                                        <tr>
+                                            <td>Nama Program</td>
+                                            <td> : </td>
+                                            <td class="pl-2">{{ $absensi->nm_program }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kelas</td>
+                                            <td> : </td>
+                                            <td class="pl-2">{{ $absensi->kelas }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Materi</td>
+                                            <td> : </td>
+                                            <td>
+                                                <div class="form-group {{$errors->has('materi') ? ' has-error' : ''}}">
+                                                    <textarea class="form-control" rows="4" name="materi"></textarea>
+                                                </div>
+                                                @if($errors->has('materi'))
+                                                    <span class="help-block text-danger">{{$errors->first('materi')}}</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Foto Kegiatan</td>
+                                            <td> : </td>
+                                            <td>
+                                                <div class="form-group {{$errors->has('fotokegiatan') ? ' has-error' : ''}}">
+                                                    <input type="file" class="" name="fotokegiatan" accept="image/*">
+                                                </div>
+                                                @if($errors->has('fotokegiatan'))
+                                                    <span class="help-block text-danger">{{$errors->first('fotokegiatan')}}</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Presensi</td>
+                                            <td> : </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">Hadir</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                             @elseif($absensi < '0')

@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-xs-12 col-md-12 col-lg-12 pull-left">
                 <div class="panel panel-default height">
-                    <div class="panel-heading">Pengajar</div>
+                    <div class="panel-heading bg-primary text-white">Pengajar</div>
                     <div class="panel-body">
                         <strong>Nama Pengajar:</strong>
                         {{ $request['pengajar_id'] }}<br>
@@ -37,7 +37,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading bg-primary text-white">
                     <h3 class="panel-title"><strong>Pembayaran</strong></h3>
                 </div>
                 <div class="panel-body">
@@ -292,6 +292,7 @@
                             @endphp
                         @endif
                         <input type="hidden" name="nm_pengajar" value="{{ $request['pengajar_id'] }}">
+                        <input type="hidden" name="avatar" value="{{ $request['avatar'] }}">
                         <input type="hidden" name="nm_program" value="{{ $request['program_id'] }}">
                         <input type="hidden" name="hari" value="{{ $request['hari'] }}">
                         <input type="hidden" name="waktu" value="{{ $request['waktu'] }}">

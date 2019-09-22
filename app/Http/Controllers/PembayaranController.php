@@ -51,6 +51,7 @@ class PembayaranController extends Controller
             'waktu' => $request->waktu,
             'kelas' => $request->kelas,
             'harga' => $request->harga,
+            'avatar' => $request->avatar,
             'status' => 'Belum Terverifikasi'
         ]);
 

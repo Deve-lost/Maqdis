@@ -8,18 +8,19 @@ class Pembayaran extends Model
 {
     protected $table = 'pembayaran';
     protected $fillable = [
-        'user_id',
-        'nm_peserta',
-        'jml_org',
-        'nm_pengajar',
-        'nm_program',
-        'hari',
-        'waktu',
-        'kelas',
-        'harga',
-        'status',
-        'struk'
-    ];
+                            'user_id',
+                            'nm_peserta',
+                            'jml_org',
+                            'nm_pengajar',
+                            'nm_program',
+                            'hari',
+                            'waktu',
+                            'kelas',
+                            'harga',
+                            'status',
+                            'avatar',
+                            'struk'
+                        ];
 
     public function user()
     {
