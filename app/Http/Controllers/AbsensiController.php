@@ -50,9 +50,9 @@ class AbsensiController extends Controller
                     'tgl_kegiatan' => $date,
                     'absensi' => 'Hadir',
                     'nm_program' => $request->nm_program,
-                    'status' => 'Peserta'
+                    'status' => 'Pengajar'
                 ]);
-            return redirect()->route('absen.peserta')->with('sukses', 'Absen Berhasil');
+            return redirect()->route('absen.pengajar')->with('sukses', 'Absen Berhasil');
             }
     }
 
@@ -85,6 +85,11 @@ class AbsensiController extends Controller
 
     public function store_pengajar(Request $request)
     {
+        $this->validate($request, [
+            'materi' => 'required',
+            'fotokegiatan' => 'required|mimes:jpeg,jpg,png'
+        ]);
+
         $user_id = auth()->user()->id;
         $date = date('d-m-Y');
         $absen = new Absensi;
@@ -96,15 +101,26 @@ class AbsensiController extends Controller
             if ($cek_double>0) {
                 return redirect()->back()->with('error', 'Anda Sudah Absen Hari Ini!');
             }else{
-                $absen->create([
+                $absen = [
                     'user_id' => $user_id,
                     'nm_pengajar' => $request->pengajar_id,
                     'tgl_kegiatan' => $date,
                     'absensi' => 'Hadir',
                     'nm_program' => $request->nm_program,
-                    'status' => 'Pengajar'
-                ]);
-                
+                    'materi' => $request->materi,
+                    'status' => 'Pengajar',
+                    'fotokegiatan' => $request->fotokegiatan
+                ];
+
+                $absensi = Absensi::create($absen);
+
+                    if ($request->hasFile('fotokegiatan')) {
+                        $request->file('fotokegiatan')->move('images/foto kegiatan/',$request->file('fotokegiatan')->getClientOriginalName());
+
+                        $absensi->fotokegiatan = $request->file('fotokegiatan')->getClientOriginalName();
+                        $absensi->save();
+                    }
+
                 return redirect()->route('absen.pengajar')->with('sukses', 'Absen Berhasil');
             }
     }
@@ -171,7 +187,7 @@ class AbsensiController extends Controller
         $id = auth()->user()->name;
         $absn = Absensi::where('user_id', $ids)->orderBy('id', 'DESC')->get();
         $absensi = Pembayaran::where('nm_pengajar', $id)->first();
-        $abspes = Absensi::where('nm_pengajar', auth()->user()->name)->get();
+        $abspes = Absensi::where('nm_pengajar', auth()->user()->name)->where('status', 'Peserta')->get();
 
         return view('absensi.absensi_pengajar', compact('absn', 'abspes'), ['absensi' => $absensi]);
     }

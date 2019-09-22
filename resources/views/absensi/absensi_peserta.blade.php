@@ -17,7 +17,7 @@
                         <input type="hidden" name="pengajar_id" value="{{ $absensi->nm_pengajar }}">
                         <input type="hidden" name="nm_program" value="{{ $absensi->nm_program }}">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <table class="table">
                                     <tr>
                                         <td>Nama Pengajar</td>
@@ -47,6 +47,11 @@
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-3">
+                                <img src="{{ asset('images/avatar/'.$absensi->avatar) }}" alt="Foto Pengajar" class="img-thumbnail img-fluid">
                             </div>
                         </div>
                         

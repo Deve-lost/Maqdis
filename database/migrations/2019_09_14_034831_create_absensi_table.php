@@ -21,6 +21,8 @@ class CreateAbsensiTable extends Migration
             $table->string('absensi', 191);
             $table->string('nm_program', 191);
             $table->string('status', 191);
+            $table->text('materi')->nullable();
+            $table->string('fotokegiatan', 191)->nullable();
             $table->timestamps();
         });
     }

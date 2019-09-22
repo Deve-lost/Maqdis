@@ -1,6 +1,3 @@
-{{-- {{  dd($search)}} --}}
-{{-- {{ dd($search['kelas']) }} --}}
-
 @extends('layouts.master')
 
 @section('title', 'Cari Pengajar')
@@ -32,6 +29,7 @@
         </div>
         @endforeach
             <input type="hidden" name="pengajar_id" value="{{ $data->nm_pengajar }}">
+            <input type="hidden" name="avatar" value="{{ $data->avatar }}">
             <input type="hidden" name="kelas" value="{{ $search['kelas'] }}">
             <input type="hidden" name="program_id" value="{{ $data->nm_program }}">
             <input type="hidden" name="waktu" value="{{ $data->waktu }}">

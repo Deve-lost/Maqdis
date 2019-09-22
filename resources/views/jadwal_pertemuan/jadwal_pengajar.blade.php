@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <!-- DataTables Example -->
         <div class="card mb-3">
-            <div class="card-header">
+            <div class="card-header bg-primary text-white">
                 <i class="fas fa-table"></i>
                 Jadwal Mengajar
             </div>
