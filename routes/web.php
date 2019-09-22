@@ -217,7 +217,7 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin']], function() {
         'uses' => 'JadwalPesertaController@destroykelompok',
         'as' => 'kelompokpeserta.destroykelompok'
     ]);
-    
+
     // Konfirmasi Lanjut Program
     Route::get('/Maqdis/konfirmasi-lanjut/program', [
         'uses' => 'KonfirmasiProgramController@index',
@@ -251,6 +251,12 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
 	Route::get('/Maqdis/dashboard', [
         'uses' => 'DashboardController@index',
         'as' => 'dashboard'
+    ]);
+
+    // Update Identitas Peserta
+    Route::post('Maqdis/update/{id}/identitas', [
+        'uses' => 'PesertaController@update',
+        'as' => 'update.identitas'
     ]);
 
     Route::get('Maqdis/daftar-program', [
@@ -313,7 +319,6 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar,Peserta']], fun
         'uses' => 'PesertaController@store',
         'as' => 'tambah.kelompok'
     ]);
-
 
     // Profile Pengguna
     Route::get('/Maqdis/profile/{user}/pengguna', [

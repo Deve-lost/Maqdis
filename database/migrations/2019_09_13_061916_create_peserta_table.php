@@ -23,6 +23,9 @@ class CreatePesertaTable extends Migration
             $table->string('kontak', 15);
             $table->string('avatar', 191)->nullable();
             $table->text('alamat');
+            $table->string('pendidikan', 191)->nullable();
+            $table->string('pekerjaan', 191)->nullable();
+            $table->string('status', 191)->nullable();
             $table->timestamps();
         });
     }

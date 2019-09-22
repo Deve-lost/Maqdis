@@ -167,12 +167,80 @@
                 </form>
                   </div>
             </div>
+
+
             @empty
 
             @endforelse
 
-			<div class="card mb-3">
-				<div class="card-header">
+            @if ($identitas->status == '')
+                {{-- expr --}}
+            <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-table"></i>
+                    Assalamu'alaikum {{ auth()->user()->name }}. Identitas anda belum lengkap.
+                </div>
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4" >
+                        <form class="form-inline" method="POST" action="/Maqdis/update/{{ auth()->user()->peserta_id }}/identitas">
+                            <strong>Pendidikan Terakhir</strong>
+                        </div>
+                        @csrf
+                        <div class="col-md-4" >
+                            <select name="pendidikan" class="form-control">
+                              <option value="SD">SD</option>
+                              <option value="SMP">SMP</option>
+                              <option value="SMA">SMA</option>
+                              <option value="PT S1/S2/S3">PT S1/S2/S3</option>
+                              <option value="Lain-lain">Lain-lain</option>
+                            </select>
+                        </div>
+                    </div>
+<hr>
+                    <div class="row mt-3 justify-content-center">
+                        <div class="col-md-4" >
+                            <strong>Pekerjaan</strong>
+                        </div>
+                        <div class="col-md-4" >
+                            <select name="pekerjaan" class="form-control">
+                              <option value="PNS">PNS</option>
+                              <option value="TNI/Polri">TNI/Polri</option>
+                              <option value="Peg.Swasta">Peg.Swasta</option>
+                              <option value="Pelajar">Pelajar</option>
+                              <option value="Mahasiswa">Mahasiswa</option>
+                              <option value="Lain-lain">Lain-lain</option>
+                            </select>
+                        </div>
+                    </div>
+<hr>
+                    <div class="row mt-3 justify-content-center">
+                        <div class="col-md-4" >
+                            <strong>Status</strong>
+                        </div>
+                        <div class="col-md-4" >
+                            <select name="status" class="form-control">
+                              <option value="Menikah">Menikah</option>
+                              <option value="Belum Menikah">Belum Menikah</option>
+                              <option value="Janda/Duda">Janda/Duda</option>
+                            </select>
+                        </div>
+                    </div>
+<hr>
+                    <div class="row mt-3 text-center">
+                        <div class="col-md-12" >
+                            <button class="btn btn-sm btn-primary">Perbaharui</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+
+
+            <div class="card mb-3">
+				<div class="card-header bg-primary text-white">
 					<i class="fas fa-table"></i>
 					Daftar Program
 				</div>
@@ -283,7 +351,7 @@
 				</div>
 			</div>
 			<div class="card mb-3">
-				<div class="card-header">
+				<div class="card-header bg-primary text-white">
 					<i class="fas fa-table">
 					Biaya Pendidikan
 					</i>

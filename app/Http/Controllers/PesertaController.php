@@ -110,7 +110,16 @@ class PesertaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $up = DB::table('peserta')
+        ->where('id', $id)
+        ->update([
+            'pendidikan' => $request->pendidikan,
+            'pekerjaan' => $request->pekerjaan,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('ds.index')->with('sukses', 'Identitas Berhasil Diperbaharui');
+
     }
 
     /**
