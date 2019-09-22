@@ -29,10 +29,11 @@ class DashboardController extends Controller
         $user     = User::count();
         // $id = User::find(id);
         $identitas = Peserta::where('id', auth()->user()->peserta_id)->first();
+        $identitasguru = Pengajar::where('user_id', auth()->user()->id)->first();
         $konfirm = KelompokPeserta::where('peserta_id', auth()->user()->peserta_id)->where('status', 'Belum dikonfirmasi')->get();
         // dd($konfirm);
 
-        return view('dashboard.index', compact('programs', 'biayapendidikan','konfirm'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user, 'pembayaran' => $pembayaran, 'terverifikasi' => $terverifikasi, 'identitas' => $identitas]);
+        return view('dashboard.index', compact('programs', 'biayapendidikan','konfirm'), ['pengajar' => $pengajar, 'peserta' => $peserta, 'pengguna' => $user, 'pembayaran' => $pembayaran, 'terverifikasi' => $terverifikasi, 'identitas' => $identitas, 'identitasguru' => $identitasguru]);
     }
 
     /**

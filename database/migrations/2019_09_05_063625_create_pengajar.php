@@ -23,6 +23,12 @@ class CreatePengajar extends Migration
             $table->string('ttl', 191);
             $table->string('pengalaman_kerja', 191);
             $table->text('alamat');
+            $table->string('nm_panggilan', 191)->nullable();
+            $table->string('nm_ayah_kandung', 191)->nullable();
+            $table->string('nm_ibu_kandung', 191)->nullable();
+            $table->string('nm_kakek_dari_ayah', 191)->nullable();
+            $table->string('no_ktp_sim_passport', 191)->nullable();
+            $table->string('status', 191)->nullable();
             $table->string('avatar', 191);
             $table->timestamps();
         });

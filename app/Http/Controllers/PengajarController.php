@@ -145,6 +145,23 @@ class PengajarController extends Controller
         return redirect()->route('dp.index')->with('sukses', 'Data Berhasil Diperbaharui');
     }
 
+    public function updateidentitas(Request $request, $id)
+    {
+        // dd($request->all());
+        $up = DB::table('pengajar')
+        ->where('user_id', $id)
+        ->update([
+            'nm_panggilan' => $request->nm_panggilan,
+            'nm_ayah_kandung' => $request->nm_ayah_kandung,
+            'nm_ibu_kandung' => $request->nm_ibu_kandung,
+            'nm_kakek_dari_ayah' => $request->nm_kakek_dari_ayah,
+            'no_ktp_sim_passport' => $request->no_ktp_sim_passport,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('dashboard')->with('sukses', 'Identitas Berhasil Diperbaharui');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
