@@ -41,7 +41,7 @@
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Program</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Tanggal Kegiatan</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Absensi</th>
-                                    <!-- <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 20px;">Opsi</th> -->
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 20px;">Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,9 +49,12 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $data->nm_pengajar }}</td>
-                                    <td>{{ $data->user_id }}</td>
+                                    <td>{{ $data->nm_program }}</td>
                                     <td>{{ $data->tgl_kegiatan }}</td>
                                     <td>{{ $data->absensi }}</td>
+                                    <td>
+                                        <a href="" class="btn btn-sm btn-info" data-nm="{{ $data->user->name }}" data-nmprog="{{ $data->nm_program }}" data-tglkegiatan="{{ $data->tgl_kegiatan }}" data-absensi="{{ $data->absensi }}" data-materi="{{ $data->materi }}" data-foto="{{ $data->fotokegiatan}}" data-toggle="modal" data-target="#showabsensi"><i class="fa fa-eye"></i>
+                                    </td>
                                 </tr>
                             @endforeach
                            </tbody>
@@ -72,17 +75,24 @@
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 21px;">Program</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 74px;">Tanggal Kegiatan</th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 1px;">Absensi</th>
-                                    <!-- <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 20px;">Opsi</th> -->
+                                    @if(auth()->user()->role == 'Developer')
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 20px;">Opsi</th>
+                                    @endif
                                 </tr>
                             </thead>
                             <tbody>
                             @foreach ($absensipes as $data)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $data->nm_pengajar }}</td>
-                                    <td>{{ $data->user_id }}</td>
+                                    <td>{{ $data->user->name }}</td>
+                                    <td>{{ $data->nm_program }}</td>
                                     <td>{{ $data->tgl_kegiatan }}</td>
                                     <td>{{ $data->absensi }}</td>
+                                    @if(auth()->user()->role == 'Developer')
+                                    <td>
+                                        <a href="{{ route('dp.edit', $data->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
+                                    </td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>
@@ -99,6 +109,29 @@
   </div>
 </div>
 <!-- /.container-fluid -->
+<!-- Modal -->
+<div class="modal fade" id="showabsensi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rekap Absensi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" action="{{ route('konfirmasipem.update', 'test') }}">
+        @csrf
+        <div class="modal-body">
+          <input type="hidden" name="dfp_id" id="dfpid" value="">
+          @include('absensi.vabsensi')
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+     </form>
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('footer')

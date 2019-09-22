@@ -277,6 +277,30 @@
       })
   </script>
   <!-- /profile pengguna -->
+
+  <!-- Profile Pengguna -->
+  <script>
+      $('#showabsensi').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var nm = button.data('nm')
+        var nmprog = button.data('nmprog')
+        var tglkegiatan = button.data('tglkegiatan')
+        var absensi = button.data('absensi')
+        var foto = button.data('foto')
+        var materi = button.data('materi')
+        var newsrc = "{{asset('images/foto kegiatan/')}}"
+
+        var modal = $(this)
+
+        modal.find('.modal-body #nm').val(nm);
+        modal.find('.modal-body #nmprog').val(nmprog);
+        modal.find('.modal-body #tglkegiatan').val(tglkegiatan);
+        modal.find('.modal-body #absensi').val(absensi);
+        modal.find('.modal-body #materi').val(materi);
+        modal.find('.modal-body #foto').attr("src",newsrc +'/'+ foto);
+      })
+  </script>
+  <!-- /profile pengguna -->
   @yield('footer')
 </body>
 </html>

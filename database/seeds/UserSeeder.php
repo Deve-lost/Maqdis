@@ -16,7 +16,8 @@ class UserSeeder extends Seeder
             'role' => 'Admin',
             'name' => 'Goahead',
      		'email' => 'developer@gmail.com',
-     		'password' => bcrypt('inovindo'),
+            'password' => bcrypt('inovindo'),
+     		'avatar' => 'user.png',
      	]);
 
         User::create([
@@ -24,6 +25,7 @@ class UserSeeder extends Seeder
             'name' => 'Rahasia',
             'email' => 'rahasia@gmail.com',
             'password' => bcrypt('inovindo'),
+            'avatar' => 'user.png',
         ]);
 
         User::create([
@@ -31,6 +33,7 @@ class UserSeeder extends Seeder
             'name' => 'Inovindo',
             'email' => 'inovindo@gmail.com',
             'password' => bcrypt('inovindo'),
+            'avatar' => 'user.png',
         ]);
     }
 }

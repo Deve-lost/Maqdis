@@ -21,10 +21,9 @@
 </head>
 
 <body class="bg-dark">
-
   <div class="container">
-    <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Ubah Password</div>
+    <div class="card card-login mx-auto" style="margin-top: 15%;">
+      <div class="card-header bg-primary text-white">Ubah Password</div>
       <div class="card-body">
         <div class="text-center mb-4">
         </div>
