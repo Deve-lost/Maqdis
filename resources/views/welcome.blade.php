@@ -30,10 +30,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Program</a>
+              <a class="nav-link js-scroll-trigger" href="#tentangkami">Tentang Kami</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#team">Kontak</a>
+              <a class="nav-link js-scroll-trigger" href="#program">Program</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#kontak">Kontak</a>
             </li>
             <li class="nav-item">
               <a class="nav-link"  href="{{ route('register') }}">Daftar</a>
@@ -55,7 +58,7 @@
         </div>
       </div>
     </header>
-    <section class="page-section bg-light" id="services">
+    <section class="page-section bg-light" id="tentangkami">
       <div class="contanier">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -65,18 +68,15 @@
             <!-- <div class="col-lg-11"> -->
               <div class="col-lg-12 text-center">
               <div class="container"> 
-              <p>
-                <span class="text-center">Visi</span><br>
-                Menjadi lembaga da'wah yang mengangkat Al-Quran sebagai satu-satunya sahabat setia sepanjang masa.
-                <br><span class="text-center">Misi</span><br>
-                <div class="text-justify">
+                <span class="text-center"><b>Visi</b></span><br>
+                Menjadi lembaga da'wah yang mengangkat Al-Quran sebagai satu-satunya sahabat setia sepanjang masa. <br>
+                <span class="text-center"><b>Misi</b></span>
+                <div class="text-center">
                 1. Menyediakan metode pembelajaran Al-Quran yang tepat sesuai dengan tuntutan semua lapis umat.<br>
                 2. Mengembangkan metode pembelajaran Al-Quran dalam tilawah, tartil, dzikir dan tadabbur.<br>
                 3. Mengantarkan semua lapisan umat untuk menikmati hidup dengan hidayah Al-Quran.<br>
                 4. Menjadikan lembaga Al-Quran yang kreatif, inovatif dan produktif.
-                  
                 </div>
-              </p>
               </div>
               </div>
             <!-- </div> -->
@@ -84,7 +84,7 @@
         </div>
       </section>
       <!-- Services -->
-      <section class="page-section" id="services">
+      <section class="page-section" id="program">
         <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">
@@ -164,8 +164,8 @@
         </div>
       </section>
       
-      <!-- Team -->
-      <section class="bg-light page-section" id="team">
+      <!-- kontak -->
+      <section class="bg-light page-section" id="kontak">
         <div class="container">
           <div class="row">
             <div class="col-lg-12 text-center">

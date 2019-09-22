@@ -171,7 +171,7 @@ class AbsensiController extends Controller
         $id = auth()->user()->name;
         $absn = Absensi::where('user_id', $ids)->orderBy('id', 'DESC')->get();
         $absensi = Pembayaran::where('nm_pengajar', $id)->first();
-        $abspes = Absensi::where('nm_pengajar', auth()->user()->name)->get();
+        $abspes = Absensi::where('nm_pengajar', auth()->user()->name)->where('status', 'Peserta')->get();
 
         return view('absensi.absensi_pengajar', compact('absn', 'abspes'), ['absensi' => $absensi]);
     }
