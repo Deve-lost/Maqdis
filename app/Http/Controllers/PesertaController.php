@@ -118,7 +118,7 @@ class PesertaController extends Controller
             'status' => $request->status,
         ]);
 
-        return redirect()->route('ds.index')->with('sukses', 'Identitas Berhasil Diperbaharui');
+        return redirect()->route('dashboard')->with('sukses', 'Identitas Berhasil Diperbaharui');
 
     }
 

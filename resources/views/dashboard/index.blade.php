@@ -100,6 +100,97 @@
 
 	@if(auth()->user()->role == 'Pengajar')
 	<div class="container-fluid">
+    @if ($identitasguru->nm_panggilan == '')
+        {{-- form --}}
+        <div class="card mb-3">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-table"></i>
+                    Assalamu'alaikum {{ auth()->user()->name }}. Identitas anda belum lengkap.
+                </div>
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4" >
+                        <form class="form-inline" method="POST" action="/Maqdis/update/{{ auth()->user()->id }}/identitasguru">
+                            <strong>Nama Panggilan</strong>
+                        </div>
+                        @csrf
+                        <div class="col-md-4" >
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nm_panggilan" placeholder="Masukkan Nama Panggilan">
+                            </div>
+                        </div>
+
+                    </div>
+<hr>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4" >
+                            <strong>Nama Ayah Kandung</strong>
+                        </div>
+                        <div class="col-md-4" >
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nm_ayah_kandung" placeholder="Masukkan Nama Ayah Kandung">
+                            </div>
+                        </div>
+                    </div>
+<hr>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4" >
+                            <strong>Nama Ibu Kandung</strong>
+                        </div>
+                        <div class="col-md-4" >
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nm_ibu_kandung" placeholder="Masukkan Nama Ibu Kandung">
+                            </div>
+                        </div>
+                    </div>
+<hr>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4" >
+                            <strong>Nama Kakek Dari Ayah</strong>
+                        </div>
+                        <div class="col-md-4" >
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="nm_kakek_dari_ayah" placeholder="Masukkan Nama Kakek Dari Ayah">
+                            </div>
+                        </div>
+                    </div>
+
+<hr>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4" >
+                            <strong>No.KTP/SIM/PASSPORT</strong>
+                        </div>
+                        <div class="col-md-4" >
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="no_ktp_sim_passport" placeholder="Masukkan No.KTP/SIM/PASSPORT">
+                            </div>
+                        </div>
+                    </div>
+<hr>
+                    <div class="row mt-3 justify-content-center">
+                        <div class="col-md-4" >
+                            <strong>Status</strong>
+                        </div>
+                        <div class="col-md-4" >
+                            <select name="status" class="form-control">
+                              <option value="Menikah">Menikah</option>
+                              <option value="Belum Menikah">Belum Menikah</option>
+                              <option value="Janda/Duda">Janda/Duda</option>
+                            </select>
+                        </div>
+                    </div>
+<hr>
+                    <div class="row mt-3 text-center">
+                        <div class="col-md-12" >
+                            <button class="btn btn-sm btn-primary">Perbaharui</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            @endif
+
+
 		<div class="card mb-3">
 			<div class="card-header bg-primary text-white">
 				<i class="fas fa-table">

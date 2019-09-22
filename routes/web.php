@@ -233,6 +233,11 @@ Route::group(['middleware' => ['auth', 'checkRole:Admin,Pengajar']], function() 
         'as' => 'absen.pengajar'
     ]);
 
+    Route::post('Maqdis/update/{id}/identitasguru', [
+        'uses' => 'PengajarController@updateidentitas',
+        'as' => 'update.identitasguru'
+    ]);
+
     // Post Absensi Pengajar
     Route::post('Maqdis/store-absensi-pengajar', [
         'uses' => 'AbsensiController@store_pengajar',
